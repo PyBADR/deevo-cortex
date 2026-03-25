@@ -1,6 +1,7 @@
 // ============================================================================
 // DEEVO Monitor — Main Page
-// Layout: Header → Signals → [Left: Layers | Center: Map/Wave | Right: AI+Alerts] → Blocks
+// Layout: Header → Signals → [Left: Layers | Center: Map/Wave/Cognitive/PreCausal | Right: AI+Alerts] → Blocks
+// Four view modes: GCC Map, Wave Simulation, Cognitive Futures, Pre-Causal Intelligence
 // ============================================================================
 
 import { useState } from 'react';
@@ -10,15 +11,24 @@ import { SignalBar } from './components/SignalBar';
 import { LayerPanel } from './components/LayerPanel';
 import { GCCMap } from './components/GCCMap';
 import { WaveGraph } from './components/WaveGraph';
+import { CognitiveView } from './components/CognitiveView';
+import { PreCausalView } from './components/PreCausalView';
 import { AlertsRail } from './components/AlertsRail';
 import { IntelBlocks } from './components/IntelBlocks';
 
-type ViewMode = 'map' | 'wave';
+type ViewMode = 'map' | 'wave' | 'cognitive' | 'precausal';
 
 export function MonitorPage() {
   const { state, actions } = useMonitor();
-  const [viewMode, setViewMode] = useState<ViewMode>('wave');
+  const [viewMode, setViewMode] = useState<ViewMode>('cognitive');
   const [waveSpeed, setWaveSpeed] = useState(1);
+
+  const VIEW_TABS: { id: ViewMode; label: string }[] = [
+    { id: 'map', label: 'GCC MAP' },
+    { id: 'wave', label: 'WAVE SIM' },
+    { id: 'cognitive', label: 'COGNITIVE' },
+    { id: 'precausal', label: 'PRE-CAUSAL' },
+  ];
 
   return (
     <div className="h-screen w-screen bg-deevo-bg text-deevo-text flex flex-col overflow-hidden">
@@ -48,34 +58,31 @@ export function MonitorPage() {
           />
         </div>
 
-        {/* CENTER: Map or Wave Simulation (HERO) */}
+        {/* CENTER: Map / Wave / Cognitive (HERO) */}
         <div className="flex-1 flex flex-col min-w-0">
           {/* View mode toggle + speed controls */}
           <div className="flex-shrink-0 flex items-center justify-between px-3 py-1.5 border-b border-deevo-border/20">
             <div className="flex items-center gap-1">
-              <button
-                onClick={() => setViewMode('map')}
-                className={`px-2.5 py-1 rounded text-[10px] font-mono tracking-wider transition-all ${
-                  viewMode === 'map'
-                    ? 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30'
-                    : 'text-deevo-muted hover:text-deevo-text border border-transparent'
-                }`}
-              >
-                GCC MAP
-              </button>
-              <button
-                onClick={() => setViewMode('wave')}
-                className={`px-2.5 py-1 rounded text-[10px] font-mono tracking-wider transition-all ${
-                  viewMode === 'wave'
-                    ? 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30'
-                    : 'text-deevo-muted hover:text-deevo-text border border-transparent'
-                }`}
-              >
-                WAVE SIM
-              </button>
+              {VIEW_TABS.map(tab => (
+                <button
+                  key={tab.id}
+                  onClick={() => setViewMode(tab.id)}
+                  className={`px-2.5 py-1 rounded text-[10px] font-mono tracking-wider transition-all ${
+                    viewMode === tab.id
+                      ? tab.id === 'cognitive'
+                        ? 'bg-violet-500/15 text-violet-400 border border-violet-500/30'
+                        : tab.id === 'precausal'
+                          ? 'bg-rose-500/15 text-rose-400 border border-rose-500/30'
+                          : 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30'
+                      : 'text-deevo-muted hover:text-deevo-text border border-transparent'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
 
-            {/* Speed controls (only for wave mode) */}
+            {/* Speed controls (wave mode only) */}
             {viewMode === 'wave' && (
               <div className="flex items-center gap-1">
                 <span className="text-[9px] font-mono text-deevo-muted mr-1">SPEED</span>
@@ -94,11 +101,27 @@ export function MonitorPage() {
                 ))}
               </div>
             )}
+
+            {/* Cognitive mode indicator */}
+            {viewMode === 'cognitive' && (
+              <div className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+                <span className="text-[9px] font-mono text-violet-400 tracking-wider">REASONING</span>
+              </div>
+            )}
+
+            {/* Pre-causal mode indicator */}
+            {viewMode === 'precausal' && (
+              <div className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span className="text-[9px] font-mono text-rose-400 tracking-wider">EARLY WARNING</span>
+              </div>
+            )}
           </div>
 
           {/* View content */}
           <div className="flex-1 min-h-0 p-2">
-            {viewMode === 'map' ? (
+            {viewMode === 'map' && (
               <GCCMap
                 countries={state.countries}
                 graph={state.graph}
@@ -107,11 +130,26 @@ export function MonitorPage() {
                 onSelectCountry={actions.selectCountry}
                 onSelectEdge={actions.selectEdge}
               />
-            ) : (
+            )}
+            {viewMode === 'wave' && (
               <WaveGraph
                 scenario={state.activeScenario}
                 isLive={state.isLive}
                 speed={waveSpeed}
+              />
+            )}
+            {viewMode === 'cognitive' && (
+              <CognitiveView
+                signals={state.signals}
+                scenario={state.activeScenario}
+                isLive={state.isLive}
+              />
+            )}
+            {viewMode === 'precausal' && (
+              <PreCausalView
+                signals={state.signals}
+                scenario={state.activeScenario}
+                isLive={state.isLive}
               />
             )}
           </div>
