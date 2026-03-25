@@ -1,0 +1,5 @@
+{
+  "oil": ["inflation"],
+  "inflation": ["claims"],
+  "claims": ["fraud", "loss_ratio"]
+}

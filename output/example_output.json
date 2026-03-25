@@ -1,0 +1,10 @@
+{
+  "decision": "REVIEW",
+  "confidence": 0.75,
+  "risk_score": 0.35,
+  "input_signals": {
+    "oil_price": 92,
+    "inflation": 3.1,
+    "claims_rate": 0.4
+  }
+}
