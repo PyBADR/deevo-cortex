@@ -1,18 +1,24 @@
 // ============================================================================
 // DEEVO Monitor — Main Page
-// Layout: Header → Signals → [Left: Layers | Center: Map | Right: AI+Alerts] → Blocks
+// Layout: Header → Signals → [Left: Layers | Center: Map/Wave | Right: AI+Alerts] → Blocks
 // ============================================================================
 
+import { useState } from 'react';
 import { useMonitor } from './hooks/useMonitor';
 import { MonitorHeader } from './components/MonitorHeader';
 import { SignalBar } from './components/SignalBar';
 import { LayerPanel } from './components/LayerPanel';
 import { GCCMap } from './components/GCCMap';
+import { WaveGraph } from './components/WaveGraph';
 import { AlertsRail } from './components/AlertsRail';
 import { IntelBlocks } from './components/IntelBlocks';
 
+type ViewMode = 'map' | 'wave';
+
 export function MonitorPage() {
   const { state, actions } = useMonitor();
+  const [viewMode, setViewMode] = useState<ViewMode>('wave');
+  const [waveSpeed, setWaveSpeed] = useState(1);
 
   return (
     <div className="h-screen w-screen bg-deevo-bg text-deevo-text flex flex-col overflow-hidden">
@@ -42,17 +48,72 @@ export function MonitorPage() {
           />
         </div>
 
-        {/* CENTER: Map (HERO) */}
+        {/* CENTER: Map or Wave Simulation (HERO) */}
         <div className="flex-1 flex flex-col min-w-0">
+          {/* View mode toggle + speed controls */}
+          <div className="flex-shrink-0 flex items-center justify-between px-3 py-1.5 border-b border-deevo-border/20">
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => setViewMode('map')}
+                className={`px-2.5 py-1 rounded text-[10px] font-mono tracking-wider transition-all ${
+                  viewMode === 'map'
+                    ? 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30'
+                    : 'text-deevo-muted hover:text-deevo-text border border-transparent'
+                }`}
+              >
+                GCC MAP
+              </button>
+              <button
+                onClick={() => setViewMode('wave')}
+                className={`px-2.5 py-1 rounded text-[10px] font-mono tracking-wider transition-all ${
+                  viewMode === 'wave'
+                    ? 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30'
+                    : 'text-deevo-muted hover:text-deevo-text border border-transparent'
+                }`}
+              >
+                WAVE SIM
+              </button>
+            </div>
+
+            {/* Speed controls (only for wave mode) */}
+            {viewMode === 'wave' && (
+              <div className="flex items-center gap-1">
+                <span className="text-[9px] font-mono text-deevo-muted mr-1">SPEED</span>
+                {[1, 2, 5].map(s => (
+                  <button
+                    key={s}
+                    onClick={() => setWaveSpeed(s)}
+                    className={`px-2 py-0.5 rounded text-[10px] font-mono transition-all ${
+                      waveSpeed === s
+                        ? 'bg-amber-500/15 text-amber-400 border border-amber-500/30'
+                        : 'text-deevo-muted hover:text-deevo-text border border-deevo-border/30'
+                    }`}
+                  >
+                    {s}x
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* View content */}
           <div className="flex-1 min-h-0 p-2">
-            <GCCMap
-              countries={state.countries}
-              graph={state.graph}
-              selectedCountry={state.selectedCountry}
-              selectedEdge={state.selectedEdge}
-              onSelectCountry={actions.selectCountry}
-              onSelectEdge={actions.selectEdge}
-            />
+            {viewMode === 'map' ? (
+              <GCCMap
+                countries={state.countries}
+                graph={state.graph}
+                selectedCountry={state.selectedCountry}
+                selectedEdge={state.selectedEdge}
+                onSelectCountry={actions.selectCountry}
+                onSelectEdge={actions.selectEdge}
+              />
+            ) : (
+              <WaveGraph
+                scenario={state.activeScenario}
+                isLive={state.isLive}
+                speed={waveSpeed}
+              />
+            )}
           </div>
 
           {/* Bottom: Intel Blocks */}
