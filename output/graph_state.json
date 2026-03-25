@@ -1,0 +1,52 @@
+{
+  "active_nodes": [
+    "supply_chain_stress",
+    "interest_rate",
+    "claims",
+    "pricing",
+    "fraud",
+    "reserves",
+    "loss_ratio",
+    "investigation",
+    "regulatory_pressure",
+    "reinsurance_cost"
+  ],
+  "affected_countries": [
+    "AE",
+    "BH",
+    "KW",
+    "OM",
+    "QA",
+    "SA"
+  ],
+  "affected_sectors": [
+    "banking",
+    "energy",
+    "healthcare",
+    "insurance",
+    "logistics",
+    "retail"
+  ],
+  "affected_insurance_lines": [
+    "marine",
+    "medical",
+    "motor",
+    "property"
+  ],
+  "weighted_impacts": {
+    "oil_price": 0.2353,
+    "inflation": 0.8689,
+    "fraud_alerts": 1.4667,
+    "repair_cost_index": 1.1216,
+    "supply_chain_stress": 0.126,
+    "interest_rate": 0.0882,
+    "claims": 0.6815,
+    "pricing": 0.7758,
+    "fraud": 1.2953,
+    "reserves": 0.5632,
+    "loss_ratio": 1.0935,
+    "investigation": 1.2467,
+    "regulatory_pressure": 0.2791,
+    "reinsurance_cost": 0.2161
+  }
+}

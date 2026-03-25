@@ -1,0 +1,172 @@
+{
+  "countries": {
+    "SA": {
+      "id": "SA",
+      "display_name_en": "Saudi Arabia",
+      "display_name_ar": "المملكة العربية السعودية",
+      "iso_alpha2": "SA",
+      "currency": "SAR",
+      "oil_dependency": 0.85,
+      "economic_role": {
+        "en": "Largest GCC economy. OPEC production leader. Vision 2030 diversification underway.",
+        "ar": "أكبر اقتصاد خليجي. قائد إنتاج أوبك. تنويع اقتصادي ضمن رؤية 2030."
+      },
+      "insurance_sensitivity": {
+        "en": "Motor and medical lines dominate. Regulatory reform accelerating under SAMA.",
+        "ar": "هيمنة التأمين على المركبات والتأمين الطبي. إصلاحات تنظيمية متسارعة تحت إشراف ساما."
+      },
+      "logistics_role": {
+        "en": "Major Red Sea shipping corridor. NEOM logistics hub under construction.",
+        "ar": "ممر شحن رئيسي عبر البحر الأحمر. مركز نيوم اللوجستي قيد الإنشاء."
+      },
+      "risk_notes": {
+        "en": "High oil price sensitivity. PDPL data privacy requirements. IFRS 17 transition active.",
+        "ar": "حساسية عالية لأسعار النفط. متطلبات حماية البيانات الشخصية. تحول نشط نحو IFRS 17."
+      },
+      "key_sectors": ["energy", "insurance", "logistics", "banking"],
+      "insurance_lines": ["motor", "medical", "property"],
+      "population_millions": 36.0,
+      "gdp_rank_gcc": 1
+    },
+    "AE": {
+      "id": "AE",
+      "display_name_en": "United Arab Emirates",
+      "display_name_ar": "الإمارات العربية المتحدة",
+      "iso_alpha2": "AE",
+      "currency": "AED",
+      "oil_dependency": 0.65,
+      "economic_role": {
+        "en": "Most diversified GCC economy. Global trade and finance hub. Free zone ecosystem.",
+        "ar": "الاقتصاد الخليجي الأكثر تنوعاً. مركز تجارة وتمويل عالمي. نظام مناطق حرة."
+      },
+      "insurance_sensitivity": {
+        "en": "Largest insurance market in GCC. High motor claims frequency in Dubai/Abu Dhabi.",
+        "ar": "أكبر سوق تأمين في الخليج. معدل مطالبات مركبات مرتفع في دبي وأبوظبي."
+      },
+      "logistics_role": {
+        "en": "Jebel Ali — world's largest man-made port. Emirates SkyCargo global hub.",
+        "ar": "جبل علي — أكبر ميناء صناعي في العالم. مركز الإمارات سكاي كارجو العالمي."
+      },
+      "risk_notes": {
+        "en": "Lower oil dependency but exposed to global trade disruptions. DIFC/ADGM regulatory complexity.",
+        "ar": "اعتماد أقل على النفط لكن تعرض لاضطرابات التجارة العالمية. تعقيد تنظيمي في DIFC/ADGM."
+      },
+      "key_sectors": ["insurance", "banking", "logistics", "retail"],
+      "insurance_lines": ["motor", "medical", "property", "marine"],
+      "population_millions": 10.0,
+      "gdp_rank_gcc": 2
+    },
+    "KW": {
+      "id": "KW",
+      "display_name_en": "Kuwait",
+      "display_name_ar": "الكويت",
+      "iso_alpha2": "KW",
+      "currency": "KWD",
+      "oil_dependency": 0.90,
+      "economic_role": {
+        "en": "Highest oil dependency in GCC. Kuwait Investment Authority sovereign wealth fund.",
+        "ar": "أعلى اعتماد على النفط في الخليج. هيئة الاستثمار الكويتية صندوق ثروة سيادي."
+      },
+      "insurance_sensitivity": {
+        "en": "Smaller market. Motor-dominated. Takaful growing segment.",
+        "ar": "سوق أصغر. هيمنة التأمين على المركبات. قطاع التكافل في نمو."
+      },
+      "logistics_role": {
+        "en": "Northern Gulf shipping access. Mubarak Al-Kabeer port expansion.",
+        "ar": "وصول بحري شمال الخليج. توسعة ميناء مبارك الكبير."
+      },
+      "risk_notes": {
+        "en": "Extreme oil sensitivity. Political gridlock affects reform pace.",
+        "ar": "حساسية نفطية شديدة. جمود سياسي يؤثر على وتيرة الإصلاح."
+      },
+      "key_sectors": ["energy", "banking", "insurance"],
+      "insurance_lines": ["motor", "medical"],
+      "population_millions": 4.3,
+      "gdp_rank_gcc": 4
+    },
+    "QA": {
+      "id": "QA",
+      "display_name_en": "Qatar",
+      "display_name_ar": "قطر",
+      "iso_alpha2": "QA",
+      "currency": "QAR",
+      "oil_dependency": 0.80,
+      "economic_role": {
+        "en": "World's largest LNG exporter. Highest GDP per capita globally. QIA sovereign fund.",
+        "ar": "أكبر مصدر للغاز الطبيعي المسال عالمياً. أعلى ناتج محلي للفرد. صندوق قطر للاستثمار."
+      },
+      "insurance_sensitivity": {
+        "en": "Growing market post-World Cup infrastructure. Energy and marine lines significant.",
+        "ar": "سوق متنامٍ بعد بنية كأس العالم التحتية. أهمية خطوط الطاقة والتأمين البحري."
+      },
+      "logistics_role": {
+        "en": "Hamad Port — deep-water Gulf access. Qatar Airways cargo network.",
+        "ar": "ميناء حمد — وصول مياه عميقة للخليج. شبكة شحن الخطوط الجوية القطرية."
+      },
+      "risk_notes": {
+        "en": "LNG price correlation to oil. Concentrated economy. Regional geopolitical exposure.",
+        "ar": "ارتباط أسعار الغاز المسال بالنفط. اقتصاد مركّز. تعرض جيوسياسي إقليمي."
+      },
+      "key_sectors": ["energy", "banking", "logistics"],
+      "insurance_lines": ["property", "marine", "medical"],
+      "population_millions": 2.7,
+      "gdp_rank_gcc": 5
+    },
+    "BH": {
+      "id": "BH",
+      "display_name_en": "Bahrain",
+      "display_name_ar": "البحرين",
+      "iso_alpha2": "BH",
+      "currency": "BHD",
+      "oil_dependency": 0.70,
+      "economic_role": {
+        "en": "GCC financial services hub. First Gulf state to discover oil. Aluminium production.",
+        "ar": "مركز الخدمات المالية الخليجي. أول دولة خليجية تكتشف النفط. إنتاج الألمنيوم."
+      },
+      "insurance_sensitivity": {
+        "en": "Established regulatory framework under CBB. Re/insurance hub ambitions.",
+        "ar": "إطار تنظيمي راسخ تحت مصرف البحرين المركزي. طموحات كمركز إعادة تأمين."
+      },
+      "logistics_role": {
+        "en": "King Fahd Causeway connects to Saudi market. Bahrain Logistics Zone.",
+        "ar": "جسر الملك فهد يربط بالسوق السعودي. منطقة البحرين اللوجستية."
+      },
+      "risk_notes": {
+        "en": "Smaller economy, dependent on Saudi linkage. Fiscal pressures from lower oil.",
+        "ar": "اقتصاد أصغر يعتمد على الارتباط السعودي. ضغوط مالية من انخفاض النفط."
+      },
+      "key_sectors": ["banking", "insurance", "energy"],
+      "insurance_lines": ["motor", "medical", "property"],
+      "population_millions": 1.5,
+      "gdp_rank_gcc": 6
+    },
+    "OM": {
+      "id": "OM",
+      "display_name_en": "Oman",
+      "display_name_ar": "عُمان",
+      "iso_alpha2": "OM",
+      "currency": "OMR",
+      "oil_dependency": 0.75,
+      "economic_role": {
+        "en": "Strategic Strait of Hormuz position. Duqm port and industrial zone development.",
+        "ar": "موقع استراتيجي على مضيق هرمز. تطوير ميناء ومنطقة الدقم الصناعية."
+      },
+      "insurance_sensitivity": {
+        "en": "Developing market. Cyclone exposure for property lines. Marine insurance growing.",
+        "ar": "سوق ناشئ. تعرض للأعاصير في التأمين على الممتلكات. نمو التأمين البحري."
+      },
+      "logistics_role": {
+        "en": "Duqm port bypasses Strait of Hormuz. Muscat port for regional trade.",
+        "ar": "ميناء الدقم يتجاوز مضيق هرمز. ميناء مسقط للتجارة الإقليمية."
+      },
+      "risk_notes": {
+        "en": "Fiscal reform underway. Natural disaster exposure (cyclones). Diversification via Oman Vision 2040.",
+        "ar": "إصلاح مالي جارٍ. تعرض للكوارث الطبيعية (أعاصير). تنويع عبر رؤية عُمان 2040."
+      },
+      "key_sectors": ["energy", "logistics", "insurance"],
+      "insurance_lines": ["property", "marine", "motor"],
+      "population_millions": 4.6,
+      "gdp_rank_gcc": 3
+    }
+  }
+}

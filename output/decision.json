@@ -1,0 +1,16 @@
+{
+  "decision": "ESCALATE",
+  "confidence": 0.95,
+  "risk_score": 1.0,
+  "summary": "Scenario 'Fraud Activity Surge' detected. Severity 0.49, blended risk 1.00. Decision: ESCALATE (confidence 0.95).",
+  "reasoning": [
+    "Scenario 'Fraud Activity Surge' detected \u2014 Spike in fraudulent claims activity requiring investigation escalation.",
+    "Elevated signals: Fraud Alert Index (up).",
+    "Graph propagation impacted 10 nodes including Supply Chain Stress, Interest Rates, Claims Frequency, Premium Pricing, Fraud Activity.",
+    "All 6 GCC markets affected.",
+    "Portfolio risk HIGH under fraud_surge.",
+    "Claims impact MODERATE.",
+    "Fraud exposure HIGH.",
+    "Combined risk score 1.00 exceeds escalation threshold. Immediate senior review required."
+  ]
+}

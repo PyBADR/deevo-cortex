@@ -1,5 +1,22 @@
 {
-  "oil": ["inflation"],
-  "inflation": ["claims"],
-  "claims": ["fraud", "loss_ratio"]
+  "nodes": [
+    "oil_price",
+    "inflation",
+    "claims",
+    "fraud",
+    "loss_ratio",
+    "repair_cost",
+    "reserves",
+    "pricing",
+    "investigation"
+  ],
+  "edges": {
+    "oil_price": ["inflation", "repair_cost"],
+    "inflation": ["claims", "repair_cost", "pricing"],
+    "claims": ["fraud", "loss_ratio", "reserves"],
+    "fraud": ["investigation", "loss_ratio"],
+    "repair_cost": ["claims", "reserves", "pricing"],
+    "loss_ratio": ["pricing"],
+    "investigation": ["fraud"]
+  }
 }

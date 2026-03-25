@@ -1,0 +1,74 @@
+{
+  "motor": {
+    "id": "motor",
+    "label": "Motor Insurance",
+    "lob": "motor",
+    "sensitivity": {
+      "oil_price": 1.2,
+      "inflation": 1.0,
+      "repair_cost_index": 1.4,
+      "supply_chain_stress": 1.3,
+      "fraud_alerts": 1.3,
+      "interest_rate": 0.6,
+      "claims": 1.1,
+      "fraud": 1.3,
+      "loss_ratio": 1.0
+    },
+    "baseline_loss_ratio": 0.65,
+    "gcc_notes": "Highest volume LoB in GCC. Repair parts import-dependent. Fraud concentrated in staged accidents."
+  },
+  "medical": {
+    "id": "medical",
+    "label": "Medical Insurance",
+    "lob": "medical",
+    "sensitivity": {
+      "oil_price": 0.8,
+      "inflation": 1.5,
+      "repair_cost_index": 0.4,
+      "supply_chain_stress": 0.6,
+      "fraud_alerts": 1.1,
+      "interest_rate": 0.5,
+      "claims": 1.3,
+      "fraud": 1.1,
+      "loss_ratio": 1.0
+    },
+    "baseline_loss_ratio": 0.72,
+    "gcc_notes": "Mandatory in KSA/UAE. Medical cost inflation outpaces CPI. Utilization fraud is primary risk."
+  },
+  "property": {
+    "id": "property",
+    "label": "Property Insurance",
+    "lob": "property",
+    "sensitivity": {
+      "oil_price": 1.1,
+      "inflation": 1.3,
+      "repair_cost_index": 1.2,
+      "supply_chain_stress": 1.1,
+      "fraud_alerts": 0.8,
+      "interest_rate": 0.8,
+      "claims": 1.0,
+      "fraud": 0.8,
+      "loss_ratio": 1.0
+    },
+    "baseline_loss_ratio": 0.55,
+    "gcc_notes": "Construction boom cycles. Climate risk emerging (dust storms, floods). Lower fraud frequency than motor."
+  },
+  "marine": {
+    "id": "marine",
+    "label": "Marine Insurance",
+    "lob": "marine",
+    "sensitivity": {
+      "oil_price": 1.4,
+      "inflation": 0.9,
+      "repair_cost_index": 1.1,
+      "supply_chain_stress": 1.5,
+      "fraud_alerts": 0.7,
+      "interest_rate": 0.7,
+      "claims": 1.0,
+      "fraud": 0.7,
+      "loss_ratio": 1.0
+    },
+    "baseline_loss_ratio": 0.50,
+    "gcc_notes": "High exposure to trade route disruption. Concentrated in UAE/KW ports. Supply chain stress is primary driver."
+  }
+}

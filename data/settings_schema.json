@@ -1,0 +1,196 @@
+{
+  "schema_version": "4.1.0",
+  "sections": {
+    "display": {
+      "id": "display",
+      "label_en": "Display Settings",
+      "label_ar": "إعدادات العرض",
+      "icon": "monitor",
+      "fields": {
+        "theme": {
+          "id": "theme",
+          "type": "select",
+          "label_en": "Theme",
+          "label_ar": "المظهر",
+          "options": [
+            { "value": "dark", "label_en": "Dark", "label_ar": "داكن" },
+            { "value": "light", "label_en": "Light", "label_ar": "فاتح" },
+            { "value": "system", "label_en": "System", "label_ar": "النظام" }
+          ],
+          "default": "dark"
+        },
+        "density": {
+          "id": "density",
+          "type": "select",
+          "label_en": "Information Density",
+          "label_ar": "كثافة المعلومات",
+          "options": [
+            { "value": "compact", "label_en": "Compact", "label_ar": "مضغوط" },
+            { "value": "comfortable", "label_en": "Comfortable", "label_ar": "مريح" },
+            { "value": "expanded", "label_en": "Expanded", "label_ar": "موسّع" }
+          ],
+          "default": "comfortable"
+        },
+        "animation": {
+          "id": "animation",
+          "type": "toggle",
+          "label_en": "Enable Animations",
+          "label_ar": "تفعيل الرسوم المتحركة",
+          "default": true
+        },
+        "refresh_interval_sec": {
+          "id": "refresh_interval_sec",
+          "type": "number",
+          "label_en": "Auto-refresh Interval (seconds)",
+          "label_ar": "فترة التحديث التلقائي (ثوانٍ)",
+          "min": 5,
+          "max": 300,
+          "default": 10
+        }
+      }
+    },
+    "panels": {
+      "id": "panels",
+      "label_en": "Panel Visibility",
+      "label_ar": "إظهار اللوحات",
+      "icon": "layout",
+      "fields": {
+        "signal_feed": {
+          "id": "signal_feed",
+          "type": "toggle",
+          "label_en": "Signal Feed",
+          "label_ar": "تغذية الإشارات",
+          "default": true
+        },
+        "decision_rail": {
+          "id": "decision_rail",
+          "type": "toggle",
+          "label_en": "Decision Rail",
+          "label_ar": "لوحة القرار",
+          "default": true
+        },
+        "propagation_panel": {
+          "id": "propagation_panel",
+          "type": "toggle",
+          "label_en": "Propagation Panel",
+          "label_ar": "لوحة الانتشار",
+          "default": true
+        },
+        "executive_brief": {
+          "id": "executive_brief",
+          "type": "toggle",
+          "label_en": "Executive Brief",
+          "label_ar": "الملخص التنفيذي",
+          "default": true
+        },
+        "globe_canvas": {
+          "id": "globe_canvas",
+          "type": "toggle",
+          "label_en": "Globe / Graph Canvas",
+          "label_ar": "خريطة الشبكة",
+          "default": true
+        }
+      }
+    },
+    "sources": {
+      "id": "sources",
+      "label_en": "Data Sources",
+      "label_ar": "مصادر البيانات",
+      "icon": "database",
+      "description_en": "Enable or disable intelligence data feeds.",
+      "description_ar": "تفعيل أو تعطيل تغذيات بيانات المعلومات.",
+      "type": "source_taxonomy_ref",
+      "ref": "data/source_taxonomy.json"
+    },
+    "region": {
+      "id": "region",
+      "label_en": "Region Filter",
+      "label_ar": "فلتر المنطقة",
+      "icon": "globe",
+      "fields": {
+        "country_id": {
+          "id": "country_id",
+          "type": "select",
+          "label_en": "Country",
+          "label_ar": "الدولة",
+          "options": [
+            { "value": null, "label_en": "All GCC", "label_ar": "جميع دول الخليج" },
+            { "value": "SA", "label_en": "Saudi Arabia", "label_ar": "المملكة العربية السعودية" },
+            { "value": "AE", "label_en": "UAE", "label_ar": "الإمارات" },
+            { "value": "KW", "label_en": "Kuwait", "label_ar": "الكويت" },
+            { "value": "QA", "label_en": "Qatar", "label_ar": "قطر" },
+            { "value": "BH", "label_en": "Bahrain", "label_ar": "البحرين" },
+            { "value": "OM", "label_en": "Oman", "label_ar": "عُمان" }
+          ],
+          "default": null
+        },
+        "lob": {
+          "id": "lob",
+          "type": "select",
+          "label_en": "Line of Business",
+          "label_ar": "خط الأعمال",
+          "options": [
+            { "value": null, "label_en": "All Lines", "label_ar": "جميع الخطوط" },
+            { "value": "motor", "label_en": "Motor", "label_ar": "المركبات" },
+            { "value": "medical", "label_en": "Medical", "label_ar": "التأمين الطبي" },
+            { "value": "property", "label_en": "Property", "label_ar": "الممتلكات" },
+            { "value": "marine", "label_en": "Marine", "label_ar": "التأمين البحري" }
+          ],
+          "default": null
+        }
+      }
+    },
+    "scenario": {
+      "id": "scenario",
+      "label_en": "Scenario Simulation",
+      "label_ar": "محاكاة السيناريو",
+      "icon": "activity",
+      "fields": {
+        "active_preset": {
+          "id": "active_preset",
+          "type": "select",
+          "label_en": "Active Scenario",
+          "label_ar": "السيناريو النشط",
+          "options_ref": "data/scenario_presets.json",
+          "default": null
+        },
+        "live_mode": {
+          "id": "live_mode",
+          "type": "toggle",
+          "label_en": "Live Simulation Mode",
+          "label_ar": "وضع المحاكاة المباشرة",
+          "default": false
+        },
+        "perturbation_intensity": {
+          "id": "perturbation_intensity",
+          "type": "slider",
+          "label_en": "Perturbation Intensity",
+          "label_ar": "شدة الاضطراب",
+          "min": 0.1,
+          "max": 3.0,
+          "step": 0.1,
+          "default": 1.0
+        }
+      }
+    },
+    "language": {
+      "id": "language",
+      "label_en": "Language",
+      "label_ar": "اللغة",
+      "icon": "languages",
+      "fields": {
+        "locale": {
+          "id": "locale",
+          "type": "select",
+          "label_en": "Language",
+          "label_ar": "اللغة",
+          "options": [
+            { "value": "en", "label_en": "English", "label_ar": "الإنجليزية" },
+            { "value": "ar", "label_en": "العربية", "label_ar": "العربية" }
+          ],
+          "default": "en"
+        }
+      }
+    }
+  }
+}

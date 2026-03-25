@@ -1,0 +1,192 @@
+{
+  "graph_id": "GRAPH-GCC-INS-001",
+  "name": "GCC Insurance Risk Graph",
+  "version": "2.0.0",
+  "nodes": [
+    {
+      "id": "NODE-MAC-0001",
+      "type": "SIGNAL",
+      "label": "Oil Price",
+      "domain": "MACRO",
+      "weight": 0.9,
+      "linked_signal_id": "SIG-MAC-000001"
+    },
+    {
+      "id": "NODE-MAC-0002",
+      "type": "SIGNAL",
+      "label": "Inflation",
+      "domain": "MACRO",
+      "weight": 0.8,
+      "linked_signal_id": "SIG-MAC-000002"
+    },
+    {
+      "id": "NODE-FAC-0001",
+      "type": "FACTOR",
+      "label": "Economic Pressure",
+      "domain": "MACRO",
+      "weight": 0.85
+    },
+    {
+      "id": "NODE-INS-0001",
+      "type": "SIGNAL",
+      "label": "Claims Rate",
+      "domain": "CLAIMS",
+      "weight": 0.9,
+      "linked_signal_id": "SIG-INS-000001"
+    },
+    {
+      "id": "NODE-INS-0002",
+      "type": "SIGNAL",
+      "label": "Loss Ratio",
+      "domain": "INSURANCE",
+      "weight": 0.85,
+      "linked_signal_id": "SIG-INS-000002"
+    },
+    {
+      "id": "NODE-FRD-0001",
+      "type": "SIGNAL",
+      "label": "Fraud Index",
+      "domain": "FRAUD",
+      "weight": 0.75,
+      "linked_signal_id": "SIG-FRD-000001"
+    },
+    {
+      "id": "NODE-RSK-0001",
+      "type": "RISK",
+      "label": "Underwriting Risk",
+      "domain": "UNDERWRITING",
+      "weight": 0.9,
+      "threshold_low": 0.3,
+      "threshold_high": 0.7
+    },
+    {
+      "id": "NODE-RSK-0002",
+      "type": "RISK",
+      "label": "Claims Risk",
+      "domain": "CLAIMS",
+      "weight": 0.85,
+      "threshold_low": 0.25,
+      "threshold_high": 0.6
+    },
+    {
+      "id": "NODE-RSK-0003",
+      "type": "RISK",
+      "label": "Fraud Risk",
+      "domain": "FRAUD",
+      "weight": 0.8,
+      "threshold_low": 0.2,
+      "threshold_high": 0.5
+    },
+    {
+      "id": "NODE-OUT-0001",
+      "type": "OUTCOME",
+      "label": "Portfolio Performance",
+      "domain": "INSURANCE",
+      "weight": 1.0
+    },
+    {
+      "id": "NODE-DEC-0001",
+      "type": "DECISION",
+      "label": "Risk Decision",
+      "domain": "UNDERWRITING",
+      "weight": 1.0
+    }
+  ],
+  "edges": [
+    {
+      "id": "EDGE-000001",
+      "source": "NODE-MAC-0001",
+      "target": "NODE-FAC-0001",
+      "type": "CAUSES",
+      "strength": 0.8,
+      "lag_days": 0,
+      "confidence": 0.9
+    },
+    {
+      "id": "EDGE-000002",
+      "source": "NODE-MAC-0002",
+      "target": "NODE-FAC-0001",
+      "type": "AMPLIFIES",
+      "strength": 0.6,
+      "lag_days": 30,
+      "confidence": 0.85
+    },
+    {
+      "id": "EDGE-000003",
+      "source": "NODE-FAC-0001",
+      "target": "NODE-INS-0001",
+      "type": "CAUSES",
+      "strength": 0.7,
+      "lag_days": 60,
+      "confidence": 0.8
+    },
+    {
+      "id": "EDGE-000004",
+      "source": "NODE-INS-0001",
+      "target": "NODE-RSK-0002",
+      "type": "CAUSES",
+      "strength": 0.9,
+      "lag_days": 0,
+      "confidence": 0.95
+    },
+    {
+      "id": "EDGE-000005",
+      "source": "NODE-INS-0002",
+      "target": "NODE-RSK-0001",
+      "type": "CAUSES",
+      "strength": 0.85,
+      "lag_days": 0,
+      "confidence": 0.9
+    },
+    {
+      "id": "EDGE-000006",
+      "source": "NODE-FRD-0001",
+      "target": "NODE-RSK-0003",
+      "type": "CAUSES",
+      "strength": 0.9,
+      "lag_days": 0,
+      "confidence": 0.85
+    },
+    {
+      "id": "EDGE-000007",
+      "source": "NODE-RSK-0001",
+      "target": "NODE-OUT-0001",
+      "type": "CAUSES",
+      "strength": 0.8,
+      "lag_days": 90,
+      "confidence": 0.85
+    },
+    {
+      "id": "EDGE-000008",
+      "source": "NODE-RSK-0002",
+      "target": "NODE-OUT-0001",
+      "type": "CAUSES",
+      "strength": 0.85,
+      "lag_days": 30,
+      "confidence": 0.9
+    },
+    {
+      "id": "EDGE-000009",
+      "source": "NODE-RSK-0003",
+      "target": "NODE-INS-0002",
+      "type": "AMPLIFIES",
+      "strength": 0.5,
+      "lag_days": 0,
+      "confidence": 0.75
+    },
+    {
+      "id": "EDGE-000010",
+      "source": "NODE-OUT-0001",
+      "target": "NODE-DEC-0001",
+      "type": "TRIGGERS",
+      "strength": 1.0,
+      "lag_days": 0,
+      "confidence": 1.0
+    }
+  ],
+  "metadata": {
+    "created_at": "2026-03-01T00:00:00Z",
+    "updated_at": "2026-03-25T00:00:00Z",
+    "author": "DEEVO Risk Team"
+  }
+}

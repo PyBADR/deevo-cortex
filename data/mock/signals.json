@@ -1,0 +1,105 @@
+{
+  "signals": [
+    {
+      "id": "SIG-MAC-000001",
+      "name": "Oil Price",
+      "source": "MACRO",
+      "value": 92.5,
+      "unit": "USD/barrel",
+      "timestamp": "2026-03-25T10:00:00Z",
+      "region": "GCC_WIDE",
+      "severity": "HIGH",
+      "trend": "RISING",
+      "confidence": 0.95,
+      "metadata": {
+        "source_url": "https://markets.example.com/oil",
+        "data_quality": 0.98
+      }
+    },
+    {
+      "id": "SIG-MAC-000002",
+      "name": "Inflation",
+      "source": "MACRO",
+      "value": 3.8,
+      "unit": "%",
+      "timestamp": "2026-03-25T09:00:00Z",
+      "region": "UAE",
+      "severity": "MEDIUM",
+      "trend": "STABLE",
+      "confidence": 0.88
+    },
+    {
+      "id": "SIG-MAC-000003",
+      "name": "GDP Growth",
+      "source": "MACRO",
+      "value": 4.2,
+      "unit": "%",
+      "timestamp": "2026-03-25T08:00:00Z",
+      "region": "GCC_WIDE",
+      "severity": "LOW",
+      "trend": "RISING",
+      "confidence": 0.92
+    },
+    {
+      "id": "SIG-INS-000001",
+      "name": "Claims Rate",
+      "source": "CLAIMS",
+      "value": 0.52,
+      "unit": "ratio",
+      "timestamp": "2026-03-25T10:30:00Z",
+      "region": "KSA",
+      "severity": "HIGH",
+      "trend": "RISING",
+      "confidence": 0.92
+    },
+    {
+      "id": "SIG-INS-000002",
+      "name": "Loss Ratio",
+      "source": "INSURANCE",
+      "value": 0.68,
+      "unit": "ratio",
+      "timestamp": "2026-03-25T10:15:00Z",
+      "region": "UAE",
+      "severity": "MEDIUM",
+      "trend": "STABLE",
+      "confidence": 0.90
+    },
+    {
+      "id": "SIG-FRD-000001",
+      "name": "Fraud Index",
+      "source": "FRAUD",
+      "value": 0.31,
+      "unit": "index",
+      "timestamp": "2026-03-25T10:45:00Z",
+      "region": "UAE",
+      "severity": "MEDIUM",
+      "trend": "VOLATILE",
+      "confidence": 0.78
+    },
+    {
+      "id": "SIG-REG-000001",
+      "name": "Regulatory Compliance Score",
+      "source": "REGULATORY",
+      "value": 0.94,
+      "unit": "score",
+      "timestamp": "2026-03-25T08:00:00Z",
+      "region": "GCC_WIDE",
+      "severity": "LOW",
+      "trend": "STABLE",
+      "confidence": 0.95
+    },
+    {
+      "id": "SIG-MKT-000001",
+      "name": "Market Volatility Index",
+      "source": "MARKET",
+      "value": 22.5,
+      "unit": "VIX",
+      "timestamp": "2026-03-25T10:00:00Z",
+      "region": "GCC_WIDE",
+      "severity": "MEDIUM",
+      "trend": "RISING",
+      "confidence": 0.85
+    }
+  ],
+  "snapshot_timestamp": "2026-03-25T11:00:00Z"
+}

@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "cortex-v2/graph",
+  "title": "Graph Schema",
+  "description": "Causal relationship graph for decision intelligence",
+  
+  "definitions": {
+    "NodeType": {
+      "type": "string",
+      "enum": ["SIGNAL", "FACTOR", "RISK", "OUTCOME", "DECISION", "CONSTRAINT"]
+    },
+    
+    "EdgeType": {
+      "type": "string",
+      "enum": ["CAUSES", "CORRELATES", "AMPLIFIES", "MITIGATES", "TRIGGERS", "BLOCKS"]
+    },
+    
+    "Node": {
+      "type": "object",
+      "required": ["id", "type", "label"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^NODE-[A-Z]{3}-[0-9]{4}$"
+        },
+        "type": {
+          "$ref": "#/definitions/NodeType"
+        },
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string",
+          "enum": ["MACRO", "INSURANCE", "FRAUD", "CLAIMS", "UNDERWRITING", "REGULATORY"]
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "current_value": {
+          "type": "number"
+        },
+        "threshold_low": {
+          "type": "number"
+        },
+        "threshold_high": {
+          "type": "number"
+        },
+        "linked_signal_id": {
+          "type": "string"
+        }
+      }
+    },
+    
+    "Edge": {
+      "type": "object",
+      "required": ["id", "source", "target", "type"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^EDGE-[0-9]{6}$"
+        },
+        "source": {
+          "type": "string",
+          "description": "Source node ID"
+        },
+        "target": {
+          "type": "string",
+          "description": "Target node ID"
+        },
+        "type": {
+          "$ref": "#/definitions/EdgeType"
+        },
+        "strength": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "description": "Positive = amplifying, Negative = dampening"
+        },
+        "lag_days": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Time delay for effect propagation"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    
+    "Graph": {
+      "type": "object",
+      "required": ["graph_id", "nodes", "edges"],
+      "properties": {
+        "graph_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Node"
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Edge"
+          }
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "created_at": { "type": "string", "format": "date-time" },
+            "updated_at": { "type": "string", "format": "date-time" },
+            "author": { "type": "string" }
+          }
+        }
+      }
+    }
+  },
+  
+  "type": "object",
+  "$ref": "#/definitions/Graph"
+}

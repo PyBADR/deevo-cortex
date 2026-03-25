@@ -1,0 +1,99 @@
+{
+  "active_scenario": "fraud_surge",
+  "impacted_domains": [
+    "oil_price",
+    "reserves",
+    "supply_chain_stress",
+    "pricing",
+    "loss_ratio",
+    "reinsurance_cost",
+    "interest_rate",
+    "inflation",
+    "fraud_alerts",
+    "regulatory_pressure",
+    "fraud",
+    "claims",
+    "investigation",
+    "repair_cost_index"
+  ],
+  "severity": 0.4853,
+  "simulated_changes": {
+    "supply_chain_stress": {
+      "direction": "increase",
+      "magnitude": 0.126,
+      "propagation_depth": 1
+    },
+    "interest_rate": {
+      "direction": "increase",
+      "magnitude": 0.0882,
+      "propagation_depth": 2
+    },
+    "claims": {
+      "direction": "increase",
+      "magnitude": 0.6815,
+      "propagation_depth": 3
+    },
+    "pricing": {
+      "direction": "increase",
+      "magnitude": 0.7758,
+      "propagation_depth": 4
+    },
+    "fraud": {
+      "direction": "increase",
+      "magnitude": 1.2953,
+      "propagation_depth": 5
+    },
+    "reserves": {
+      "direction": "increase",
+      "magnitude": 0.5632,
+      "propagation_depth": 6
+    },
+    "loss_ratio": {
+      "direction": "increase",
+      "magnitude": 1.0935,
+      "propagation_depth": 7
+    },
+    "investigation": {
+      "direction": "increase",
+      "magnitude": 1.2467,
+      "propagation_depth": 8
+    },
+    "regulatory_pressure": {
+      "direction": "increase",
+      "magnitude": 0.2791,
+      "propagation_depth": 9
+    },
+    "reinsurance_cost": {
+      "direction": "increase",
+      "magnitude": 0.2161,
+      "propagation_depth": 10
+    }
+  },
+  "graph_links_used": [
+    "oil_price -> inflation",
+    "oil_price -> repair_cost_index",
+    "oil_price -> supply_chain_stress",
+    "oil_price -> interest_rate",
+    "inflation -> claims",
+    "inflation -> repair_cost_index",
+    "inflation -> pricing",
+    "fraud_alerts -> fraud",
+    "repair_cost_index -> claims",
+    "repair_cost_index -> reserves",
+    "repair_cost_index -> pricing",
+    "supply_chain_stress -> repair_cost_index",
+    "supply_chain_stress -> claims",
+    "interest_rate -> reserves",
+    "interest_rate -> pricing",
+    "claims -> fraud",
+    "claims -> loss_ratio",
+    "claims -> reserves",
+    "fraud -> investigation",
+    "fraud -> loss_ratio",
+    "reserves -> regulatory_pressure",
+    "loss_ratio -> pricing",
+    "loss_ratio -> reinsurance_cost",
+    "loss_ratio -> regulatory_pressure",
+    "investigation -> fraud"
+  ]
+}

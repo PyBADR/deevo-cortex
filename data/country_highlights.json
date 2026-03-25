@@ -1,0 +1,148 @@
+{
+  "highlights": {
+    "SA": {
+      "id": "SA",
+      "display_name_en": "Saudi Arabia",
+      "display_name_ar": "المملكة العربية السعودية",
+      "flag_emoji": "🇸🇦",
+      "strategic_role_en": "Largest GCC economy ($1.1T GDP). OPEC swing producer. Vision 2030 diversification anchor. Sets the tempo for regional macro risk.",
+      "strategic_role_ar": "أكبر اقتصاد خليجي (1.1 تريليون دولار). المنتج المرجّح لأوبك. ركيزة تنويع رؤية 2030. يحدد إيقاع المخاطر الاقتصادية الإقليمية.",
+      "risk_role_en": "Primary oil price transmission node — highest in-degree weight in the DEEVO graph. PDPL compliance gateway for data sovereignty. IFRS 17 early adopter driving GCC-wide accounting convergence.",
+      "risk_role_ar": "عقدة نقل أسعار النفط الرئيسية — أعلى وزن ارتباط وارد في شبكة ديڤو. بوابة الامتثال لحماية البيانات الشخصية. رائدة تبني IFRS 17 تقود التقارب المحاسبي الخليجي.",
+      "risk_signature_en": "When oil moves, SA moves first. Everything else follows.",
+      "risk_signature_ar": "عندما يتحرك النفط، تتحرك السعودية أولاً. كل شيء آخر يتبع.",
+      "sector_emphasis": ["energy", "motor_insurance", "medical_insurance"],
+      "oil_dependency": 0.85,
+      "insurance_market_gwp": "$11.2B",
+      "key_metric_en": "Oil dependency 0.85 — every $10/bbl move translates to 2.3% claims cost inflation within 60 days",
+      "key_metric_ar": "اعتمادية نفطية 0.85 — كل تغير 10 دولار/برميل يترجم إلى تضخم تكاليف مطالبات 2.3% خلال 60 يوماً",
+      "demo_highlight_en": "Oil spike demo: SA node turns red first. The propagation cascade originates here and fans outward to all 5 GCC peers.",
+      "demo_highlight_ar": "عرض ارتفاع النفط: عقدة السعودية تتحول للأحمر أولاً. التأثير التسلسلي ينطلق من هنا وينتشر لجميع دول الخليج الخمس.",
+      "scenario_cues": {
+        "oil_spike": "First node to activate. Transmits to KW and QA within same tick.",
+        "fraud_surge": "Secondary exposure via cross-border motor claims with BH.",
+        "supply_chain_break": "Part of SA→AE→OM logistics triangle. Import cost pass-through."
+      }
+    },
+    "AE": {
+      "id": "AE",
+      "display_name_en": "United Arab Emirates",
+      "display_name_ar": "الإمارات العربية المتحدة",
+      "flag_emoji": "🇦🇪",
+      "strategic_role_en": "Most diversified GCC economy (oil <30% of GDP). Global trade hub processing $400B+ annual re-exports. Largest insurance market in the GCC at $12.8B GWP.",
+      "strategic_role_ar": "الاقتصاد الخليجي الأكثر تنوعاً (النفط أقل من 30% من الناتج). مركز تجارة عالمي بإعادة تصدير تتجاوز 400 مليار دولار سنوياً. أكبر سوق تأمين خليجي بأقساط 12.8 مليار دولار.",
+      "risk_role_en": "Highest motor claims frequency in GCC — 23% above regional average. Trade disruption amplifier via Jebel Ali port. DIFC/ADGM dual-jurisdiction creates regulatory complexity for fraud prosecution.",
+      "risk_role_ar": "أعلى تكرارية مطالبات مركبات في الخليج — 23% فوق المتوسط الإقليمي. مضخّم اضطرابات التجارة عبر ميناء جبل علي. ازدواجية ولاية DIFC/ADGM تعقّد ملاحقة الاحتيال.",
+      "risk_signature_en": "Where claims volume meets regulatory complexity. The fraud battleground.",
+      "risk_signature_ar": "حيث يلتقي حجم المطالبات بتعقيد الأنظمة. ساحة معركة الاحتيال.",
+      "sector_emphasis": ["insurance", "logistics", "fraud_detection"],
+      "oil_dependency": 0.65,
+      "insurance_market_gwp": "$12.8B",
+      "key_metric_en": "Motor claims frequency 23% above GCC average — fraud ring detection saves $40-80M annually",
+      "key_metric_ar": "تكرارية مطالبات المركبات أعلى 23% من متوسط الخليج — كشف شبكات الاحتيال يوفر 40-80 مليون دولار سنوياً",
+      "demo_highlight_en": "Fraud surge demo: UAE lights up with dual DIFC/ADGM jurisdiction alerts. Highest claims volume means highest fraud exposure.",
+      "demo_highlight_ar": "عرض الاحتيال: الإمارات تضيء بتنبيهات ازدواجية ولاية DIFC/ADGM. أعلى حجم مطالبات يعني أعلى تعرض للاحتيال.",
+      "scenario_cues": {
+        "oil_spike": "Second-wave impact via trade re-export channel. Jebel Ali volumes drop 12%.",
+        "fraud_surge": "Primary target. DIFC + ADGM dual alerts trigger simultaneously.",
+        "supply_chain_break": "Jebel Ali port node activates. Part of SA→AE→OM logistics triangle."
+      }
+    },
+    "KW": {
+      "id": "KW",
+      "display_name_en": "Kuwait",
+      "display_name_ar": "الكويت",
+      "flag_emoji": "🇰🇼",
+      "strategic_role_en": "Highest oil dependency in GCC (0.90). KIA — world's oldest sovereign wealth fund ($900B+ AUM). Motor insurance dominates the portfolio at 62% of GWP.",
+      "strategic_role_ar": "أعلى اعتماد على النفط في الخليج (0.90). هيئة الاستثمار الكويتية — أقدم صندوق ثروة سيادية في العالم (أكثر من 900 مليار دولار). يهيمن تأمين المركبات على المحفظة بنسبة 62% من الأقساط.",
+      "risk_role_en": "Extreme oil sensitivity amplifies every macro shock. Motor-dominated portfolio concentrates repair cost risk. Slow political reform pace creates regulatory lag.",
+      "risk_role_ar": "الحساسية النفطية الشديدة تضخّم كل صدمة اقتصادية. محفظة مركّزة على المركبات تركّز مخاطر تكاليف الإصلاح. بطء وتيرة الإصلاح السياسي يخلق تأخراً تنظيمياً.",
+      "risk_signature_en": "The canary for repair cost erosion. If motor reserves are failing, KW shows it first.",
+      "risk_signature_ar": "مؤشر إنذار مبكر لتآكل تكاليف الإصلاح. إذا كانت احتياطيات المركبات تنهار، الكويت تُظهرها أولاً.",
+      "sector_emphasis": ["energy", "motor_insurance"],
+      "oil_dependency": 0.90,
+      "insurance_market_gwp": "$2.1B",
+      "key_metric_en": "Oil dependency 0.90 — motor insurance at 62% of portfolio — 34% higher impact than UAE equivalent for same shock",
+      "key_metric_ar": "اعتمادية نفطية 0.90 — تأمين المركبات 62% من المحفظة — تأثير أعلى 34% من المكافئ الإماراتي لنفس الصدمة",
+      "demo_highlight_en": "Repair cost demo: KW absorbs 34% more impact than UAE for the same shock — motor concentration is the amplifier.",
+      "demo_highlight_ar": "عرض تكاليف الإصلاح: الكويت تمتص تأثيراً أعلى 34% من الإمارات لنفس الصدمة — تركيز المركبات هو المضخّم.",
+      "scenario_cues": {
+        "oil_spike": "Activates within same tick as SA (0.90 dependency). KIA reserves buffer headline but portfolio bleeds.",
+        "fraud_surge": "Lower absolute volume but higher per-claim severity. Workshop network is smaller, collusion easier to detect.",
+        "repair_cost_inflation": "PRIMARY TARGET. Motor at 62% of portfolio means repair cost erosion hits KW hardest."
+      }
+    },
+    "QA": {
+      "id": "QA",
+      "display_name_en": "Qatar",
+      "display_name_ar": "قطر",
+      "flag_emoji": "🇶🇦",
+      "strategic_role_en": "World's largest LNG exporter (77M tonnes/year). Highest GDP per capita globally ($88K). QIA sovereign fund ($475B). Economy concentrated around North Field gas.",
+      "strategic_role_ar": "أكبر مصدر للغاز المسال عالمياً (77 مليون طن/سنة). أعلى ناتج محلي للفرد عالمياً (88 ألف دولار). صندوق قطر للاستثمار (475 مليار دولار). اقتصاد مركّز حول حقل الشمال للغاز.",
+      "risk_role_en": "LNG-oil price correlation at 0.78 transmits oil shocks with 30-day lag. 2017 blockade precedent makes geopolitical scenarios immediately credible. Concentrated economy amplifies any single-vector disruption.",
+      "risk_role_ar": "ارتباط أسعار الغاز المسال بالنفط عند 0.78 ينقل صدمات النفط بتأخير 30 يوماً. سابقة حصار 2017 تجعل السيناريوهات الجيوسياسية ذات مصداقية فورية. الاقتصاد المركّز يضخّم أي اضطراب أحادي المسار.",
+      "risk_signature_en": "Concentrated wealth, concentrated risk. One disruption vector can move the entire economy.",
+      "risk_signature_ar": "ثروة مركّزة، مخاطر مركّزة. مسار اضطراب واحد يمكنه تحريك الاقتصاد بأكمله.",
+      "sector_emphasis": ["energy", "property_insurance", "marine_insurance"],
+      "oil_dependency": 0.80,
+      "insurance_market_gwp": "$4.2B",
+      "key_metric_en": "LNG-oil correlation 0.78 — 2017 blockade precedent — economy moves as a unit under geopolitical stress",
+      "key_metric_ar": "ارتباط الغاز المسال بالنفط 0.78 — سابقة حصار 2017 — الاقتصاد يتحرك كوحدة واحدة تحت الضغط الجيوسياسي",
+      "demo_highlight_en": "Geopolitical demo: Qatar is the focal point. 2017 blockade precedent gives this scenario immediate credibility with GCC enterprise buyers.",
+      "demo_highlight_ar": "العرض الجيوسياسي: قطر هي نقطة التركيز. سابقة حصار 2017 تعطي هذا السيناريو مصداقية فورية مع مشتري المؤسسات الخليجية.",
+      "scenario_cues": {
+        "oil_spike": "LNG correlation transmits oil shock with 30-day lag. QIA buffer delays but does not prevent impact.",
+        "fraud_surge": "Lower exposure — small insurance market with tight regulatory oversight.",
+        "geopolitical_escalation": "PRIMARY TARGET. Concentrated economy + blockade precedent = maximum amplification."
+      }
+    },
+    "BH": {
+      "id": "BH",
+      "display_name_en": "Bahrain",
+      "display_name_ar": "البحرين",
+      "flag_emoji": "🇧🇭",
+      "strategic_role_en": "GCC financial services hub — 400+ licensed financial institutions. Regional re/insurance center ambitions (CBB regulatory sandbox). Saudi market gateway via King Fahd Causeway (65K daily crossings).",
+      "strategic_role_ar": "مركز الخدمات المالية الخليجي — أكثر من 400 مؤسسة مالية مرخصة. طموحات كمركز إعادة تأمين إقليمي (بيئة اختبار مصرف البحرين). بوابة السوق السعودي عبر جسر الملك فهد (65 ألف عبور يومي).",
+      "risk_role_en": "Smallest GCC economy but highest financial services concentration. Saudi-linked through physical (Causeway) and economic (fiscal support) channels. CBB regulatory pioneer — first GCC insurance sandbox.",
+      "risk_role_ar": "أصغر اقتصاد خليجي لكن أعلى تركيز للخدمات المالية. مرتبط بالسعودية عبر قنوات مادية (الجسر) واقتصادية (دعم مالي). مصرف البحرين رائد تنظيمي — أول بيئة اختبار تأمينية خليجية.",
+      "risk_signature_en": "The echo chamber. What hits SA hits BH 48 hours later through the Causeway corridor.",
+      "risk_signature_ar": "غرفة الصدى. ما يصيب السعودية يصيب البحرين بعد 48 ساعة عبر ممر الجسر.",
+      "sector_emphasis": ["banking", "reinsurance", "motor_insurance"],
+      "oil_dependency": 0.70,
+      "insurance_market_gwp": "$1.1B",
+      "key_metric_en": "65K daily Causeway crossings — SA motor claims spill over into BH with 48-hour lag",
+      "key_metric_ar": "65 ألف عبور يومي عبر الجسر — مطالبات مركبات السعودية تنتقل للبحرين بتأخير 48 ساعة",
+      "demo_highlight_en": "All demos: Watch BH activate 1-2 ticks after SA — the Causeway corridor creates a visible propagation delay.",
+      "demo_highlight_ar": "جميع العروض: راقب تنشيط البحرين بعد 1-2 نبضة من السعودية — ممر الجسر يخلق تأخيراً مرئياً في الانتشار.",
+      "scenario_cues": {
+        "oil_spike": "Secondary cascade from SA with 48-hour lag. Fiscal pressure faster than insurance impact.",
+        "fraud_surge": "Cross-border motor fraud ring extends Dubai→Manama corridor. BH is the secondary node.",
+        "supply_chain_break": "Limited direct marine exposure but re/insurance hub amplifies underwriting losses."
+      }
+    },
+    "OM": {
+      "id": "OM",
+      "display_name_en": "Oman",
+      "display_name_ar": "عُمان",
+      "flag_emoji": "🇴🇲",
+      "strategic_role_en": "Strait of Hormuz gatekeeper — 40% of world oil transits this chokepoint. Duqm port emerging as strategic bypass ($2B+ investment). Vision 2040 diversification into logistics and marine services.",
+      "strategic_role_ar": "حارس مضيق هرمز — 40% من نقل النفط العالمي يمر عبر هذا المضيق. ميناء الدقم يبرز كممر بديل استراتيجي (استثمار يتجاوز 2 مليار دولار). تنويع رؤية 2040 نحو اللوجستيات والخدمات البحرية.",
+      "risk_role_en": "Strait of Hormuz chokepoint creates binary risk — open or closed, no middle ground. Cyclone exposure (Shaheen 2021 precedent) adds property catastrophe tail risk. Marine insurance growth fastest in GCC at 18% CAGR.",
+      "risk_role_ar": "نقطة اختناق مضيق هرمز تخلق مخاطر ثنائية — مفتوح أو مغلق، لا وسط. التعرض للأعاصير (سابقة شاهين 2021) يضيف مخاطر كارثية للممتلكات. نمو التأمين البحري الأسرع خليجياً عند 18% سنوياً.",
+      "risk_signature_en": "The chokepoint. When Hormuz tightens, the world's supply chain feels it. OM is the first domino.",
+      "risk_signature_ar": "نقطة الاختناق. عندما يضيق هرمز، تشعر سلسلة التوريد العالمية. عُمان هي أول حجر دومينو.",
+      "sector_emphasis": ["logistics", "marine_insurance", "property_insurance"],
+      "oil_dependency": 0.75,
+      "insurance_market_gwp": "$1.8B",
+      "key_metric_en": "40% of world oil transits Hormuz — marine insurance CAGR 18% — Cyclone Shaheen (2021) = $1.2B insured loss",
+      "key_metric_ar": "40% من نقل النفط العالمي يمر عبر هرمز — نمو التأمين البحري 18% سنوياً — إعصار شاهين (2021) = 1.2 مليار دولار خسائر مؤمنة",
+      "demo_highlight_en": "Supply chain demo: OM activates first as Hormuz chokepoint triggers. Duqm port node shows both risk (disruption) and opportunity (bypass).",
+      "demo_highlight_ar": "عرض سلسلة التوريد: عُمان تنشط أولاً مع تفعيل اختناق هرمز. عقدة ميناء الدقم تُظهر المخاطر (الاضطراب) والفرصة (الممر البديل) معاً.",
+      "scenario_cues": {
+        "oil_spike": "Hormuz risk premium adds $3-5/bbl. OM marine portfolio exposed on both transit and local production.",
+        "fraud_surge": "Minimal exposure — small motor market with concentrated workshop network.",
+        "supply_chain_break": "PRIMARY TARGET. First node to activate. Hormuz chokepoint + Duqm bypass = dual-node scenario."
+      }
+    }
+  }
+}

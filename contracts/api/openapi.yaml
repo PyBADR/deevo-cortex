@@ -1,0 +1,344 @@
+openapi: 3.0.3
+info:
+  title: DEEVO Cortex API
+  description: DEEVO Decision Intelligence for GCC + Insurance + Economic Risk
+  version: 2.0.0
+  contact:
+    name: DEEVO Platform Team
+    email: platform@deevo.ai
+
+servers:
+  - url: http://localhost:8000/api/v1
+    description: Local development
+  - url: https://api.deevo.ai/v1
+    description: Production
+
+tags:
+  - name: Signals
+    description: Signal ingestion and processing
+  - name: Decisions
+    description: Decision evaluation and management
+  - name: Simulation
+    description: Scenario simulation and stress testing
+  - name: System
+    description: System status and configuration
+
+paths:
+  /signals/ingest:
+    post:
+      tags: [Signals]
+      summary: Ingest signals
+      description: Ingest a batch of signals and return processed snapshot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Signal'
+      responses:
+        '200':
+          description: Processed signal snapshot
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalSnapshot'
+
+  /signals/snapshot:
+    get:
+      tags: [Signals]
+      summary: Get current snapshot
+      responses:
+        '200':
+          description: Current signal snapshot
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalSnapshot'
+
+  /signals/critical:
+    get:
+      tags: [Signals]
+      summary: Get critical signals
+      responses:
+        '200':
+          description: List of critical signals
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Signal'
+
+  /decisions/evaluate:
+    post:
+      tags: [Decisions]
+      summary: Evaluate decision
+      description: Evaluate signals and generate a decision
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                signals:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Signal'
+                context:
+                  $ref: '#/components/schemas/DecisionContext'
+      responses:
+        '200':
+          description: Generated decision
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Decision'
+
+  /decisions/{decision_id}:
+    get:
+      tags: [Decisions]
+      summary: Get decision by ID
+      parameters:
+        - name: decision_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Decision details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Decision'
+
+  /simulation/scenarios:
+    post:
+      tags: [Simulation]
+      summary: Create scenario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Scenario'
+      responses:
+        '200':
+          description: Created scenario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scenario'
+
+  /simulation/run/{scenario_id}:
+    post:
+      tags: [Simulation]
+      summary: Run scenario
+      parameters:
+        - name: scenario_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Signal'
+      responses:
+        '200':
+          description: Simulation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimulationResult'
+
+  /simulation/stress-test:
+    post:
+      tags: [Simulation]
+      summary: Run stress test
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                baseline_signals:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Signal'
+                stress_multipliers:
+                  type: object
+                  additionalProperties:
+                    type: number
+      responses:
+        '200':
+          description: Stress test result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimulationResult'
+
+components:
+  schemas:
+    Signal:
+      type: object
+      required: [id, name, source, value, timestamp]
+      properties:
+        id:
+          type: string
+          pattern: '^SIG-[A-Z]{3}-[0-9]{6}$'
+        name:
+          type: string
+        source:
+          type: string
+          enum: [MACRO, MARKET, INSURANCE, FRAUD, CLAIMS, REGULATORY, GEOPOLITICAL]
+        value:
+          type: number
+        unit:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        region:
+          type: string
+          enum: [UAE, KSA, QATAR, KUWAIT, BAHRAIN, OMAN, GCC_WIDE]
+        severity:
+          type: string
+          enum: [LOW, MEDIUM, HIGH, CRITICAL]
+        trend:
+          type: string
+          enum: [RISING, STABLE, FALLING, VOLATILE]
+        confidence:
+          type: number
+          minimum: 0
+          maximum: 1
+
+    SignalSnapshot:
+      type: object
+      properties:
+        signals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Signal'
+        snapshot_timestamp:
+          type: string
+          format: date-time
+
+    Decision:
+      type: object
+      required: [decision_id, type, risk_score, confidence, timestamp]
+      properties:
+        decision_id:
+          type: string
+        type:
+          type: string
+          enum: [APPROVE, REJECT, REVIEW, ESCALATE, DEFER, CONDITIONAL_APPROVE]
+        risk_score:
+          type: number
+          minimum: 0
+          maximum: 1
+        risk_level:
+          type: string
+          enum: [MINIMAL, LOW, MODERATE, HIGH, SEVERE, CRITICAL]
+        confidence:
+          type: number
+          minimum: 0
+          maximum: 1
+        timestamp:
+          type: string
+          format: date-time
+        executive_summary:
+          type: string
+        recommendations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recommendation'
+
+    DecisionContext:
+      type: object
+      properties:
+        domain:
+          type: string
+        region:
+          type: string
+        entity_id:
+          type: string
+        scenario_id:
+          type: string
+
+    Recommendation:
+      type: object
+      properties:
+        action:
+          type: string
+        rationale:
+          type: string
+        priority:
+          type: string
+          enum: [IMMEDIATE, HIGH, MEDIUM, LOW]
+        owner:
+          type: string
+
+    Scenario:
+      type: object
+      required: [scenario_id, name, type, overrides]
+      properties:
+        scenario_id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum: [STRESS_TEST, WHAT_IF, MONTE_CARLO, SENSITIVITY, HISTORICAL_REPLAY]
+        status:
+          type: string
+          enum: [DRAFT, READY, RUNNING, COMPLETED, FAILED]
+        overrides:
+          type: array
+          items:
+            $ref: '#/components/schemas/SignalOverride'
+
+    SignalOverride:
+      type: object
+      required: [signal_id, new_value]
+      properties:
+        signal_id:
+          type: string
+        original_value:
+          type: number
+        new_value:
+          type: number
+        change_type:
+          type: string
+          enum: [ABSOLUTE, PERCENTAGE, DELTA]
+
+    SimulationResult:
+      type: object
+      properties:
+        result_id:
+          type: string
+        scenario_id:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        baseline_decision:
+          $ref: '#/components/schemas/Decision'
+        simulated_decision:
+          $ref: '#/components/schemas/Decision'
+        risk_delta:
+          type: number
+        insights:
+          type: array
+          items:
+            type: string

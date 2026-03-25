@@ -1,0 +1,296 @@
+{
+  "nodes": [
+    {
+      "id": "oil_price",
+      "label": "Oil Price (Brent)",
+      "type": "macro",
+      "baseline": 85,
+      "signal_key": "oil_price"
+    },
+    {
+      "id": "inflation",
+      "label": "CPI Inflation Rate",
+      "type": "macro",
+      "baseline": 2.5,
+      "signal_key": "inflation"
+    },
+    {
+      "id": "interest_rate",
+      "label": "Central Bank Rate",
+      "type": "macro",
+      "baseline": 5.0,
+      "signal_key": "interest_rate"
+    },
+    {
+      "id": "supply_chain_stress",
+      "label": "Supply Chain Stress Index",
+      "type": "macro",
+      "baseline": 0.3,
+      "signal_key": "supply_chain_stress"
+    },
+    {
+      "id": "fraud_alerts",
+      "label": "Fraud Alert Index",
+      "type": "macro",
+      "baseline": 0.3,
+      "signal_key": "fraud_index"
+    },
+    {
+      "id": "repair_cost_index",
+      "label": "Repair Cost Index",
+      "type": "macro",
+      "baseline": 1.0,
+      "signal_key": "repair_cost_index"
+    },
+    {
+      "id": "claims",
+      "label": "Claims Frequency",
+      "type": "derived",
+      "domain": "insurance"
+    },
+    {
+      "id": "loss_ratio",
+      "label": "Loss Ratio",
+      "type": "derived",
+      "domain": "insurance"
+    },
+    {
+      "id": "reserves",
+      "label": "Reserve Adequacy",
+      "type": "derived",
+      "domain": "insurance"
+    },
+    {
+      "id": "pricing",
+      "label": "Premium Pricing Pressure",
+      "type": "derived",
+      "domain": "insurance"
+    },
+    {
+      "id": "fraud",
+      "label": "Fraud Activity",
+      "type": "derived",
+      "domain": "insurance"
+    },
+    {
+      "id": "investigation",
+      "label": "SIU Investigation Load",
+      "type": "derived",
+      "domain": "insurance"
+    },
+    {
+      "id": "regulatory_pressure",
+      "label": "Regulatory Pressure",
+      "type": "derived",
+      "domain": "governance"
+    },
+    {
+      "id": "reinsurance_cost",
+      "label": "Reinsurance Cost",
+      "type": "derived",
+      "domain": "insurance"
+    }
+  ],
+  "edges": [
+    {
+      "source": "oil_price",
+      "target": "inflation",
+      "weight": 0.75,
+      "relation_type": "drives",
+      "direction": "increase",
+      "lag_days": 30
+    },
+    {
+      "source": "oil_price",
+      "target": "repair_cost_index",
+      "weight": 0.6,
+      "relation_type": "drives",
+      "direction": "increase",
+      "lag_days": 45
+    },
+    {
+      "source": "oil_price",
+      "target": "supply_chain_stress",
+      "weight": 0.5,
+      "relation_type": "drives",
+      "direction": "increase",
+      "lag_days": 14
+    },
+    {
+      "source": "oil_price",
+      "target": "interest_rate",
+      "weight": 0.35,
+      "relation_type": "correlates",
+      "direction": "increase",
+      "lag_days": 60
+    },
+    {
+      "source": "inflation",
+      "target": "claims",
+      "weight": 0.55,
+      "relation_type": "drives",
+      "direction": "increase",
+      "lag_days": 60
+    },
+    {
+      "source": "inflation",
+      "target": "repair_cost_index",
+      "weight": 0.65,
+      "relation_type": "drives",
+      "direction": "increase",
+      "lag_days": 30
+    },
+    {
+      "source": "inflation",
+      "target": "pricing",
+      "weight": 0.4,
+      "relation_type": "pressures",
+      "direction": "increase",
+      "lag_days": 90
+    },
+    {
+      "source": "interest_rate",
+      "target": "reserves",
+      "weight": 0.4,
+      "relation_type": "affects",
+      "direction": "decrease",
+      "lag_days": 90
+    },
+    {
+      "source": "interest_rate",
+      "target": "pricing",
+      "weight": 0.25,
+      "relation_type": "correlates",
+      "direction": "increase",
+      "lag_days": 60
+    },
+    {
+      "source": "supply_chain_stress",
+      "target": "repair_cost_index",
+      "weight": 0.7,
+      "relation_type": "drives",
+      "direction": "increase",
+      "lag_days": 14
+    },
+    {
+      "source": "supply_chain_stress",
+      "target": "claims",
+      "weight": 0.3,
+      "relation_type": "amplifies",
+      "direction": "increase",
+      "lag_days": 30
+    },
+    {
+      "source": "repair_cost_index",
+      "target": "claims",
+      "weight": 0.5,
+      "relation_type": "drives",
+      "direction": "increase",
+      "lag_days": 14
+    },
+    {
+      "source": "repair_cost_index",
+      "target": "reserves",
+      "weight": 0.55,
+      "relation_type": "erodes",
+      "direction": "increase",
+      "lag_days": 30
+    },
+    {
+      "source": "repair_cost_index",
+      "target": "pricing",
+      "weight": 0.45,
+      "relation_type": "pressures",
+      "direction": "increase",
+      "lag_days": 90
+    },
+    {
+      "source": "claims",
+      "target": "fraud",
+      "weight": 0.45,
+      "relation_type": "enables",
+      "direction": "increase",
+      "lag_days": 14
+    },
+    {
+      "source": "claims",
+      "target": "loss_ratio",
+      "weight": 0.8,
+      "relation_type": "drives",
+      "direction": "increase",
+      "lag_days": 0
+    },
+    {
+      "source": "claims",
+      "target": "reserves",
+      "weight": 0.7,
+      "relation_type": "depletes",
+      "direction": "increase",
+      "lag_days": 30
+    },
+    {
+      "source": "fraud_alerts",
+      "target": "fraud",
+      "weight": 0.85,
+      "relation_type": "indicates",
+      "direction": "increase",
+      "lag_days": 0
+    },
+    {
+      "source": "fraud",
+      "target": "investigation",
+      "weight": 0.85,
+      "relation_type": "triggers",
+      "direction": "increase",
+      "lag_days": 7
+    },
+    {
+      "source": "fraud",
+      "target": "loss_ratio",
+      "weight": 0.5,
+      "relation_type": "inflates",
+      "direction": "increase",
+      "lag_days": 30
+    },
+    {
+      "source": "loss_ratio",
+      "target": "pricing",
+      "weight": 0.7,
+      "relation_type": "forces",
+      "direction": "increase",
+      "lag_days": 90
+    },
+    {
+      "source": "loss_ratio",
+      "target": "reinsurance_cost",
+      "weight": 0.6,
+      "relation_type": "drives",
+      "direction": "increase",
+      "lag_days": 180
+    },
+    {
+      "source": "loss_ratio",
+      "target": "regulatory_pressure",
+      "weight": 0.45,
+      "relation_type": "triggers",
+      "direction": "increase",
+      "lag_days": 90
+    },
+    {
+      "source": "reserves",
+      "target": "regulatory_pressure",
+      "weight": 0.55,
+      "relation_type": "triggers",
+      "direction": "increase",
+      "lag_days": 60
+    },
+    {
+      "source": "investigation",
+      "target": "fraud",
+      "weight": -0.3,
+      "relation_type": "suppresses",
+      "direction": "decrease",
+      "lag_days": 30
+    }
+  ]
+}

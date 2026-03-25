@@ -1,0 +1,98 @@
+DEEVO CORTEX COMMAND CENTER COMPONENTS
+=====================================
+
+Created 10 React component files in: /sessions/tender-adoring-cannon/mnt/cortex-v2/frontend/src/components/command/
+
+All components use Tailwind CSS with dark theme (#05070b background, cyan-500 accents).
+All components import types from "../../types/ui"
+All components are exported as named exports (not default).
+
+1. TopCommandBar.tsx
+   - Status bar spanning full width
+   - Left: DEEVO pulse logo + brand text
+   - Center: Decision badge + headline (truncated)
+   - Right: Live/Paused toggle, Locale EN/AR toggle, timestamp
+   - Demo mode badge if isDemo=true
+   - Height: h-14 with glass background
+
+2. SignalRail.tsx
+   - Left sidebar showing signal cards
+   - Header with signal count badge
+   - Cards sorted by severity priority (critical > high > moderate > low)
+   - Shows: label, value+unit, delta arrow direction, severity color borders
+   - Mini SVG sparklines from data array
+   - Color-coded by severity with glowing effects
+
+3. DecisionRail.tsx
+   - Right sidebar decision panel
+   - Large decision badge with glow effect (red=ESCALATE, amber=REVIEW, emerald=APPROVE)
+   - Circular progress visual for risk score
+   - Confidence percentage with progress bar
+   - Short reasoning text (supports demo_short_reasoning)
+   - Impact level badge
+
+4. GlobeCanvas.tsx
+   - Center canvas area for network visualization
+   - Title: "GCC Intelligence Network"
+   - Active nodes and traversed edges metrics
+   - SVG visualization: 6 GCC country dots (SA, AE, KW, QA, BH, OM) with connecting edges
+   - Styled dots with glow effects and country labels
+
+5. ExecutiveBrief.tsx
+   - Executive briefing panel
+   - Header: "EXECUTIVE BRIEF" + AI GENERATED label
+   - Brief headline (bold)
+   - Main text content with light styling
+   - Timestamp at bottom
+
+6. PropagationPanel.tsx
+   - "PROPAGATION CHAIN" header
+   - Vertical flow visualization of cause_effect_chain
+   - Each step shows: from → relation → to with connecting arrows
+   - Weight displayed as opacity/percentage
+   - Two-column layout: Affected Countries + Affected Sectors badges
+
+7. ScenarioSwitcher.tsx
+   - "SCENARIO" header
+   - 2-column grid of selectable scenario cards
+   - Each card shows title and expected decision badge
+   - Active scenario highlighted with cyan border and glow
+
+8. CountryCard.tsx
+   - Flag emoji + display_name
+   - Risk signature in italic text
+   - Key metric box
+   - Insurance market GWP reference
+   - Scenario cue in amber highlight (if present)
+   - Oil dependency percentage bar
+   - Strategic role label
+
+9. LoadingState.tsx
+   - Full-screen overlay (fixed inset-0)
+   - Pulsing DEEVO logo with dot
+   - "INITIALIZING INTELLIGENCE SYSTEM" text
+   - Animated loading dots
+
+10. EmptyState.tsx
+    - Centered message with muted styling
+    - Used when no data is available
+
+KEY FEATURES:
+- Dark, premium cinematic UI with gradient backgrounds
+- Cyan accent color (cyan-500) throughout
+- Glass morphism effects with backdrop-blur and transparency
+- Lucide React icons integrated
+- Responsive Tailwind classes
+- Color-coded severity/decision indicators
+- SVG visualizations (sparklines, network graph)
+- Animated elements (pulsing, transitions)
+- Proper TypeScript interfaces for all props
+- Locale support (en/ar) throughout
+
+DEPENDENCIES:
+- React 18+
+- Tailwind CSS
+- lucide-react icons
+- TypeScript
+
+All components are production-ready and follow React best practices.

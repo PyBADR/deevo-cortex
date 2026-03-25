@@ -1,0 +1,93 @@
+{
+  "presets": {
+    "oil_spike": {
+      "id": "oil_spike",
+      "title_en": "Oil Price Spike",
+      "title_ar": "ارتفاع حاد في أسعار النفط",
+      "description_en": "Rapid oil price increase drives inflation and downstream claims cost escalation across GCC markets.",
+      "description_ar": "ارتفاع سريع في أسعار النفط يدفع التضخم وتصاعد تكاليف المطالبات في أسواق الخليج.",
+      "key_signals": ["oil_price", "inflation", "repair_cost_index", "supply_chain_stress"],
+      "impacted_sectors": ["energy", "logistics", "insurance", "retail"],
+      "impacted_insurance_lines": ["motor", "property", "marine"],
+      "severity_range": "high",
+      "typical_lag_days": 30,
+      "signal_overrides": {
+        "oil_price": 130,
+        "inflation": 5.8,
+        "repair_cost_index": 1.7,
+        "supply_chain_stress": 0.65
+      }
+    },
+    "fraud_surge": {
+      "id": "fraud_surge",
+      "title_en": "Fraud Activity Surge",
+      "title_ar": "موجة احتيال تأميني",
+      "description_en": "Spike in fraudulent claims activity requiring investigation escalation and SIU mobilisation.",
+      "description_ar": "ارتفاع حاد في نشاط المطالبات الاحتيالية يتطلب تصعيد التحقيقات وتعبئة وحدة التحقيقات الخاصة.",
+      "key_signals": ["fraud_index", "claims_rate", "repair_cost_index"],
+      "impacted_sectors": ["insurance"],
+      "impacted_insurance_lines": ["motor", "medical", "property"],
+      "severity_range": "critical",
+      "typical_lag_days": 14,
+      "signal_overrides": {
+        "fraud_index": 0.88,
+        "claims_rate": 0.75,
+        "repair_cost_index": 1.5
+      }
+    },
+    "repair_cost_inflation": {
+      "id": "repair_cost_inflation",
+      "title_en": "Repair Cost Inflation",
+      "title_ar": "تضخم تكاليف الإصلاح",
+      "description_en": "Systematic increase in vehicle and property repair costs affecting reserves and pricing adequacy.",
+      "description_ar": "ارتفاع منهجي في تكاليف إصلاح المركبات والممتلكات يؤثر على كفاية الاحتياطيات والتسعير.",
+      "key_signals": ["repair_cost_index", "inflation", "claims_rate", "supply_chain_stress"],
+      "impacted_sectors": ["insurance", "logistics", "retail"],
+      "impacted_insurance_lines": ["motor", "property"],
+      "severity_range": "high",
+      "typical_lag_days": 45,
+      "signal_overrides": {
+        "repair_cost_index": 1.85,
+        "inflation": 4.5,
+        "claims_rate": 0.65,
+        "supply_chain_stress": 0.55
+      }
+    },
+    "supply_chain_break": {
+      "id": "supply_chain_break",
+      "title_en": "Supply Chain Disruption",
+      "title_ar": "انقطاع سلسلة التوريد",
+      "description_en": "Major disruption to GCC supply chains due to shipping corridor restrictions or regional logistics failure.",
+      "description_ar": "انقطاع كبير في سلاسل التوريد الخليجية بسبب قيود ممرات الشحن أو فشل لوجستي إقليمي.",
+      "key_signals": ["supply_chain_stress", "repair_cost_index", "inflation", "oil_price"],
+      "impacted_sectors": ["logistics", "energy", "retail", "insurance"],
+      "impacted_insurance_lines": ["marine", "property", "motor"],
+      "severity_range": "high",
+      "typical_lag_days": 14,
+      "signal_overrides": {
+        "supply_chain_stress": 0.85,
+        "repair_cost_index": 1.6,
+        "inflation": 4.8,
+        "oil_price": 115
+      }
+    },
+    "geopolitical_escalation": {
+      "id": "geopolitical_escalation",
+      "title_en": "Geopolitical Escalation",
+      "title_ar": "تصعيد جيوسياسي",
+      "description_en": "Regional geopolitical tensions affecting shipping lanes, trade flows, and investor confidence across GCC.",
+      "description_ar": "توترات جيوسياسية إقليمية تؤثر على ممرات الشحن وتدفقات التجارة وثقة المستثمرين في دول الخليج.",
+      "key_signals": ["oil_price", "supply_chain_stress", "currency_volatility", "interest_rate"],
+      "impacted_sectors": ["energy", "logistics", "banking", "insurance"],
+      "impacted_insurance_lines": ["marine", "property"],
+      "severity_range": "critical",
+      "typical_lag_days": 7,
+      "signal_overrides": {
+        "oil_price": 140,
+        "supply_chain_stress": 0.90,
+        "currency_volatility": 0.18,
+        "interest_rate": 7.5
+      }
+    }
+  }
+}

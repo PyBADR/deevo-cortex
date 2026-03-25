@@ -1,0 +1,65 @@
+{
+  "endpoint": "POST /api/simulate",
+  "version": "1.0.0",
+  "description": "Execute decision pipeline from signals to decision output",
+  
+  "request": {
+    "content_type": "application/json",
+    "body": {
+      "signals": "SignalSchema (required)",
+      "scenario_override": "ScenarioOverride (optional)"
+    }
+  },
+  
+  "response": {
+    "success": {
+      "status": 200,
+      "body": {
+        "decision": "APPROVE | REVIEW | ESCALATE",
+        "confidence": "number (0.0 - 1.0)",
+        "risk_score": "number (0.0 - 1.0)",
+        "trace": "DecisionTraceSchema"
+      }
+    },
+    "error": {
+      "status": 400,
+      "body": {
+        "error": "string",
+        "code": "INVALID_SIGNALS | SIMULATION_FAILED | ENGINE_ERROR"
+      }
+    }
+  },
+  
+  "example_request": {
+    "signals": {
+      "oil_price": 92,
+      "inflation": 3.1,
+      "claims_rate": 0.4,
+      "fraud_index": 0.15
+    },
+    "scenario_override": {
+      "name": "oil_shock",
+      "adjustments": {
+        "oil_price": 120
+      }
+    }
+  },
+  
+  "example_response": {
+    "decision": "ESCALATE",
+    "confidence": 0.81,
+    "risk_score": 0.65,
+    "trace": {
+      "pipeline_id": "exec-20260325-001",
+      "steps": [
+        {"step": "load_signals", "status": "ok", "ms": 2},
+        {"step": "detect_scenario", "status": "ok", "result": "oil_shock", "ms": 5},
+        {"step": "run_simulation", "status": "ok", "ms": 45},
+        {"step": "agent_analysis", "status": "ok", "ms": 12},
+        {"step": "compute_risk", "status": "ok", "result": 0.65, "ms": 3},
+        {"step": "produce_decision", "status": "ok", "result": "ESCALATE", "ms": 1}
+      ],
+      "total_ms": 68
+    }
+  }
+}

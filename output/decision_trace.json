@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-03-25T11:56:21.324832+00:00",
+  "input_signals": {
+    "oil_price": 105,
+    "inflation": 4.2,
+    "claims_rate": 0.62,
+    "fraud_index": 0.74,
+    "repair_cost_index": 1.35,
+    "currency_volatility": 0.08,
+    "region": "GCC",
+    "timestamp": "2026-03-25T00:00:00Z",
+    "interest_rate": 5.0,
+    "supply_chain_stress": 0.3
+  },
+  "detected_scenario": "fraud_surge",
+  "agent_observations": [
+    {
+      "agent": "risk_analyst",
+      "assessed_risk": 0.8108,
+      "observation": "Portfolio risk HIGH under fraud_surge. Simulated magnitude 0.81. Reserve adequacy review recommended."
+    },
+    {
+      "agent": "claims_analyst",
+      "assessed_risk": 0.6223,
+      "observation": "Claims impact MODERATE. Expected cost movement 0.62. Recommend claims triage escalation."
+    },
+    {
+      "agent": "fraud_analyst",
+      "assessed_risk": 1.271,
+      "observation": "Fraud exposure HIGH. Indicator strength 1.27. Flag for SIU review."
+    }
+  ],
+  "final_risk_score": 1.0,
+  "final_decision": "ESCALATE",
+  "confidence": 0.95,
+  "trace_hash": "a590e751f41a7874daca5477a7a83aeaf7d5432bc57ef22b456d568bd701c1ab"
+}

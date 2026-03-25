@@ -1,0 +1,1419 @@
+{
+  "version": "4.1.0",
+  "locale": "en",
+  "schema": {
+    "schema_version": "4.1.0",
+    "sections": {
+      "display": {
+        "id": "display",
+        "label_en": "Display Settings",
+        "label_ar": "إعدادات العرض",
+        "icon": "monitor",
+        "fields": {
+          "theme": {
+            "id": "theme",
+            "type": "select",
+            "label_en": "Theme",
+            "label_ar": "المظهر",
+            "options": [
+              {
+                "value": "dark",
+                "label_en": "Dark",
+                "label_ar": "داكن"
+              },
+              {
+                "value": "light",
+                "label_en": "Light",
+                "label_ar": "فاتح"
+              },
+              {
+                "value": "system",
+                "label_en": "System",
+                "label_ar": "النظام"
+              }
+            ],
+            "default": "dark"
+          },
+          "density": {
+            "id": "density",
+            "type": "select",
+            "label_en": "Information Density",
+            "label_ar": "كثافة المعلومات",
+            "options": [
+              {
+                "value": "compact",
+                "label_en": "Compact",
+                "label_ar": "مضغوط"
+              },
+              {
+                "value": "comfortable",
+                "label_en": "Comfortable",
+                "label_ar": "مريح"
+              },
+              {
+                "value": "expanded",
+                "label_en": "Expanded",
+                "label_ar": "موسّع"
+              }
+            ],
+            "default": "comfortable"
+          },
+          "animation": {
+            "id": "animation",
+            "type": "toggle",
+            "label_en": "Enable Animations",
+            "label_ar": "تفعيل الرسوم المتحركة",
+            "default": true
+          },
+          "refresh_interval_sec": {
+            "id": "refresh_interval_sec",
+            "type": "number",
+            "label_en": "Auto-refresh Interval (seconds)",
+            "label_ar": "فترة التحديث التلقائي (ثوانٍ)",
+            "min": 5,
+            "max": 300,
+            "default": 10
+          }
+        }
+      },
+      "panels": {
+        "id": "panels",
+        "label_en": "Panel Visibility",
+        "label_ar": "إظهار اللوحات",
+        "icon": "layout",
+        "fields": {
+          "signal_feed": {
+            "id": "signal_feed",
+            "type": "toggle",
+            "label_en": "Signal Feed",
+            "label_ar": "تغذية الإشارات",
+            "default": true
+          },
+          "decision_rail": {
+            "id": "decision_rail",
+            "type": "toggle",
+            "label_en": "Decision Rail",
+            "label_ar": "لوحة القرار",
+            "default": true
+          },
+          "propagation_panel": {
+            "id": "propagation_panel",
+            "type": "toggle",
+            "label_en": "Propagation Panel",
+            "label_ar": "لوحة الانتشار",
+            "default": true
+          },
+          "executive_brief": {
+            "id": "executive_brief",
+            "type": "toggle",
+            "label_en": "Executive Brief",
+            "label_ar": "الملخص التنفيذي",
+            "default": true
+          },
+          "globe_canvas": {
+            "id": "globe_canvas",
+            "type": "toggle",
+            "label_en": "Globe / Graph Canvas",
+            "label_ar": "خريطة الشبكة",
+            "default": true
+          }
+        }
+      },
+      "sources": {
+        "id": "sources",
+        "label_en": "Data Sources",
+        "label_ar": "مصادر البيانات",
+        "icon": "database",
+        "description_en": "Enable or disable intelligence data feeds.",
+        "description_ar": "تفعيل أو تعطيل تغذيات بيانات المعلومات.",
+        "type": "source_taxonomy_ref",
+        "ref": "data/source_taxonomy.json"
+      },
+      "region": {
+        "id": "region",
+        "label_en": "Region Filter",
+        "label_ar": "فلتر المنطقة",
+        "icon": "globe",
+        "fields": {
+          "country_id": {
+            "id": "country_id",
+            "type": "select",
+            "label_en": "Country",
+            "label_ar": "الدولة",
+            "options": [
+              {
+                "value": null,
+                "label_en": "All GCC",
+                "label_ar": "جميع دول الخليج"
+              },
+              {
+                "value": "SA",
+                "label_en": "Saudi Arabia",
+                "label_ar": "المملكة العربية السعودية"
+              },
+              {
+                "value": "AE",
+                "label_en": "UAE",
+                "label_ar": "الإمارات"
+              },
+              {
+                "value": "KW",
+                "label_en": "Kuwait",
+                "label_ar": "الكويت"
+              },
+              {
+                "value": "QA",
+                "label_en": "Qatar",
+                "label_ar": "قطر"
+              },
+              {
+                "value": "BH",
+                "label_en": "Bahrain",
+                "label_ar": "البحرين"
+              },
+              {
+                "value": "OM",
+                "label_en": "Oman",
+                "label_ar": "عُمان"
+              }
+            ],
+            "default": null
+          },
+          "lob": {
+            "id": "lob",
+            "type": "select",
+            "label_en": "Line of Business",
+            "label_ar": "خط الأعمال",
+            "options": [
+              {
+                "value": null,
+                "label_en": "All Lines",
+                "label_ar": "جميع الخطوط"
+              },
+              {
+                "value": "motor",
+                "label_en": "Motor",
+                "label_ar": "المركبات"
+              },
+              {
+                "value": "medical",
+                "label_en": "Medical",
+                "label_ar": "التأمين الطبي"
+              },
+              {
+                "value": "property",
+                "label_en": "Property",
+                "label_ar": "الممتلكات"
+              },
+              {
+                "value": "marine",
+                "label_en": "Marine",
+                "label_ar": "التأمين البحري"
+              }
+            ],
+            "default": null
+          }
+        }
+      },
+      "scenario": {
+        "id": "scenario",
+        "label_en": "Scenario Simulation",
+        "label_ar": "محاكاة السيناريو",
+        "icon": "activity",
+        "fields": {
+          "active_preset": {
+            "id": "active_preset",
+            "type": "select",
+            "label_en": "Active Scenario",
+            "label_ar": "السيناريو النشط",
+            "options_ref": "data/scenario_presets.json",
+            "default": null
+          },
+          "live_mode": {
+            "id": "live_mode",
+            "type": "toggle",
+            "label_en": "Live Simulation Mode",
+            "label_ar": "وضع المحاكاة المباشرة",
+            "default": false
+          },
+          "perturbation_intensity": {
+            "id": "perturbation_intensity",
+            "type": "slider",
+            "label_en": "Perturbation Intensity",
+            "label_ar": "شدة الاضطراب",
+            "min": 0.1,
+            "max": 3.0,
+            "step": 0.1,
+            "default": 1.0
+          }
+        }
+      },
+      "language": {
+        "id": "language",
+        "label_en": "Language",
+        "label_ar": "اللغة",
+        "icon": "languages",
+        "fields": {
+          "locale": {
+            "id": "locale",
+            "type": "select",
+            "label_en": "Language",
+            "label_ar": "اللغة",
+            "options": [
+              {
+                "value": "en",
+                "label_en": "English",
+                "label_ar": "الإنجليزية"
+              },
+              {
+                "value": "ar",
+                "label_en": "العربية",
+                "label_ar": "العربية"
+              }
+            ],
+            "default": "en"
+          }
+        }
+      }
+    }
+  },
+  "labels": {
+    "app": {
+      "title": "DEEVO Cortex",
+      "subtitle": "DEEVO Decision Intelligence",
+      "tagline": "GCC Intelligence"
+    },
+    "command_center": {
+      "title": "DEEVO GCC Command Center",
+      "subtitle": "Real-Time Intelligence Surface",
+      "initializing": "INITIALIZING",
+      "system_loading": "DEEVO INTELLIGENCE SYSTEM"
+    },
+    "top_bar": {
+      "live": "LIVE",
+      "paused": "PAUSED",
+      "monitoring": "MONITORING",
+      "critical": "CRITICAL",
+      "warning": "WARNING",
+      "last_update": "Last Update"
+    },
+    "signals": {
+      "title": "Signal Feed",
+      "live_label": "LIVE",
+      "no_signals": "NO SIGNALS",
+      "category_macro": "MACRO",
+      "category_insurance": "INSURANCE",
+      "category_risk": "RISK",
+      "category_context": "CONTEXT",
+      "direction_up": "Rising",
+      "direction_down": "Falling",
+      "direction_stable": "Stable",
+      "severity_low": "Low",
+      "severity_moderate": "Moderate",
+      "severity_high": "High",
+      "severity_critical": "Critical",
+      "top_movers": "Top Movers",
+      "elevated_signals": "Elevated Signals"
+    },
+    "decision": {
+      "title": "Decision Rail",
+      "approve": "APPROVE",
+      "review": "REVIEW",
+      "escalate": "ESCALATE",
+      "confidence": "Confidence",
+      "risk_score": "Risk Score",
+      "reasoning": "Reasoning",
+      "trace": "Decision Trace",
+      "scenario_detected": "Scenario Detected",
+      "no_scenario": "No Active Scenario",
+      "agents": "Agent Observations"
+    },
+    "propagation": {
+      "title": "Propagation Panel",
+      "cause_effect": "Cause → Effect Chain",
+      "readable_path": "Impact Path",
+      "active_nodes": "Active Nodes",
+      "edges_traversed": "Edges Traversed",
+      "affected_countries": "Affected Countries",
+      "affected_sectors": "Affected Sectors",
+      "affected_lines": "Affected Insurance Lines",
+      "weight": "Weight"
+    },
+    "executive_brief": {
+      "title": "Executive Brief",
+      "generated_label": "AI-Generated Intelligence Summary",
+      "recommendation": "Recommendation"
+    },
+    "globe": {
+      "title": "GCC Intelligence Network",
+      "nodes": "Nodes",
+      "edges": "Edges",
+      "affected": "Affected"
+    },
+    "live_mode": {
+      "title": "Live Simulation",
+      "enabled": "Live Mode Active",
+      "disabled": "Live Mode Paused",
+      "tick": "Tick",
+      "intensity": "Intensity"
+    },
+    "settings": {
+      "title": "Settings",
+      "display": "Display",
+      "panels": "Panels",
+      "sources": "Data Sources",
+      "region": "Region",
+      "scenario": "Scenario",
+      "language": "Language",
+      "apply": "Apply",
+      "reset": "Reset to Defaults",
+      "close": "Close"
+    },
+    "display": {
+      "title": "Display Settings",
+      "theme": "Theme",
+      "theme_dark": "Dark",
+      "theme_light": "Light",
+      "theme_system": "System",
+      "density": "Information Density",
+      "density_compact": "Compact",
+      "density_comfortable": "Comfortable",
+      "density_expanded": "Expanded",
+      "animation": "Enable Animations",
+      "refresh_interval": "Auto-refresh Interval (seconds)"
+    },
+    "panels": {
+      "title": "Panel Visibility",
+      "signal_feed": "Signal Feed",
+      "decision_rail": "Decision Rail",
+      "propagation_panel": "Propagation Panel",
+      "executive_brief": "Executive Brief",
+      "globe_canvas": "Globe / Graph Canvas"
+    },
+    "sources": {
+      "title": "Data Sources",
+      "description": "Enable or disable intelligence data feeds.",
+      "group_macro": "Macroeconomic Data",
+      "group_intelligence": "Intelligence & Geopolitical",
+      "group_insurance": "Insurance Market Data",
+      "group_ai_ml": "AI & Machine Learning",
+      "group_policy_research": "Policy & Research",
+      "enabled": "Enabled",
+      "disabled": "Disabled"
+    },
+    "region": {
+      "title": "Region Filter",
+      "country": "Country",
+      "lob": "Line of Business",
+      "all_gcc": "All GCC",
+      "all_lines": "All Lines",
+      "motor": "Motor",
+      "medical": "Medical",
+      "property": "Property",
+      "marine": "Marine"
+    },
+    "scenario": {
+      "title": "Scenario Simulation",
+      "active_preset": "Active Scenario",
+      "auto_detect": "Auto-detect",
+      "live_mode": "Live Simulation Mode",
+      "perturbation_intensity": "Perturbation Intensity",
+      "severity": "Severity",
+      "typical_lag": "Typical Lag (days)"
+    },
+    "country_selector": {
+      "all_gcc": "All GCC",
+      "select_country": "Select Country"
+    },
+    "layers": {
+      "signals_layer": "Signals",
+      "graph_layer": "Graph",
+      "decision_layer": "Decision",
+      "propagation_layer": "Propagation"
+    }
+  },
+  "scenario_options": [
+    {
+      "value": null,
+      "label": "Auto-detect"
+    },
+    {
+      "value": "oil_spike",
+      "label": "Oil Price Spike",
+      "description": "Rapid oil price increase drives inflation and downstream claims cost escalation across GCC markets.",
+      "severity": "high"
+    },
+    {
+      "value": "fraud_surge",
+      "label": "Fraud Activity Surge",
+      "description": "Spike in fraudulent claims activity requiring investigation escalation and SIU mobilisation.",
+      "severity": "critical"
+    },
+    {
+      "value": "repair_cost_inflation",
+      "label": "Repair Cost Inflation",
+      "description": "Systematic increase in vehicle and property repair costs affecting reserves and pricing adequacy.",
+      "severity": "high"
+    },
+    {
+      "value": "supply_chain_break",
+      "label": "Supply Chain Disruption",
+      "description": "Major disruption to GCC supply chains due to shipping corridor restrictions or regional logistics failure.",
+      "severity": "high"
+    },
+    {
+      "value": "geopolitical_escalation",
+      "label": "Geopolitical Escalation",
+      "description": "Regional geopolitical tensions affecting shipping lanes, trade flows, and investor confidence across GCC.",
+      "severity": "critical"
+    }
+  ],
+  "country_options": [
+    {
+      "value": null,
+      "label": "All GCC"
+    },
+    {
+      "value": "SA",
+      "label": "Saudi Arabia",
+      "oil_dependency": 0.85
+    },
+    {
+      "value": "AE",
+      "label": "United Arab Emirates",
+      "oil_dependency": 0.65
+    },
+    {
+      "value": "KW",
+      "label": "Kuwait",
+      "oil_dependency": 0.9
+    },
+    {
+      "value": "QA",
+      "label": "Qatar",
+      "oil_dependency": 0.8
+    },
+    {
+      "value": "BH",
+      "label": "Bahrain",
+      "oil_dependency": 0.7
+    },
+    {
+      "value": "OM",
+      "label": "Oman",
+      "oil_dependency": 0.75
+    }
+  ],
+  "source_options": [
+    {
+      "category_id": "macro",
+      "category_label": "Macroeconomic Data",
+      "sources": [
+        {
+          "id": "src_opec_bulletin",
+          "label": "OPEC Market Bulletin",
+          "enabled": true
+        },
+        {
+          "id": "src_gcc_cpi",
+          "label": "GCC CPI Index Feed",
+          "enabled": true
+        },
+        {
+          "id": "src_central_bank",
+          "label": "Central Bank Rate Monitor",
+          "enabled": true
+        },
+        {
+          "id": "src_trade_balance",
+          "label": "GCC Trade Balance Tracker",
+          "enabled": false
+        },
+        {
+          "id": "src_fx_volatility",
+          "label": "FX Volatility Index",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "category_id": "intelligence",
+      "category_label": "Intelligence & Geopolitical",
+      "sources": [
+        {
+          "id": "src_shipping_risk",
+          "label": "Shipping Lane Risk Monitor",
+          "enabled": true
+        },
+        {
+          "id": "src_sanctions_feed",
+          "label": "Sanctions & Compliance Feed",
+          "enabled": true
+        },
+        {
+          "id": "src_geopolitical",
+          "label": "Geopolitical Risk Index",
+          "enabled": false
+        },
+        {
+          "id": "src_supply_chain",
+          "label": "Supply Chain Stress Tracker",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "category_id": "insurance",
+      "category_label": "Insurance Market Data",
+      "sources": [
+        {
+          "id": "src_claims_feed",
+          "label": "Claims Frequency Feed",
+          "enabled": true
+        },
+        {
+          "id": "src_fraud_index",
+          "label": "Fraud Detection Index",
+          "enabled": true
+        },
+        {
+          "id": "src_loss_ratio",
+          "label": "Loss Ratio Monitor",
+          "enabled": true
+        },
+        {
+          "id": "src_repair_cost",
+          "label": "Repair Cost Tracker",
+          "enabled": true
+        },
+        {
+          "id": "src_reinsurance",
+          "label": "Reinsurance Rate Feed",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "category_id": "ai_ml",
+      "category_label": "AI & Machine Learning",
+      "sources": [
+        {
+          "id": "src_anomaly_detector",
+          "label": "Anomaly Detection Engine",
+          "enabled": true
+        },
+        {
+          "id": "src_nlp_sentiment",
+          "label": "NLP Market Sentiment",
+          "enabled": false
+        },
+        {
+          "id": "src_image_claims",
+          "label": "Image-Based Claims AI",
+          "enabled": false
+        },
+        {
+          "id": "src_pattern_engine",
+          "label": "Pattern Recognition Engine",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "category_id": "policy_research",
+      "category_label": "Policy & Research",
+      "sources": [
+        {
+          "id": "src_sama_circulars",
+          "label": "SAMA Regulatory Circulars",
+          "enabled": true
+        },
+        {
+          "id": "src_ifrs17_updates",
+          "label": "IFRS 17 Implementation Updates",
+          "enabled": true
+        },
+        {
+          "id": "src_pdpl_compliance",
+          "label": "PDPL Compliance Tracker",
+          "enabled": true
+        },
+        {
+          "id": "src_gcc_regulation",
+          "label": "GCC Insurance Regulation Feed",
+          "enabled": false
+        }
+      ]
+    }
+  ],
+  "country_profiles": {
+    "SA": {
+      "id": "SA",
+      "display_name_en": "Saudi Arabia",
+      "display_name_ar": "المملكة العربية السعودية",
+      "iso_alpha2": "SA",
+      "currency": "SAR",
+      "oil_dependency": 0.85,
+      "economic_role": {
+        "en": "Largest GCC economy. OPEC production leader. Vision 2030 diversification underway.",
+        "ar": "أكبر اقتصاد خليجي. قائد إنتاج أوبك. تنويع اقتصادي ضمن رؤية 2030."
+      },
+      "insurance_sensitivity": {
+        "en": "Motor and medical lines dominate. Regulatory reform accelerating under SAMA.",
+        "ar": "هيمنة التأمين على المركبات والتأمين الطبي. إصلاحات تنظيمية متسارعة تحت إشراف ساما."
+      },
+      "logistics_role": {
+        "en": "Major Red Sea shipping corridor. NEOM logistics hub under construction.",
+        "ar": "ممر شحن رئيسي عبر البحر الأحمر. مركز نيوم اللوجستي قيد الإنشاء."
+      },
+      "risk_notes": {
+        "en": "High oil price sensitivity. PDPL data privacy requirements. IFRS 17 transition active.",
+        "ar": "حساسية عالية لأسعار النفط. متطلبات حماية البيانات الشخصية. تحول نشط نحو IFRS 17."
+      },
+      "key_sectors": [
+        "energy",
+        "insurance",
+        "logistics",
+        "banking"
+      ],
+      "insurance_lines": [
+        "motor",
+        "medical",
+        "property"
+      ],
+      "population_millions": 36.0,
+      "gdp_rank_gcc": 1
+    },
+    "AE": {
+      "id": "AE",
+      "display_name_en": "United Arab Emirates",
+      "display_name_ar": "الإمارات العربية المتحدة",
+      "iso_alpha2": "AE",
+      "currency": "AED",
+      "oil_dependency": 0.65,
+      "economic_role": {
+        "en": "Most diversified GCC economy. Global trade and finance hub. Free zone ecosystem.",
+        "ar": "الاقتصاد الخليجي الأكثر تنوعاً. مركز تجارة وتمويل عالمي. نظام مناطق حرة."
+      },
+      "insurance_sensitivity": {
+        "en": "Largest insurance market in GCC. High motor claims frequency in Dubai/Abu Dhabi.",
+        "ar": "أكبر سوق تأمين في الخليج. معدل مطالبات مركبات مرتفع في دبي وأبوظبي."
+      },
+      "logistics_role": {
+        "en": "Jebel Ali — world's largest man-made port. Emirates SkyCargo global hub.",
+        "ar": "جبل علي — أكبر ميناء صناعي في العالم. مركز الإمارات سكاي كارجو العالمي."
+      },
+      "risk_notes": {
+        "en": "Lower oil dependency but exposed to global trade disruptions. DIFC/ADGM regulatory complexity.",
+        "ar": "اعتماد أقل على النفط لكن تعرض لاضطرابات التجارة العالمية. تعقيد تنظيمي في DIFC/ADGM."
+      },
+      "key_sectors": [
+        "insurance",
+        "banking",
+        "logistics",
+        "retail"
+      ],
+      "insurance_lines": [
+        "motor",
+        "medical",
+        "property",
+        "marine"
+      ],
+      "population_millions": 10.0,
+      "gdp_rank_gcc": 2
+    },
+    "KW": {
+      "id": "KW",
+      "display_name_en": "Kuwait",
+      "display_name_ar": "الكويت",
+      "iso_alpha2": "KW",
+      "currency": "KWD",
+      "oil_dependency": 0.9,
+      "economic_role": {
+        "en": "Highest oil dependency in GCC. Kuwait Investment Authority sovereign wealth fund.",
+        "ar": "أعلى اعتماد على النفط في الخليج. هيئة الاستثمار الكويتية صندوق ثروة سيادي."
+      },
+      "insurance_sensitivity": {
+        "en": "Smaller market. Motor-dominated. Takaful growing segment.",
+        "ar": "سوق أصغر. هيمنة التأمين على المركبات. قطاع التكافل في نمو."
+      },
+      "logistics_role": {
+        "en": "Northern Gulf shipping access. Mubarak Al-Kabeer port expansion.",
+        "ar": "وصول بحري شمال الخليج. توسعة ميناء مبارك الكبير."
+      },
+      "risk_notes": {
+        "en": "Extreme oil sensitivity. Political gridlock affects reform pace.",
+        "ar": "حساسية نفطية شديدة. جمود سياسي يؤثر على وتيرة الإصلاح."
+      },
+      "key_sectors": [
+        "energy",
+        "banking",
+        "insurance"
+      ],
+      "insurance_lines": [
+        "motor",
+        "medical"
+      ],
+      "population_millions": 4.3,
+      "gdp_rank_gcc": 4
+    },
+    "QA": {
+      "id": "QA",
+      "display_name_en": "Qatar",
+      "display_name_ar": "قطر",
+      "iso_alpha2": "QA",
+      "currency": "QAR",
+      "oil_dependency": 0.8,
+      "economic_role": {
+        "en": "World's largest LNG exporter. Highest GDP per capita globally. QIA sovereign fund.",
+        "ar": "أكبر مصدر للغاز الطبيعي المسال عالمياً. أعلى ناتج محلي للفرد. صندوق قطر للاستثمار."
+      },
+      "insurance_sensitivity": {
+        "en": "Growing market post-World Cup infrastructure. Energy and marine lines significant.",
+        "ar": "سوق متنامٍ بعد بنية كأس العالم التحتية. أهمية خطوط الطاقة والتأمين البحري."
+      },
+      "logistics_role": {
+        "en": "Hamad Port — deep-water Gulf access. Qatar Airways cargo network.",
+        "ar": "ميناء حمد — وصول مياه عميقة للخليج. شبكة شحن الخطوط الجوية القطرية."
+      },
+      "risk_notes": {
+        "en": "LNG price correlation to oil. Concentrated economy. Regional geopolitical exposure.",
+        "ar": "ارتباط أسعار الغاز المسال بالنفط. اقتصاد مركّز. تعرض جيوسياسي إقليمي."
+      },
+      "key_sectors": [
+        "energy",
+        "banking",
+        "logistics"
+      ],
+      "insurance_lines": [
+        "property",
+        "marine",
+        "medical"
+      ],
+      "population_millions": 2.7,
+      "gdp_rank_gcc": 5
+    },
+    "BH": {
+      "id": "BH",
+      "display_name_en": "Bahrain",
+      "display_name_ar": "البحرين",
+      "iso_alpha2": "BH",
+      "currency": "BHD",
+      "oil_dependency": 0.7,
+      "economic_role": {
+        "en": "GCC financial services hub. First Gulf state to discover oil. Aluminium production.",
+        "ar": "مركز الخدمات المالية الخليجي. أول دولة خليجية تكتشف النفط. إنتاج الألمنيوم."
+      },
+      "insurance_sensitivity": {
+        "en": "Established regulatory framework under CBB. Re/insurance hub ambitions.",
+        "ar": "إطار تنظيمي راسخ تحت مصرف البحرين المركزي. طموحات كمركز إعادة تأمين."
+      },
+      "logistics_role": {
+        "en": "King Fahd Causeway connects to Saudi market. Bahrain Logistics Zone.",
+        "ar": "جسر الملك فهد يربط بالسوق السعودي. منطقة البحرين اللوجستية."
+      },
+      "risk_notes": {
+        "en": "Smaller economy, dependent on Saudi linkage. Fiscal pressures from lower oil.",
+        "ar": "اقتصاد أصغر يعتمد على الارتباط السعودي. ضغوط مالية من انخفاض النفط."
+      },
+      "key_sectors": [
+        "banking",
+        "insurance",
+        "energy"
+      ],
+      "insurance_lines": [
+        "motor",
+        "medical",
+        "property"
+      ],
+      "population_millions": 1.5,
+      "gdp_rank_gcc": 6
+    },
+    "OM": {
+      "id": "OM",
+      "display_name_en": "Oman",
+      "display_name_ar": "عُمان",
+      "iso_alpha2": "OM",
+      "currency": "OMR",
+      "oil_dependency": 0.75,
+      "economic_role": {
+        "en": "Strategic Strait of Hormuz position. Duqm port and industrial zone development.",
+        "ar": "موقع استراتيجي على مضيق هرمز. تطوير ميناء ومنطقة الدقم الصناعية."
+      },
+      "insurance_sensitivity": {
+        "en": "Developing market. Cyclone exposure for property lines. Marine insurance growing.",
+        "ar": "سوق ناشئ. تعرض للأعاصير في التأمين على الممتلكات. نمو التأمين البحري."
+      },
+      "logistics_role": {
+        "en": "Duqm port bypasses Strait of Hormuz. Muscat port for regional trade.",
+        "ar": "ميناء الدقم يتجاوز مضيق هرمز. ميناء مسقط للتجارة الإقليمية."
+      },
+      "risk_notes": {
+        "en": "Fiscal reform underway. Natural disaster exposure (cyclones). Diversification via Oman Vision 2040.",
+        "ar": "إصلاح مالي جارٍ. تعرض للكوارث الطبيعية (أعاصير). تنويع عبر رؤية عُمان 2040."
+      },
+      "key_sectors": [
+        "energy",
+        "logistics",
+        "insurance"
+      ],
+      "insurance_lines": [
+        "property",
+        "marine",
+        "motor"
+      ],
+      "population_millions": 4.6,
+      "gdp_rank_gcc": 3
+    }
+  },
+  "scenario_presets": {
+    "oil_spike": {
+      "id": "oil_spike",
+      "title_en": "Oil Price Spike",
+      "title_ar": "ارتفاع حاد في أسعار النفط",
+      "description_en": "Rapid oil price increase drives inflation and downstream claims cost escalation across GCC markets.",
+      "description_ar": "ارتفاع سريع في أسعار النفط يدفع التضخم وتصاعد تكاليف المطالبات في أسواق الخليج.",
+      "key_signals": [
+        "oil_price",
+        "inflation",
+        "repair_cost_index",
+        "supply_chain_stress"
+      ],
+      "impacted_sectors": [
+        "energy",
+        "logistics",
+        "insurance",
+        "retail"
+      ],
+      "impacted_insurance_lines": [
+        "motor",
+        "property",
+        "marine"
+      ],
+      "severity_range": "high",
+      "typical_lag_days": 30,
+      "signal_overrides": {
+        "oil_price": 130,
+        "inflation": 5.8,
+        "repair_cost_index": 1.7,
+        "supply_chain_stress": 0.65
+      }
+    },
+    "fraud_surge": {
+      "id": "fraud_surge",
+      "title_en": "Fraud Activity Surge",
+      "title_ar": "موجة احتيال تأميني",
+      "description_en": "Spike in fraudulent claims activity requiring investigation escalation and SIU mobilisation.",
+      "description_ar": "ارتفاع حاد في نشاط المطالبات الاحتيالية يتطلب تصعيد التحقيقات وتعبئة وحدة التحقيقات الخاصة.",
+      "key_signals": [
+        "fraud_index",
+        "claims_rate",
+        "repair_cost_index"
+      ],
+      "impacted_sectors": [
+        "insurance"
+      ],
+      "impacted_insurance_lines": [
+        "motor",
+        "medical",
+        "property"
+      ],
+      "severity_range": "critical",
+      "typical_lag_days": 14,
+      "signal_overrides": {
+        "fraud_index": 0.88,
+        "claims_rate": 0.75,
+        "repair_cost_index": 1.5
+      }
+    },
+    "repair_cost_inflation": {
+      "id": "repair_cost_inflation",
+      "title_en": "Repair Cost Inflation",
+      "title_ar": "تضخم تكاليف الإصلاح",
+      "description_en": "Systematic increase in vehicle and property repair costs affecting reserves and pricing adequacy.",
+      "description_ar": "ارتفاع منهجي في تكاليف إصلاح المركبات والممتلكات يؤثر على كفاية الاحتياطيات والتسعير.",
+      "key_signals": [
+        "repair_cost_index",
+        "inflation",
+        "claims_rate",
+        "supply_chain_stress"
+      ],
+      "impacted_sectors": [
+        "insurance",
+        "logistics",
+        "retail"
+      ],
+      "impacted_insurance_lines": [
+        "motor",
+        "property"
+      ],
+      "severity_range": "high",
+      "typical_lag_days": 45,
+      "signal_overrides": {
+        "repair_cost_index": 1.85,
+        "inflation": 4.5,
+        "claims_rate": 0.65,
+        "supply_chain_stress": 0.55
+      }
+    },
+    "supply_chain_break": {
+      "id": "supply_chain_break",
+      "title_en": "Supply Chain Disruption",
+      "title_ar": "انقطاع سلسلة التوريد",
+      "description_en": "Major disruption to GCC supply chains due to shipping corridor restrictions or regional logistics failure.",
+      "description_ar": "انقطاع كبير في سلاسل التوريد الخليجية بسبب قيود ممرات الشحن أو فشل لوجستي إقليمي.",
+      "key_signals": [
+        "supply_chain_stress",
+        "repair_cost_index",
+        "inflation",
+        "oil_price"
+      ],
+      "impacted_sectors": [
+        "logistics",
+        "energy",
+        "retail",
+        "insurance"
+      ],
+      "impacted_insurance_lines": [
+        "marine",
+        "property",
+        "motor"
+      ],
+      "severity_range": "high",
+      "typical_lag_days": 14,
+      "signal_overrides": {
+        "supply_chain_stress": 0.85,
+        "repair_cost_index": 1.6,
+        "inflation": 4.8,
+        "oil_price": 115
+      }
+    },
+    "geopolitical_escalation": {
+      "id": "geopolitical_escalation",
+      "title_en": "Geopolitical Escalation",
+      "title_ar": "تصعيد جيوسياسي",
+      "description_en": "Regional geopolitical tensions affecting shipping lanes, trade flows, and investor confidence across GCC.",
+      "description_ar": "توترات جيوسياسية إقليمية تؤثر على ممرات الشحن وتدفقات التجارة وثقة المستثمرين في دول الخليج.",
+      "key_signals": [
+        "oil_price",
+        "supply_chain_stress",
+        "currency_volatility",
+        "interest_rate"
+      ],
+      "impacted_sectors": [
+        "energy",
+        "logistics",
+        "banking",
+        "insurance"
+      ],
+      "impacted_insurance_lines": [
+        "marine",
+        "property"
+      ],
+      "severity_range": "critical",
+      "typical_lag_days": 7,
+      "signal_overrides": {
+        "oil_price": 140,
+        "supply_chain_stress": 0.9,
+        "currency_volatility": 0.18,
+        "interest_rate": 7.5
+      }
+    }
+  },
+  "defaults": {
+    "display": {
+      "theme": "dark",
+      "density": "comfortable",
+      "animation": true,
+      "refresh_interval_sec": 10
+    },
+    "panels": {
+      "signal_feed": true,
+      "decision_rail": true,
+      "propagation_panel": true,
+      "executive_brief": true,
+      "globe_canvas": true
+    },
+    "region": {
+      "country_id": null,
+      "lob": null
+    },
+    "scenario": {
+      "active_preset": null,
+      "live_mode": false,
+      "perturbation_intensity": 1.0
+    },
+    "language": {
+      "locale": "en"
+    }
+  },
+  "labels_ar": {
+    "app": {
+      "title": "ديڤو كورتكس",
+      "subtitle": "ذكاء القرار من ديڤو",
+      "tagline": "استخبارات الخليج"
+    },
+    "command_center": {
+      "title": "مركز قيادة ديڤو الخليجي",
+      "subtitle": "سطح استخبارات الوقت الحقيقي",
+      "initializing": "جارٍ التهيئة",
+      "system_loading": "نظام ديڤو الذكي"
+    },
+    "top_bar": {
+      "live": "مباشر",
+      "paused": "متوقف",
+      "monitoring": "مراقبة",
+      "critical": "حرج",
+      "warning": "تحذير",
+      "last_update": "آخر تحديث"
+    },
+    "signals": {
+      "title": "تغذية الإشارات",
+      "live_label": "مباشر",
+      "no_signals": "لا توجد إشارات",
+      "category_macro": "اقتصاد كلي",
+      "category_insurance": "تأمين",
+      "category_risk": "مخاطر",
+      "category_context": "سياق",
+      "direction_up": "صاعد",
+      "direction_down": "هابط",
+      "direction_stable": "مستقر",
+      "severity_low": "منخفض",
+      "severity_moderate": "متوسط",
+      "severity_high": "مرتفع",
+      "severity_critical": "حرج",
+      "top_movers": "أكبر التحركات",
+      "elevated_signals": "إشارات مرتفعة"
+    },
+    "decision": {
+      "title": "لوحة القرار",
+      "approve": "موافقة",
+      "review": "مراجعة",
+      "escalate": "تصعيد",
+      "confidence": "الثقة",
+      "risk_score": "درجة المخاطر",
+      "reasoning": "التبرير",
+      "trace": "تتبع القرار",
+      "scenario_detected": "سيناريو مكتشف",
+      "no_scenario": "لا يوجد سيناريو نشط",
+      "agents": "ملاحظات المحللين"
+    },
+    "propagation": {
+      "title": "لوحة الانتشار",
+      "cause_effect": "سلسلة السبب والنتيجة",
+      "readable_path": "مسار التأثير",
+      "active_nodes": "العقد النشطة",
+      "edges_traversed": "الروابط المتتبعة",
+      "affected_countries": "الدول المتأثرة",
+      "affected_sectors": "القطاعات المتأثرة",
+      "affected_lines": "خطوط التأمين المتأثرة",
+      "weight": "الوزن"
+    },
+    "executive_brief": {
+      "title": "الملخص التنفيذي",
+      "generated_label": "ملخص استخباراتي مولّد بالذكاء الاصطناعي",
+      "recommendation": "التوصية"
+    },
+    "globe": {
+      "title": "شبكة استخبارات الخليج",
+      "nodes": "العقد",
+      "edges": "الروابط",
+      "affected": "المتأثرة"
+    },
+    "live_mode": {
+      "title": "المحاكاة المباشرة",
+      "enabled": "وضع المحاكاة نشط",
+      "disabled": "وضع المحاكاة متوقف",
+      "tick": "نبضة",
+      "intensity": "الشدة"
+    },
+    "settings": {
+      "title": "الإعدادات",
+      "display": "العرض",
+      "panels": "اللوحات",
+      "sources": "مصادر البيانات",
+      "region": "المنطقة",
+      "scenario": "السيناريو",
+      "language": "اللغة",
+      "apply": "تطبيق",
+      "reset": "إعادة ضبط",
+      "close": "إغلاق"
+    },
+    "display": {
+      "title": "إعدادات العرض",
+      "theme": "المظهر",
+      "theme_dark": "داكن",
+      "theme_light": "فاتح",
+      "theme_system": "النظام",
+      "density": "كثافة المعلومات",
+      "density_compact": "مضغوط",
+      "density_comfortable": "مريح",
+      "density_expanded": "موسّع",
+      "animation": "تفعيل الرسوم المتحركة",
+      "refresh_interval": "فترة التحديث التلقائي (ثوانٍ)"
+    },
+    "panels": {
+      "title": "إظهار اللوحات",
+      "signal_feed": "تغذية الإشارات",
+      "decision_rail": "لوحة القرار",
+      "propagation_panel": "لوحة الانتشار",
+      "executive_brief": "الملخص التنفيذي",
+      "globe_canvas": "خريطة الشبكة"
+    },
+    "sources": {
+      "title": "مصادر البيانات",
+      "description": "تفعيل أو تعطيل تغذيات بيانات المعلومات.",
+      "group_macro": "بيانات الاقتصاد الكلي",
+      "group_intelligence": "استخبارات وجيوسياسية",
+      "group_insurance": "بيانات سوق التأمين",
+      "group_ai_ml": "الذكاء الاصطناعي والتعلم الآلي",
+      "group_policy_research": "السياسات والأبحاث",
+      "enabled": "مفعّل",
+      "disabled": "معطّل"
+    },
+    "region": {
+      "title": "فلتر المنطقة",
+      "country": "الدولة",
+      "lob": "خط الأعمال",
+      "all_gcc": "جميع دول الخليج",
+      "all_lines": "جميع الخطوط",
+      "motor": "المركبات",
+      "medical": "التأمين الطبي",
+      "property": "الممتلكات",
+      "marine": "التأمين البحري"
+    },
+    "scenario": {
+      "title": "محاكاة السيناريو",
+      "active_preset": "السيناريو النشط",
+      "auto_detect": "اكتشاف تلقائي",
+      "live_mode": "وضع المحاكاة المباشرة",
+      "perturbation_intensity": "شدة الاضطراب",
+      "severity": "الشدة",
+      "typical_lag": "التأخر النموذجي (أيام)"
+    },
+    "country_selector": {
+      "all_gcc": "جميع دول الخليج",
+      "select_country": "اختر الدولة"
+    },
+    "layers": {
+      "signals_layer": "الإشارات",
+      "graph_layer": "الشبكة",
+      "decision_layer": "القرار",
+      "propagation_layer": "الانتشار"
+    }
+  },
+  "scenario_options_ar": [
+    {
+      "value": null,
+      "label": "اكتشاف تلقائي"
+    },
+    {
+      "value": "oil_spike",
+      "label": "ارتفاع حاد في أسعار النفط",
+      "description": "ارتفاع سريع في أسعار النفط يدفع التضخم وتصاعد تكاليف المطالبات في أسواق الخليج.",
+      "severity": "high"
+    },
+    {
+      "value": "fraud_surge",
+      "label": "موجة احتيال تأميني",
+      "description": "ارتفاع حاد في نشاط المطالبات الاحتيالية يتطلب تصعيد التحقيقات وتعبئة وحدة التحقيقات الخاصة.",
+      "severity": "critical"
+    },
+    {
+      "value": "repair_cost_inflation",
+      "label": "تضخم تكاليف الإصلاح",
+      "description": "ارتفاع منهجي في تكاليف إصلاح المركبات والممتلكات يؤثر على كفاية الاحتياطيات والتسعير.",
+      "severity": "high"
+    },
+    {
+      "value": "supply_chain_break",
+      "label": "انقطاع سلسلة التوريد",
+      "description": "انقطاع كبير في سلاسل التوريد الخليجية بسبب قيود ممرات الشحن أو فشل لوجستي إقليمي.",
+      "severity": "high"
+    },
+    {
+      "value": "geopolitical_escalation",
+      "label": "تصعيد جيوسياسي",
+      "description": "توترات جيوسياسية إقليمية تؤثر على ممرات الشحن وتدفقات التجارة وثقة المستثمرين في دول الخليج.",
+      "severity": "critical"
+    }
+  ],
+  "country_options_ar": [
+    {
+      "value": null,
+      "label": "جميع دول الخليج"
+    },
+    {
+      "value": "SA",
+      "label": "المملكة العربية السعودية",
+      "oil_dependency": 0.85
+    },
+    {
+      "value": "AE",
+      "label": "الإمارات العربية المتحدة",
+      "oil_dependency": 0.65
+    },
+    {
+      "value": "KW",
+      "label": "الكويت",
+      "oil_dependency": 0.9
+    },
+    {
+      "value": "QA",
+      "label": "قطر",
+      "oil_dependency": 0.8
+    },
+    {
+      "value": "BH",
+      "label": "البحرين",
+      "oil_dependency": 0.7
+    },
+    {
+      "value": "OM",
+      "label": "عُمان",
+      "oil_dependency": 0.75
+    }
+  ],
+  "source_options_ar": [
+    {
+      "category_id": "macro",
+      "category_label": "بيانات الاقتصاد الكلي",
+      "sources": [
+        {
+          "id": "src_opec_bulletin",
+          "label": "نشرة أوبك السوقية",
+          "enabled": true
+        },
+        {
+          "id": "src_gcc_cpi",
+          "label": "مؤشر أسعار المستهلك الخليجي",
+          "enabled": true
+        },
+        {
+          "id": "src_central_bank",
+          "label": "مراقب أسعار البنك المركزي",
+          "enabled": true
+        },
+        {
+          "id": "src_trade_balance",
+          "label": "متتبع الميزان التجاري الخليجي",
+          "enabled": false
+        },
+        {
+          "id": "src_fx_volatility",
+          "label": "مؤشر تقلبات العملات",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "category_id": "intelligence",
+      "category_label": "استخبارات وجيوسياسية",
+      "sources": [
+        {
+          "id": "src_shipping_risk",
+          "label": "مراقب مخاطر ممرات الشحن",
+          "enabled": true
+        },
+        {
+          "id": "src_sanctions_feed",
+          "label": "تغذية العقوبات والامتثال",
+          "enabled": true
+        },
+        {
+          "id": "src_geopolitical",
+          "label": "مؤشر المخاطر الجيوسياسية",
+          "enabled": false
+        },
+        {
+          "id": "src_supply_chain",
+          "label": "متتبع ضغط سلسلة التوريد",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "category_id": "insurance",
+      "category_label": "بيانات سوق التأمين",
+      "sources": [
+        {
+          "id": "src_claims_feed",
+          "label": "تغذية تكرار المطالبات",
+          "enabled": true
+        },
+        {
+          "id": "src_fraud_index",
+          "label": "مؤشر كشف الاحتيال",
+          "enabled": true
+        },
+        {
+          "id": "src_loss_ratio",
+          "label": "مراقب نسبة الخسائر",
+          "enabled": true
+        },
+        {
+          "id": "src_repair_cost",
+          "label": "متتبع تكاليف الإصلاح",
+          "enabled": true
+        },
+        {
+          "id": "src_reinsurance",
+          "label": "تغذية أسعار إعادة التأمين",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "category_id": "ai_ml",
+      "category_label": "الذكاء الاصطناعي والتعلم الآلي",
+      "sources": [
+        {
+          "id": "src_anomaly_detector",
+          "label": "محرك كشف الشذوذ",
+          "enabled": true
+        },
+        {
+          "id": "src_nlp_sentiment",
+          "label": "تحليل المشاعر السوقية",
+          "enabled": false
+        },
+        {
+          "id": "src_image_claims",
+          "label": "ذكاء اصطناعي لمطالبات الصور",
+          "enabled": false
+        },
+        {
+          "id": "src_pattern_engine",
+          "label": "محرك التعرف على الأنماط",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "category_id": "policy_research",
+      "category_label": "السياسات والأبحاث",
+      "sources": [
+        {
+          "id": "src_sama_circulars",
+          "label": "تعاميم ساما التنظيمية",
+          "enabled": true
+        },
+        {
+          "id": "src_ifrs17_updates",
+          "label": "تحديثات تطبيق IFRS 17",
+          "enabled": true
+        },
+        {
+          "id": "src_pdpl_compliance",
+          "label": "متتبع الامتثال لنظام حماية البيانات",
+          "enabled": true
+        },
+        {
+          "id": "src_gcc_regulation",
+          "label": "تغذية تنظيم التأمين الخليجي",
+          "enabled": false
+        }
+      ]
+    }
+  ]
+}

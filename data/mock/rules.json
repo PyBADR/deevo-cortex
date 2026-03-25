@@ -1,0 +1,178 @@
+{
+  "ruleset_id": "RULESET-GCC-INS-001",
+  "name": "GCC Insurance Risk Rules",
+  "version": "2.0.0",
+  "rules": [
+    {
+      "id": "RULE-INF-0001",
+      "name": "High Inflation Alert",
+      "description": "Triggers when inflation exceeds 5%",
+      "category": "RISK_THRESHOLD",
+      "priority": 80,
+      "enabled": true,
+      "conditions": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "inflation",
+            "operator": "GT",
+            "value": 5.0
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "FLAG",
+          "params": { "flag_type": "HIGH_INFLATION" }
+        },
+        {
+          "type": "SET_RISK",
+          "params": { "value": 0.3 }
+        }
+      ],
+      "risk_contribution": 0.3
+    },
+    {
+      "id": "RULE-OIL-0001",
+      "name": "Oil Price Shock",
+      "description": "Triggers when oil price exceeds $100/barrel",
+      "category": "RISK_THRESHOLD",
+      "priority": 85,
+      "enabled": true,
+      "conditions": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "oil_price",
+            "operator": "GT",
+            "value": 100
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "FLAG",
+          "params": { "flag_type": "OIL_SHOCK" }
+        },
+        {
+          "type": "REVIEW",
+          "params": { "review_type": "MACRO_IMPACT" }
+        }
+      ],
+      "risk_contribution": 0.25
+    },
+    {
+      "id": "RULE-CLM-0001",
+      "name": "Claims Stress Indicator",
+      "description": "Monitors claims rate for stress conditions",
+      "category": "CLAIMS_TRIGGER",
+      "priority": 70,
+      "enabled": true,
+      "conditions": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "claims_rate",
+            "operator": "GT",
+            "value": 0.5
+          },
+          {
+            "field": "loss_ratio",
+            "operator": "GT",
+            "value": 0.65
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "REVIEW",
+          "params": { "review_type": "CLAIMS_AUDIT" }
+        },
+        {
+          "type": "SET_RISK",
+          "params": { "value": 0.25 }
+        }
+      ],
+      "risk_contribution": 0.25
+    },
+    {
+      "id": "RULE-FRD-0001",
+      "name": "Fraud Risk Detection",
+      "description": "Triggers when fraud indicators exceed threshold",
+      "category": "FRAUD_DETECTION",
+      "priority": 95,
+      "enabled": true,
+      "conditions": {
+        "operator": "OR",
+        "conditions": [
+          {
+            "field": "fraud_index",
+            "operator": "GT",
+            "value": 0.4
+          },
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "field": "claims_rate",
+                "operator": "GT",
+                "value": 0.7
+              },
+              {
+                "field": "loss_ratio",
+                "operator": "GT",
+                "value": 0.8
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "ESCALATE",
+          "params": { "level": "URGENT" }
+        },
+        {
+          "type": "FLAG",
+          "params": { "flag_type": "FRAUD_RISK" }
+        }
+      ],
+      "risk_contribution": 0.5
+    },
+    {
+      "id": "RULE-ESC-0001",
+      "name": "Critical Escalation",
+      "description": "Escalates when multiple high-risk conditions are met",
+      "category": "ESCALATION",
+      "priority": 100,
+      "enabled": true,
+      "conditions": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "claims_rate",
+            "operator": "GT",
+            "value": 0.6
+          },
+          {
+            "field": "loss_ratio",
+            "operator": "GT",
+            "value": 0.75
+          },
+          {
+            "field": "fraud_index",
+            "operator": "GT",
+            "value": 0.35
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "ESCALATE",
+          "params": { "level": "CRITICAL", "notify": ["risk_committee", "cro"] }
+        }
+      ],
+      "risk_contribution": 0.6
+    }
+  ]
+}

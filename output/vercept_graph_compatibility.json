@@ -1,0 +1,23 @@
+{
+  "canonical_graph_file": "data/graph.json",
+  "engine_file": "core/graph_engine.py",
+  "adapter_file": "core/graph_adapter.py",
+  "functions": [
+    {
+      "name": "get_graph_state",
+      "signature": "get_graph_state(signals?: dict, country_id?: str, lob?: str) -> dict",
+      "returns": ["active_nodes", "affected_countries", "affected_sectors", "affected_insurance_lines", "weighted_impacts"]
+    },
+    {
+      "name": "propagate",
+      "signature": "propagate(source: str, value?: float, signals?: dict, country_id?: str, lob?: str) -> dict",
+      "returns": ["graph_state", "propagation_trace"]
+    }
+  ],
+  "source_data_files": ["data/gcc_entities.json", "data/gcc_edges.json", "data/sector_profiles.json"],
+  "supported_source_nodes": ["oil_price", "inflation", "interest_rate", "supply_chain_stress", "fraud_alerts", "repair_cost_index"],
+  "supported_countries": ["SA", "KW", "AE", "QA", "BH", "OM"],
+  "supported_lobs": ["motor", "medical", "property", "marine"],
+  "status": "compatible",
+  "version": "0.3.0"
+}

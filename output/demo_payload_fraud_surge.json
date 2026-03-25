@@ -1,0 +1,1778 @@
+{
+  "version": "4.3.1",
+  "demo_id": "fraud_surge",
+  "locale": "en",
+  "demo_meta": {
+    "title": "Coordinated Fraud Ring \u2014 Motor Claims Network",
+    "headline": "Fraud index hits 0.91 \u2014 203% above baseline \u2014 as a coordinated motor claims ring inflates repair estimates 60% across Dubai and Manama. SIU mobilisation recommended.",
+    "narrative": "The fraud detection engine flags a 0.91 fraud index \u2014 203% above the 0.30 baseline \u2014 the highest severity classification in the DEEVO risk taxonomy. A coordinated motor claims ring is operating across Dubai and Manama: staged collisions, inflated repair estimates (+60%), and systematic workshop collusion. Claims frequency has spiked to 0.78 (123% above baseline) while macro signals remain calm \u2014 oil at $95, inflation at 3.8. This is the key differentiator: the system isolates fraud-driven claims pressure from legitimate macro stress. Three analyst agents converge on ESCALATE independently. The SHA-256 audit trail generates a tamper-proof decision hash for direct SIU handoff \u2014 no manual documentation required.",
+    "expected_decision": "ESCALATE",
+    "dominant_signals": [
+      "fraud_index",
+      "claims_rate",
+      "repair_cost_index"
+    ],
+    "country_focus": "AE",
+    "country_focus_label": "UAE \u2014 Largest GCC insurance market ($12.8B GWP), highest motor claims volume, DIFC/ADGM dual-jurisdiction complexity",
+    "talking_points": [
+      "PRESENTER: 'Oil is calm. Inflation is calm. But watch the fraud index.' \u2014 the system catches what humans miss",
+      "CONTRAST: Macro signals are green (oil +12%, inflation +52%). The ESCALATE comes purely from fraud and claims anomaly detection.",
+      "GRAPH: fraud_index \u2192 claims_rate \u2192 repair_cost propagation path lights up while macro nodes stay dim",
+      "AUDIT: SHA-256 decision hash generates automatically \u2014 click Export and the SIU handoff package is ready",
+      "JURISDICTION: UAE triggers DIFC and ADGM dual-regulatory alerts. The system flags both jurisdictions automatically.",
+      "AGENT CONVERGENCE: All 3 analysts independently reach ESCALATE \u2014 no majority override, no tuning"
+    ],
+    "kpi": {
+      "fraud_index": {
+        "baseline": 0.3,
+        "demo": 0.91,
+        "delta_pct": "+203%",
+        "severity": "critical"
+      },
+      "claims_rate": {
+        "baseline": 0.35,
+        "demo": 0.78,
+        "delta_pct": "+123%",
+        "severity": "critical"
+      },
+      "repair_cost_index": {
+        "baseline": 1.0,
+        "demo": 1.6,
+        "delta_pct": "+60%",
+        "severity": "high"
+      },
+      "oil_price": {
+        "baseline": 85,
+        "demo": 95,
+        "delta_pct": "+12%",
+        "severity": "low"
+      }
+    }
+  },
+  "country_card": {
+    "id": "AE",
+    "display_name": "United Arab Emirates",
+    "flag_emoji": "\ud83c\udde6\ud83c\uddea",
+    "strategic_role": "Most diversified GCC economy (oil <30% of GDP). Global trade hub processing $400B+ annual re-exports. Largest insurance market in the GCC at $12.8B GWP.",
+    "risk_role": "Highest motor claims frequency in GCC \u2014 23% above regional average. Trade disruption amplifier via Jebel Ali port. DIFC/ADGM dual-jurisdiction creates regulatory complexity for fraud prosecution.",
+    "risk_signature": "Where claims volume meets regulatory complexity. The fraud battleground.",
+    "key_metric": "Motor claims frequency 23% above GCC average \u2014 fraud ring detection saves $40-80M annually",
+    "insurance_market_gwp": "$12.8B",
+    "sector_emphasis": [
+      "insurance",
+      "logistics",
+      "fraud_detection"
+    ],
+    "oil_dependency": 0.65,
+    "demo_highlight": "Fraud surge demo: UAE lights up with dual DIFC/ADGM jurisdiction alerts. Highest claims volume means highest fraud exposure.",
+    "available": true,
+    "scenario_cue": "Primary target. DIFC + ADGM dual alerts trigger simultaneously."
+  },
+  "ui_payload": {
+    "version": "4.1.1",
+    "locale": "en",
+    "timestamp": "2026-03-25T16:04:15.737983+00:00",
+    "top_bar": {
+      "scenario_id": "fraud_surge",
+      "scenario_label": "FRAUD SURGE",
+      "decision": "ESCALATE",
+      "decision_style": {
+        "color": "red",
+        "urgency": "immediate",
+        "icon": "alert-triangle"
+      },
+      "risk_score": 0.975,
+      "confidence": 0.94,
+      "elevated_count": 3,
+      "critical_signals": [
+        "fraud_index"
+      ],
+      "high_signals": [
+        "claims_rate",
+        "repair_cost_index"
+      ],
+      "timestamp": "2026-03-25T16:04:15.731370+00:00",
+      "headline_summary": "ESCALATE \u2014 Fraud Activity Surge requires immediate action \u00b7 3 elevated signals \u00b7 risk 0.97",
+      "impact_level": "critical",
+      "demo_headline": "Fraud index hits 0.91 \u2014 203% above baseline \u2014 as a coordinated motor claims ring inflates repair estimates 60% across Dubai and Manama. SIU mobilisation recommended."
+    },
+    "signal_rail": [
+      {
+        "id": "fraud_index",
+        "label": "Fraud Alert Index",
+        "value": 0.91,
+        "unit": "index",
+        "delta": 0.61,
+        "direction": "up",
+        "category": "risk",
+        "severity": "critical",
+        "severity_style": {
+          "color": "red",
+          "priority": 4
+        },
+        "deviation": 2.0,
+        "baseline": 0.3,
+        "timestamp": "2026-03-25T16:04:15.731370+00:00",
+        "sparkline": [
+          0.0044,
+          0.1748,
+          0.3811,
+          0.5506,
+          0.7345,
+          0.9143,
+          1.1056,
+          1.2834,
+          1.4771,
+          1.6677,
+          1.8512,
+          2.0333
+        ],
+        "movement": "accelerating",
+        "impact_level": "critical"
+      },
+      {
+        "id": "repair_cost_index",
+        "label": "Repair Cost Index",
+        "value": 1.6,
+        "unit": "index",
+        "delta": 0.6,
+        "direction": "up",
+        "category": "insurance",
+        "severity": "high",
+        "severity_style": {
+          "color": "orange",
+          "priority": 3
+        },
+        "deviation": 0.6,
+        "baseline": 1.0,
+        "timestamp": "2026-03-25T16:04:15.731370+00:00",
+        "sparkline": [
+          0.0068,
+          0.0465,
+          0.1251,
+          0.171,
+          0.2226,
+          0.2593,
+          0.3319,
+          0.3805,
+          0.4354,
+          0.4984,
+          0.5527,
+          0.6
+        ],
+        "movement": "accelerating",
+        "impact_level": "high"
+      },
+      {
+        "id": "claims_rate",
+        "label": "Claims Frequency",
+        "value": 0.78,
+        "unit": "ratio",
+        "delta": 0.43,
+        "direction": "up",
+        "category": "insurance",
+        "severity": "high",
+        "severity_style": {
+          "color": "orange",
+          "priority": 3
+        },
+        "deviation": 1.2286,
+        "baseline": 0.35,
+        "timestamp": "2026-03-25T16:04:15.731370+00:00",
+        "sparkline": [
+          0.0015,
+          0.1206,
+          0.2237,
+          0.3328,
+          0.4324,
+          0.5522,
+          0.6764,
+          0.7857,
+          0.8871,
+          1.0092,
+          1.1207,
+          1.2286
+        ],
+        "movement": "accelerating",
+        "impact_level": "high"
+      },
+      {
+        "id": "oil_price",
+        "label": "Oil Price (Brent)",
+        "value": 95,
+        "unit": "USD/barrel",
+        "delta": 10.0,
+        "direction": "up",
+        "category": "macro",
+        "severity": "moderate",
+        "severity_style": {
+          "color": "yellow",
+          "priority": 2
+        },
+        "deviation": 0.1176,
+        "baseline": 85.0,
+        "timestamp": "2026-03-25T16:04:15.731370+00:00",
+        "sparkline": [
+          0.0005,
+          0.0247,
+          0.0375,
+          0.0335,
+          0.0364,
+          0.0663,
+          0.0655,
+          0.0765,
+          0.0915,
+          0.0983,
+          0.1135,
+          0.1176
+        ],
+        "movement": "accelerating",
+        "impact_level": "medium"
+      },
+      {
+        "id": "inflation",
+        "label": "CPI Inflation Rate",
+        "value": 3.8,
+        "unit": "percent",
+        "delta": 1.3,
+        "direction": "up",
+        "category": "macro",
+        "severity": "moderate",
+        "severity_style": {
+          "color": "yellow",
+          "priority": 2
+        },
+        "deviation": 0.52,
+        "baseline": 2.5,
+        "timestamp": "2026-03-25T16:04:15.731370+00:00",
+        "sparkline": [
+          -0.0172,
+          0.0371,
+          0.1088,
+          0.1337,
+          0.1887,
+          0.2471,
+          0.2889,
+          0.3328,
+          0.3705,
+          0.4298,
+          0.4772,
+          0.52
+        ],
+        "movement": "accelerating",
+        "impact_level": "medium"
+      },
+      {
+        "id": "currency_volatility",
+        "label": "Currency Volatility",
+        "value": 0.06,
+        "unit": "index",
+        "delta": 0.01,
+        "direction": "up",
+        "category": "context",
+        "severity": "low",
+        "severity_style": {
+          "color": "green",
+          "priority": 1
+        },
+        "deviation": 0.2,
+        "baseline": 0.05,
+        "timestamp": "2026-03-25T16:04:15.731370+00:00",
+        "sparkline": [
+          0.0017,
+          0.0338,
+          0.0275,
+          0.0665,
+          0.0653,
+          0.0777,
+          0.1158,
+          0.1296,
+          0.1439,
+          0.156,
+          0.1759,
+          0.2
+        ],
+        "movement": "accelerating",
+        "impact_level": "low"
+      },
+      {
+        "id": "supply_chain_stress",
+        "label": "Supply Chain Stress Index",
+        "value": 0.3,
+        "unit": "index",
+        "delta": 0.0,
+        "direction": "stable",
+        "category": "macro",
+        "severity": "low",
+        "severity_style": {
+          "color": "green",
+          "priority": 1
+        },
+        "deviation": 0.0,
+        "baseline": 0.3,
+        "timestamp": "2026-03-25T16:04:15.731370+00:00",
+        "sparkline": [
+          0.0097,
+          0.0178,
+          -0.0007,
+          -0.0113,
+          0.0062,
+          0.0103,
+          -0.0014,
+          -0.0074,
+          -0.0089,
+          -0.0033,
+          -0.0026,
+          0.0
+        ],
+        "movement": "decelerating",
+        "impact_level": "low"
+      },
+      {
+        "id": "interest_rate",
+        "label": "Central Bank Rate",
+        "value": 5.0,
+        "unit": "percent",
+        "delta": 0.0,
+        "direction": "stable",
+        "category": "macro",
+        "severity": "low",
+        "severity_style": {
+          "color": "green",
+          "priority": 1
+        },
+        "deviation": 0.0,
+        "baseline": 5.0,
+        "timestamp": "2026-03-25T16:04:15.731370+00:00",
+        "sparkline": [
+          -0.0139,
+          -0.0018,
+          0.0107,
+          -0.0084,
+          -0.0032,
+          0.0111,
+          0.0047,
+          0.0069,
+          0.0035,
+          0.0052,
+          -0.0048,
+          0.0
+        ],
+        "movement": "decelerating",
+        "impact_level": "low"
+      }
+    ],
+    "decision_rail": {
+      "decision": "ESCALATE",
+      "confidence": 0.94,
+      "risk_score": 0.975,
+      "summary": "Scenario 'Fraud Activity Surge' detected. Severity 0.77, blended risk 0.97. Decision: ESCALATE (confidence 0.94).",
+      "reasoning": [
+        "Scenario 'Fraud Activity Surge' detected \u2014 Spike in fraudulent claims activity requiring investigation escalation.",
+        "Critical signals: Fraud Alert Index (up).",
+        "Elevated signals: Claims Frequency (up), Repair Cost Index (up).",
+        "Graph propagation impacted 9 nodes including Supply Chain Stress, Claims Frequency, Premium Pricing, Fraud Activity, Reserve Adequacy.",
+        "All 6 GCC markets affected.",
+        "Portfolio risk HIGH under fraud_surge.",
+        "Claims impact MODERATE.",
+        "Fraud exposure HIGH.",
+        "Combined risk score 0.97 exceeds escalation threshold. Immediate senior review required."
+      ],
+      "style": {
+        "color": "red",
+        "urgency": "immediate",
+        "icon": "alert-triangle"
+      },
+      "scenario_id": "fraud_surge",
+      "trace_hash": "38e198d0a4b9382ec7e435bf9c3325944678b5334e7e388bb902d5a8b1fcf918",
+      "agents": [
+        {
+          "agent": "risk_analyst",
+          "risk": 0.8765,
+          "observation": "Portfolio risk HIGH under fraud_surge. Simulated magnitude 0.88. Reserve adequacy review recommended."
+        },
+        {
+          "agent": "claims_analyst",
+          "risk": 0.6636,
+          "observation": "Claims impact MODERATE. Expected cost movement 0.66. Recommend claims triage escalation."
+        },
+        {
+          "agent": "fraud_analyst",
+          "risk": 1.6694,
+          "observation": "Fraud exposure HIGH. Indicator strength 1.67. Flag for SIU review."
+        }
+      ],
+      "short_reasoning": "Scenario 'Fraud Activity Surge' detected \u2014 Spike in fraudulent claims activity requiring investigation escalation.",
+      "headline_summary": "ESCALATE \u2014 Fraud Activity Surge requires immediate action \u00b7 risk 0.97",
+      "impact_level": "critical",
+      "demo_headline": "Fraud index hits 0.91 \u2014 203% above baseline \u2014 as a coordinated motor claims ring inflates repair estimates 60% across Dubai and Manama. SIU mobilisation recommended.",
+      "demo_short_reasoning": "The fraud detection engine flags a 0.91 fraud index \u2014 203% above the 0.30 baseline \u2014 the highest severity classification in the DEEVO ris..."
+    },
+    "propagation_panel": {
+      "cause_effect_chain": [
+        {
+          "from": "Oil Price",
+          "to": "Inflation",
+          "relation": "is driving",
+          "weight": 0.8464,
+          "readable": "Oil Price is driving Inflation (weight 0.85)"
+        },
+        {
+          "from": "Oil Price",
+          "to": "Repair Costs",
+          "relation": "is driving",
+          "weight": 0.6771,
+          "readable": "Oil Price is driving Repair Costs (weight 0.68)"
+        },
+        {
+          "from": "Oil Price",
+          "to": "Supply Chain Stress",
+          "relation": "is driving",
+          "weight": 0.5642,
+          "readable": "Oil Price is driving Supply Chain Stress (weight 0.56)"
+        },
+        {
+          "from": "Oil Price",
+          "to": "Interest Rates",
+          "relation": "correlates with",
+          "weight": 0.395,
+          "readable": "Oil Price correlates with Interest Rates (weight 0.40)"
+        },
+        {
+          "from": "Inflation",
+          "to": "Claims Frequency",
+          "relation": "is driving",
+          "weight": 0.6358,
+          "readable": "Inflation is driving Claims Frequency (weight 0.64)"
+        },
+        {
+          "from": "Inflation",
+          "to": "Repair Costs",
+          "relation": "is driving",
+          "weight": 0.7514,
+          "readable": "Inflation is driving Repair Costs (weight 0.75)"
+        },
+        {
+          "from": "Inflation",
+          "to": "Premium Pricing",
+          "relation": "is putting pressure on",
+          "weight": 0.4624,
+          "readable": "Inflation is putting pressure on Premium Pricing (weight 0.46)"
+        },
+        {
+          "from": "Fraud Alerts",
+          "to": "Fraud Activity",
+          "relation": "indicates rising",
+          "weight": 1.0,
+          "readable": "Fraud Alerts indicates rising Fraud Activity (weight 1.00)"
+        },
+        {
+          "from": "Repair Costs",
+          "to": "Claims Frequency",
+          "relation": "is driving",
+          "weight": 0.59,
+          "readable": "Repair Costs is driving Claims Frequency (weight 0.59)"
+        },
+        {
+          "from": "Repair Costs",
+          "to": "Reserve Adequacy",
+          "relation": "is eroding",
+          "weight": 0.649,
+          "readable": "Repair Costs is eroding Reserve Adequacy (weight 0.65)"
+        },
+        {
+          "from": "Repair Costs",
+          "to": "Premium Pricing",
+          "relation": "is putting pressure on",
+          "weight": 0.531,
+          "readable": "Repair Costs is putting pressure on Premium Pricing (weight 0.53)"
+        },
+        {
+          "from": "Supply Chain Stress",
+          "to": "Repair Costs",
+          "relation": "is driving",
+          "weight": 0.763,
+          "readable": "Supply Chain Stress is driving Repair Costs (weight 0.76)"
+        },
+        {
+          "from": "Supply Chain Stress",
+          "to": "Claims Frequency",
+          "relation": "is amplifying",
+          "weight": 0.327,
+          "readable": "Supply Chain Stress is amplifying Claims Frequency (weight 0.33)"
+        },
+        {
+          "from": "Claims Frequency",
+          "to": "Fraud Activity",
+          "relation": "is enabling",
+          "weight": 0.45,
+          "readable": "Claims Frequency is enabling Fraud Activity (weight 0.45)"
+        },
+        {
+          "from": "Claims Frequency",
+          "to": "Loss Ratio",
+          "relation": "is driving",
+          "weight": 0.8,
+          "readable": "Claims Frequency is driving Loss Ratio (weight 0.80)"
+        },
+        {
+          "from": "Claims Frequency",
+          "to": "Reserve Adequacy",
+          "relation": "is depleting",
+          "weight": 0.7,
+          "readable": "Claims Frequency is depleting Reserve Adequacy (weight 0.70)"
+        },
+        {
+          "from": "Fraud Activity",
+          "to": "SIU Investigations",
+          "relation": "is triggering",
+          "weight": 0.85,
+          "readable": "Fraud Activity is triggering SIU Investigations (weight 0.85)"
+        },
+        {
+          "from": "Fraud Activity",
+          "to": "Loss Ratio",
+          "relation": "is inflating",
+          "weight": 0.5,
+          "readable": "Fraud Activity is inflating Loss Ratio (weight 0.50)"
+        },
+        {
+          "from": "Reserve Adequacy",
+          "to": "Regulatory Pressure",
+          "relation": "is triggering",
+          "weight": 0.55,
+          "readable": "Reserve Adequacy is triggering Regulatory Pressure (weight 0.55)"
+        },
+        {
+          "from": "Loss Ratio",
+          "to": "Premium Pricing",
+          "relation": "is forcing changes in",
+          "weight": 0.7,
+          "readable": "Loss Ratio is forcing changes in Premium Pricing (weight 0.70)"
+        },
+        {
+          "from": "Loss Ratio",
+          "to": "Reinsurance Cost",
+          "relation": "is driving",
+          "weight": 0.6,
+          "readable": "Loss Ratio is driving Reinsurance Cost (weight 0.60)"
+        },
+        {
+          "from": "Loss Ratio",
+          "to": "Regulatory Pressure",
+          "relation": "is triggering",
+          "weight": 0.45,
+          "readable": "Loss Ratio is triggering Regulatory Pressure (weight 0.45)"
+        },
+        {
+          "from": "SIU Investigations",
+          "to": "Fraud Activity",
+          "relation": "is suppressing",
+          "weight": -0.3,
+          "readable": "SIU Investigations is suppressing Fraud Activity (weight -0.30)"
+        }
+      ],
+      "readable_path": [
+        "Oil Price \u2192 Inflation",
+        "Oil Price \u2192 Repair Costs",
+        "Oil Price \u2192 Supply Chain Stress",
+        "Oil Price \u2192 Interest Rates",
+        "Inflation \u2192 Claims Frequency",
+        "Inflation \u2192 Repair Costs",
+        "Inflation \u2192 Premium Pricing",
+        "Fraud Alerts \u2192 Fraud Activity",
+        "Repair Costs \u2192 Claims Frequency",
+        "Repair Costs \u2192 Reserve Adequacy",
+        "Repair Costs \u2192 Premium Pricing",
+        "Supply Chain Stress \u2192 Repair Costs",
+        "Supply Chain Stress \u2192 Claims Frequency",
+        "Claims Frequency \u2192 Fraud Activity",
+        "Claims Frequency \u2192 Loss Ratio",
+        "Claims Frequency \u2192 Reserve Adequacy",
+        "Fraud Activity \u2192 SIU Investigations",
+        "Fraud Activity \u2192 Loss Ratio",
+        "Reserve Adequacy \u2192 Regulatory Pressure",
+        "Loss Ratio \u2192 Premium Pricing",
+        "Loss Ratio \u2192 Reinsurance Cost",
+        "Loss Ratio \u2192 Regulatory Pressure",
+        "SIU Investigations \u2192 Fraud Activity"
+      ],
+      "traversal_steps": 23,
+      "active_nodes": [
+        "supply_chain_stress",
+        "claims",
+        "pricing",
+        "fraud",
+        "reserves",
+        "loss_ratio",
+        "investigation",
+        "regulatory_pressure",
+        "reinsurance_cost"
+      ],
+      "active_node_count": 9,
+      "affected_countries": [
+        "AE",
+        "BH",
+        "KW",
+        "OM",
+        "QA",
+        "SA"
+      ],
+      "affected_sectors": [
+        "banking",
+        "energy",
+        "healthcare",
+        "insurance",
+        "logistics",
+        "retail"
+      ],
+      "affected_insurance_lines": [
+        "marine",
+        "medical",
+        "motor",
+        "property"
+      ],
+      "pressure_summary": {
+        "oil_price": 0.1176,
+        "inflation": 0.6195,
+        "fraud_alerts": 2.0,
+        "repair_cost_index": 1.1209,
+        "supply_chain_stress": 0.0663,
+        "interest_rate": 0.0465,
+        "claims": 0.7063,
+        "pricing": 0.7442,
+        "fraud": 1.6388,
+        "reserves": 0.6208,
+        "loss_ratio": 1.2645,
+        "investigation": 1.7,
+        "regulatory_pressure": 0.3332,
+        "reinsurance_cost": 0.1587
+      }
+    },
+    "executive_brief": {
+      "text": "A Fraud Surge scenario is active, driven primarily by Oil Price (Brent), with cascading effects across 9 risk dimensions. The impact propagates across all 6 GCC markets affecting marine, medical, motor, property lines, with a combined risk score of 98%. Recommendation: ESCALATE for immediate senior review (confidence 94%).",
+      "decision": "ESCALATE",
+      "confidence": 0.94,
+      "headline_summary": "A Fraud Surge scenario is active, driven primarily by Oil Price (Brent), with cascading effects across 9 risk dimensions.",
+      "impact_level": "critical"
+    },
+    "graph_summary": {
+      "active_nodes": [
+        "supply_chain_stress",
+        "claims",
+        "pricing",
+        "fraud",
+        "reserves",
+        "loss_ratio",
+        "investigation",
+        "regulatory_pressure",
+        "reinsurance_cost"
+      ],
+      "total_active": 9,
+      "affected_countries": [
+        "AE",
+        "BH",
+        "KW",
+        "OM",
+        "QA",
+        "SA"
+      ],
+      "affected_sectors": [
+        "banking",
+        "energy",
+        "healthcare",
+        "insurance",
+        "logistics",
+        "retail"
+      ],
+      "affected_insurance_lines": [
+        "marine",
+        "medical",
+        "motor",
+        "property"
+      ],
+      "node_pressures": {
+        "oil_price": 0.1176,
+        "inflation": 0.6195,
+        "fraud_alerts": 2.0,
+        "repair_cost_index": 1.1209,
+        "supply_chain_stress": 0.0663,
+        "interest_rate": 0.0465,
+        "claims": 0.7063,
+        "pricing": 0.7442,
+        "fraud": 1.6388,
+        "reserves": 0.6208,
+        "loss_ratio": 1.2645,
+        "investigation": 1.7,
+        "regulatory_pressure": 0.3332,
+        "reinsurance_cost": 0.1587
+      },
+      "max_pressure": 2.0,
+      "node_details": [
+        {
+          "id": "investigation",
+          "pressure": 1.7,
+          "severity_score": 0.935,
+          "impact_level": "critical"
+        },
+        {
+          "id": "fraud",
+          "pressure": 1.6388,
+          "severity_score": 0.927,
+          "impact_level": "critical"
+        },
+        {
+          "id": "loss_ratio",
+          "pressure": 1.2645,
+          "severity_score": 0.852,
+          "impact_level": "critical"
+        },
+        {
+          "id": "pricing",
+          "pressure": 0.7442,
+          "severity_score": 0.632,
+          "impact_level": "high"
+        },
+        {
+          "id": "claims",
+          "pressure": 0.7063,
+          "severity_score": 0.608,
+          "impact_level": "high"
+        },
+        {
+          "id": "reserves",
+          "pressure": 0.6208,
+          "severity_score": 0.552,
+          "impact_level": "medium"
+        },
+        {
+          "id": "regulatory_pressure",
+          "pressure": 0.3332,
+          "severity_score": 0.321,
+          "impact_level": "low"
+        },
+        {
+          "id": "reinsurance_cost",
+          "pressure": 0.1587,
+          "severity_score": 0.157,
+          "impact_level": "low"
+        },
+        {
+          "id": "supply_chain_stress",
+          "pressure": 0.0663,
+          "severity_score": 0.066,
+          "impact_level": "low"
+        }
+      ],
+      "edge_details": [
+        {
+          "from": "Oil Price",
+          "to": "Inflation",
+          "relation": "is driving",
+          "weight": 0.8464,
+          "intensity": 0.846
+        },
+        {
+          "from": "Oil Price",
+          "to": "Repair Costs",
+          "relation": "is driving",
+          "weight": 0.6771,
+          "intensity": 0.677
+        },
+        {
+          "from": "Oil Price",
+          "to": "Supply Chain Stress",
+          "relation": "is driving",
+          "weight": 0.5642,
+          "intensity": 0.564
+        },
+        {
+          "from": "Oil Price",
+          "to": "Interest Rates",
+          "relation": "correlates with",
+          "weight": 0.395,
+          "intensity": 0.395
+        },
+        {
+          "from": "Inflation",
+          "to": "Claims Frequency",
+          "relation": "is driving",
+          "weight": 0.6358,
+          "intensity": 0.636
+        },
+        {
+          "from": "Inflation",
+          "to": "Repair Costs",
+          "relation": "is driving",
+          "weight": 0.7514,
+          "intensity": 0.751
+        },
+        {
+          "from": "Inflation",
+          "to": "Premium Pricing",
+          "relation": "is putting pressure on",
+          "weight": 0.4624,
+          "intensity": 0.462
+        },
+        {
+          "from": "Fraud Alerts",
+          "to": "Fraud Activity",
+          "relation": "indicates rising",
+          "weight": 1.0,
+          "intensity": 1.0
+        },
+        {
+          "from": "Repair Costs",
+          "to": "Claims Frequency",
+          "relation": "is driving",
+          "weight": 0.59,
+          "intensity": 0.59
+        },
+        {
+          "from": "Repair Costs",
+          "to": "Reserve Adequacy",
+          "relation": "is eroding",
+          "weight": 0.649,
+          "intensity": 0.649
+        },
+        {
+          "from": "Repair Costs",
+          "to": "Premium Pricing",
+          "relation": "is putting pressure on",
+          "weight": 0.531,
+          "intensity": 0.531
+        },
+        {
+          "from": "Supply Chain Stress",
+          "to": "Repair Costs",
+          "relation": "is driving",
+          "weight": 0.763,
+          "intensity": 0.763
+        },
+        {
+          "from": "Supply Chain Stress",
+          "to": "Claims Frequency",
+          "relation": "is amplifying",
+          "weight": 0.327,
+          "intensity": 0.327
+        },
+        {
+          "from": "Claims Frequency",
+          "to": "Fraud Activity",
+          "relation": "is enabling",
+          "weight": 0.45,
+          "intensity": 0.45
+        },
+        {
+          "from": "Claims Frequency",
+          "to": "Loss Ratio",
+          "relation": "is driving",
+          "weight": 0.8,
+          "intensity": 0.8
+        },
+        {
+          "from": "Claims Frequency",
+          "to": "Reserve Adequacy",
+          "relation": "is depleting",
+          "weight": 0.7,
+          "intensity": 0.7
+        },
+        {
+          "from": "Fraud Activity",
+          "to": "SIU Investigations",
+          "relation": "is triggering",
+          "weight": 0.85,
+          "intensity": 0.85
+        },
+        {
+          "from": "Fraud Activity",
+          "to": "Loss Ratio",
+          "relation": "is inflating",
+          "weight": 0.5,
+          "intensity": 0.5
+        },
+        {
+          "from": "Reserve Adequacy",
+          "to": "Regulatory Pressure",
+          "relation": "is triggering",
+          "weight": 0.55,
+          "intensity": 0.55
+        },
+        {
+          "from": "Loss Ratio",
+          "to": "Premium Pricing",
+          "relation": "is forcing changes in",
+          "weight": 0.7,
+          "intensity": 0.7
+        },
+        {
+          "from": "Loss Ratio",
+          "to": "Reinsurance Cost",
+          "relation": "is driving",
+          "weight": 0.6,
+          "intensity": 0.6
+        },
+        {
+          "from": "Loss Ratio",
+          "to": "Regulatory Pressure",
+          "relation": "is triggering",
+          "weight": 0.45,
+          "intensity": 0.45
+        },
+        {
+          "from": "SIU Investigations",
+          "to": "Fraud Activity",
+          "relation": "is suppressing",
+          "weight": -0.3,
+          "intensity": 0.3
+        }
+      ],
+      "max_intensity": 1.0
+    },
+    "raw": {
+      "simulation_result": {
+        "active_scenario": "fraud_surge",
+        "impacted_domains": [
+          "oil_price",
+          "supply_chain_stress",
+          "reserves",
+          "fraud",
+          "regulatory_pressure",
+          "reinsurance_cost",
+          "repair_cost_index",
+          "claims",
+          "fraud_alerts",
+          "investigation",
+          "pricing",
+          "inflation",
+          "loss_ratio"
+        ],
+        "severity": 0.773,
+        "simulated_changes": {
+          "supply_chain_stress": {
+            "direction": "increase",
+            "magnitude": 0.0663,
+            "propagation_depth": 1
+          },
+          "claims": {
+            "direction": "increase",
+            "magnitude": 0.7063,
+            "propagation_depth": 2
+          },
+          "pricing": {
+            "direction": "increase",
+            "magnitude": 0.7442,
+            "propagation_depth": 3
+          },
+          "fraud": {
+            "direction": "increase",
+            "magnitude": 1.6388,
+            "propagation_depth": 4
+          },
+          "reserves": {
+            "direction": "increase",
+            "magnitude": 0.6208,
+            "propagation_depth": 5
+          },
+          "loss_ratio": {
+            "direction": "increase",
+            "magnitude": 1.2645,
+            "propagation_depth": 6
+          },
+          "investigation": {
+            "direction": "increase",
+            "magnitude": 1.7,
+            "propagation_depth": 7
+          },
+          "regulatory_pressure": {
+            "direction": "increase",
+            "magnitude": 0.3332,
+            "propagation_depth": 8
+          },
+          "reinsurance_cost": {
+            "direction": "increase",
+            "magnitude": 0.1587,
+            "propagation_depth": 9
+          }
+        },
+        "graph_links_used": [
+          "oil_price -> inflation",
+          "oil_price -> repair_cost_index",
+          "oil_price -> supply_chain_stress",
+          "oil_price -> interest_rate",
+          "inflation -> claims",
+          "inflation -> repair_cost_index",
+          "inflation -> pricing",
+          "fraud_alerts -> fraud",
+          "repair_cost_index -> claims",
+          "repair_cost_index -> reserves",
+          "repair_cost_index -> pricing",
+          "supply_chain_stress -> repair_cost_index",
+          "supply_chain_stress -> claims",
+          "claims -> fraud",
+          "claims -> loss_ratio",
+          "claims -> reserves",
+          "fraud -> investigation",
+          "fraud -> loss_ratio",
+          "reserves -> regulatory_pressure",
+          "loss_ratio -> pricing",
+          "loss_ratio -> reinsurance_cost",
+          "loss_ratio -> regulatory_pressure",
+          "investigation -> fraud"
+        ]
+      },
+      "decision_trace": {
+        "timestamp": "2026-03-25T16:04:15.731370+00:00",
+        "input_signals": {
+          "oil_price": 95,
+          "inflation": 3.8,
+          "claims_rate": 0.78,
+          "fraud_index": 0.91,
+          "repair_cost_index": 1.6,
+          "supply_chain_stress": 0.3,
+          "currency_volatility": 0.06,
+          "interest_rate": 5.0
+        },
+        "detected_scenario": "fraud_surge",
+        "agent_observations": [
+          {
+            "agent": "risk_analyst",
+            "assessed_risk": 0.8765,
+            "observation": "Portfolio risk HIGH under fraud_surge. Simulated magnitude 0.88. Reserve adequacy review recommended."
+          },
+          {
+            "agent": "claims_analyst",
+            "assessed_risk": 0.6636,
+            "observation": "Claims impact MODERATE. Expected cost movement 0.66. Recommend claims triage escalation."
+          },
+          {
+            "agent": "fraud_analyst",
+            "assessed_risk": 1.6694,
+            "observation": "Fraud exposure HIGH. Indicator strength 1.67. Flag for SIU review."
+          }
+        ],
+        "final_risk_score": 0.975,
+        "final_decision": "ESCALATE",
+        "confidence": 0.94,
+        "trace_hash": "38e198d0a4b9382ec7e435bf9c3325944678b5334e7e388bb902d5a8b1fcf918"
+      },
+      "decision": {
+        "decision": "ESCALATE",
+        "confidence": 0.94,
+        "risk_score": 0.975,
+        "summary": "Scenario 'Fraud Activity Surge' detected. Severity 0.77, blended risk 0.97. Decision: ESCALATE (confidence 0.94).",
+        "reasoning": [
+          "Scenario 'Fraud Activity Surge' detected \u2014 Spike in fraudulent claims activity requiring investigation escalation.",
+          "Critical signals: Fraud Alert Index (up).",
+          "Elevated signals: Claims Frequency (up), Repair Cost Index (up).",
+          "Graph propagation impacted 9 nodes including Supply Chain Stress, Claims Frequency, Premium Pricing, Fraud Activity, Reserve Adequacy.",
+          "All 6 GCC markets affected.",
+          "Portfolio risk HIGH under fraud_surge.",
+          "Claims impact MODERATE.",
+          "Fraud exposure HIGH.",
+          "Combined risk score 0.97 exceeds escalation threshold. Immediate senior review required."
+        ]
+      },
+      "graph_state": {
+        "active_nodes": [
+          "supply_chain_stress",
+          "claims",
+          "pricing",
+          "fraud",
+          "reserves",
+          "loss_ratio",
+          "investigation",
+          "regulatory_pressure",
+          "reinsurance_cost"
+        ],
+        "affected_countries": [
+          "AE",
+          "BH",
+          "KW",
+          "OM",
+          "QA",
+          "SA"
+        ],
+        "affected_sectors": [
+          "banking",
+          "energy",
+          "healthcare",
+          "insurance",
+          "logistics",
+          "retail"
+        ],
+        "affected_insurance_lines": [
+          "marine",
+          "medical",
+          "motor",
+          "property"
+        ],
+        "weighted_impacts": {
+          "oil_price": 0.1176,
+          "inflation": 0.6195,
+          "fraud_alerts": 2.0,
+          "repair_cost_index": 1.1209,
+          "supply_chain_stress": 0.0663,
+          "interest_rate": 0.0465,
+          "claims": 0.7063,
+          "pricing": 0.7442,
+          "fraud": 1.6388,
+          "reserves": 0.6208,
+          "loss_ratio": 1.2645,
+          "investigation": 1.7,
+          "regulatory_pressure": 0.3332,
+          "reinsurance_cost": 0.1587
+        }
+      },
+      "propagation_trace": {
+        "root_signal": [
+          "oil_price",
+          "inflation",
+          "fraud_alerts",
+          "repair_cost_index"
+        ],
+        "traversal_path": [
+          {
+            "from": "oil_price",
+            "to": "inflation",
+            "weight": 0.8464,
+            "transmitted_pressure": 0.0995,
+            "relation_type": "drives"
+          },
+          {
+            "from": "oil_price",
+            "to": "repair_cost_index",
+            "weight": 0.6771,
+            "transmitted_pressure": 0.0796,
+            "relation_type": "drives"
+          },
+          {
+            "from": "oil_price",
+            "to": "supply_chain_stress",
+            "weight": 0.5642,
+            "transmitted_pressure": 0.0663,
+            "relation_type": "drives"
+          },
+          {
+            "from": "oil_price",
+            "to": "interest_rate",
+            "weight": 0.395,
+            "transmitted_pressure": 0.0465,
+            "relation_type": "correlates"
+          },
+          {
+            "from": "inflation",
+            "to": "claims",
+            "weight": 0.6358,
+            "transmitted_pressure": 0.3306,
+            "relation_type": "drives"
+          },
+          {
+            "from": "inflation",
+            "to": "repair_cost_index",
+            "weight": 0.7514,
+            "transmitted_pressure": 0.3907,
+            "relation_type": "drives"
+          },
+          {
+            "from": "inflation",
+            "to": "pricing",
+            "weight": 0.4624,
+            "transmitted_pressure": 0.2404,
+            "relation_type": "pressures"
+          },
+          {
+            "from": "fraud_alerts",
+            "to": "fraud",
+            "weight": 1.0,
+            "transmitted_pressure": 2.0,
+            "relation_type": "indicates"
+          },
+          {
+            "from": "repair_cost_index",
+            "to": "claims",
+            "weight": 0.59,
+            "transmitted_pressure": 0.354,
+            "relation_type": "drives"
+          },
+          {
+            "from": "repair_cost_index",
+            "to": "reserves",
+            "weight": 0.649,
+            "transmitted_pressure": 0.3894,
+            "relation_type": "erodes"
+          },
+          {
+            "from": "repair_cost_index",
+            "to": "pricing",
+            "weight": 0.531,
+            "transmitted_pressure": 0.3186,
+            "relation_type": "pressures"
+          },
+          {
+            "from": "supply_chain_stress",
+            "to": "repair_cost_index",
+            "weight": 0.763,
+            "transmitted_pressure": 0.0506,
+            "relation_type": "drives"
+          },
+          {
+            "from": "supply_chain_stress",
+            "to": "claims",
+            "weight": 0.327,
+            "transmitted_pressure": 0.0217,
+            "relation_type": "amplifies"
+          },
+          {
+            "from": "claims",
+            "to": "fraud",
+            "weight": 0.45,
+            "transmitted_pressure": 0.1488,
+            "relation_type": "enables"
+          },
+          {
+            "from": "claims",
+            "to": "loss_ratio",
+            "weight": 0.8,
+            "transmitted_pressure": 0.2645,
+            "relation_type": "drives"
+          },
+          {
+            "from": "claims",
+            "to": "reserves",
+            "weight": 0.7,
+            "transmitted_pressure": 0.2314,
+            "relation_type": "depletes"
+          },
+          {
+            "from": "fraud",
+            "to": "investigation",
+            "weight": 0.85,
+            "transmitted_pressure": 1.7,
+            "relation_type": "triggers"
+          },
+          {
+            "from": "fraud",
+            "to": "loss_ratio",
+            "weight": 0.5,
+            "transmitted_pressure": 1.0,
+            "relation_type": "inflates"
+          },
+          {
+            "from": "reserves",
+            "to": "regulatory_pressure",
+            "weight": 0.55,
+            "transmitted_pressure": 0.2142,
+            "relation_type": "triggers"
+          },
+          {
+            "from": "loss_ratio",
+            "to": "pricing",
+            "weight": 0.7,
+            "transmitted_pressure": 0.1852,
+            "relation_type": "forces"
+          },
+          {
+            "from": "loss_ratio",
+            "to": "reinsurance_cost",
+            "weight": 0.6,
+            "transmitted_pressure": 0.1587,
+            "relation_type": "drives"
+          },
+          {
+            "from": "loss_ratio",
+            "to": "regulatory_pressure",
+            "weight": 0.45,
+            "transmitted_pressure": 0.119,
+            "relation_type": "triggers"
+          },
+          {
+            "from": "investigation",
+            "to": "fraud",
+            "weight": -0.3,
+            "transmitted_pressure": -0.51,
+            "relation_type": "suppresses"
+          }
+        ],
+        "edge_weights_used": [
+          {
+            "from": "oil_price",
+            "to": "inflation",
+            "weight": 0.8464
+          },
+          {
+            "from": "oil_price",
+            "to": "repair_cost_index",
+            "weight": 0.6771
+          },
+          {
+            "from": "oil_price",
+            "to": "supply_chain_stress",
+            "weight": 0.5642
+          },
+          {
+            "from": "oil_price",
+            "to": "interest_rate",
+            "weight": 0.395
+          },
+          {
+            "from": "inflation",
+            "to": "claims",
+            "weight": 0.6358
+          },
+          {
+            "from": "inflation",
+            "to": "repair_cost_index",
+            "weight": 0.7514
+          },
+          {
+            "from": "inflation",
+            "to": "pricing",
+            "weight": 0.4624
+          },
+          {
+            "from": "fraud_alerts",
+            "to": "fraud",
+            "weight": 1.0
+          },
+          {
+            "from": "repair_cost_index",
+            "to": "claims",
+            "weight": 0.59
+          },
+          {
+            "from": "repair_cost_index",
+            "to": "reserves",
+            "weight": 0.649
+          },
+          {
+            "from": "repair_cost_index",
+            "to": "pricing",
+            "weight": 0.531
+          },
+          {
+            "from": "supply_chain_stress",
+            "to": "repair_cost_index",
+            "weight": 0.763
+          },
+          {
+            "from": "supply_chain_stress",
+            "to": "claims",
+            "weight": 0.327
+          },
+          {
+            "from": "claims",
+            "to": "fraud",
+            "weight": 0.45
+          },
+          {
+            "from": "claims",
+            "to": "loss_ratio",
+            "weight": 0.8
+          },
+          {
+            "from": "claims",
+            "to": "reserves",
+            "weight": 0.7
+          },
+          {
+            "from": "fraud",
+            "to": "investigation",
+            "weight": 0.85
+          },
+          {
+            "from": "fraud",
+            "to": "loss_ratio",
+            "weight": 0.5
+          },
+          {
+            "from": "reserves",
+            "to": "regulatory_pressure",
+            "weight": 0.55
+          },
+          {
+            "from": "loss_ratio",
+            "to": "pricing",
+            "weight": 0.7
+          },
+          {
+            "from": "loss_ratio",
+            "to": "reinsurance_cost",
+            "weight": 0.6
+          },
+          {
+            "from": "loss_ratio",
+            "to": "regulatory_pressure",
+            "weight": 0.45
+          },
+          {
+            "from": "investigation",
+            "to": "fraud",
+            "weight": -0.3
+          }
+        ],
+        "impacted_nodes_in_order": [
+          "supply_chain_stress",
+          "claims",
+          "pricing",
+          "fraud",
+          "reserves",
+          "loss_ratio",
+          "investigation",
+          "regulatory_pressure",
+          "reinsurance_cost"
+        ],
+        "final_pressure_summary": {
+          "oil_price": 0.1176,
+          "inflation": 0.6195,
+          "fraud_alerts": 2.0,
+          "repair_cost_index": 1.1209,
+          "supply_chain_stress": 0.0663,
+          "interest_rate": 0.0465,
+          "claims": 0.7063,
+          "pricing": 0.7442,
+          "fraud": 1.6388,
+          "reserves": 0.6208,
+          "loss_ratio": 1.2645,
+          "investigation": 1.7,
+          "regulatory_pressure": 0.3332,
+          "reinsurance_cost": 0.1587
+        },
+        "cause_effect_chain": [
+          {
+            "from": "Oil Price",
+            "to": "Inflation",
+            "relation": "is driving",
+            "weight": 0.8464,
+            "readable": "Oil Price is driving Inflation (weight 0.85)"
+          },
+          {
+            "from": "Oil Price",
+            "to": "Repair Costs",
+            "relation": "is driving",
+            "weight": 0.6771,
+            "readable": "Oil Price is driving Repair Costs (weight 0.68)"
+          },
+          {
+            "from": "Oil Price",
+            "to": "Supply Chain Stress",
+            "relation": "is driving",
+            "weight": 0.5642,
+            "readable": "Oil Price is driving Supply Chain Stress (weight 0.56)"
+          },
+          {
+            "from": "Oil Price",
+            "to": "Interest Rates",
+            "relation": "correlates with",
+            "weight": 0.395,
+            "readable": "Oil Price correlates with Interest Rates (weight 0.40)"
+          },
+          {
+            "from": "Inflation",
+            "to": "Claims Frequency",
+            "relation": "is driving",
+            "weight": 0.6358,
+            "readable": "Inflation is driving Claims Frequency (weight 0.64)"
+          },
+          {
+            "from": "Inflation",
+            "to": "Repair Costs",
+            "relation": "is driving",
+            "weight": 0.7514,
+            "readable": "Inflation is driving Repair Costs (weight 0.75)"
+          },
+          {
+            "from": "Inflation",
+            "to": "Premium Pricing",
+            "relation": "is putting pressure on",
+            "weight": 0.4624,
+            "readable": "Inflation is putting pressure on Premium Pricing (weight 0.46)"
+          },
+          {
+            "from": "Fraud Alerts",
+            "to": "Fraud Activity",
+            "relation": "indicates rising",
+            "weight": 1.0,
+            "readable": "Fraud Alerts indicates rising Fraud Activity (weight 1.00)"
+          },
+          {
+            "from": "Repair Costs",
+            "to": "Claims Frequency",
+            "relation": "is driving",
+            "weight": 0.59,
+            "readable": "Repair Costs is driving Claims Frequency (weight 0.59)"
+          },
+          {
+            "from": "Repair Costs",
+            "to": "Reserve Adequacy",
+            "relation": "is eroding",
+            "weight": 0.649,
+            "readable": "Repair Costs is eroding Reserve Adequacy (weight 0.65)"
+          },
+          {
+            "from": "Repair Costs",
+            "to": "Premium Pricing",
+            "relation": "is putting pressure on",
+            "weight": 0.531,
+            "readable": "Repair Costs is putting pressure on Premium Pricing (weight 0.53)"
+          },
+          {
+            "from": "Supply Chain Stress",
+            "to": "Repair Costs",
+            "relation": "is driving",
+            "weight": 0.763,
+            "readable": "Supply Chain Stress is driving Repair Costs (weight 0.76)"
+          },
+          {
+            "from": "Supply Chain Stress",
+            "to": "Claims Frequency",
+            "relation": "is amplifying",
+            "weight": 0.327,
+            "readable": "Supply Chain Stress is amplifying Claims Frequency (weight 0.33)"
+          },
+          {
+            "from": "Claims Frequency",
+            "to": "Fraud Activity",
+            "relation": "is enabling",
+            "weight": 0.45,
+            "readable": "Claims Frequency is enabling Fraud Activity (weight 0.45)"
+          },
+          {
+            "from": "Claims Frequency",
+            "to": "Loss Ratio",
+            "relation": "is driving",
+            "weight": 0.8,
+            "readable": "Claims Frequency is driving Loss Ratio (weight 0.80)"
+          },
+          {
+            "from": "Claims Frequency",
+            "to": "Reserve Adequacy",
+            "relation": "is depleting",
+            "weight": 0.7,
+            "readable": "Claims Frequency is depleting Reserve Adequacy (weight 0.70)"
+          },
+          {
+            "from": "Fraud Activity",
+            "to": "SIU Investigations",
+            "relation": "is triggering",
+            "weight": 0.85,
+            "readable": "Fraud Activity is triggering SIU Investigations (weight 0.85)"
+          },
+          {
+            "from": "Fraud Activity",
+            "to": "Loss Ratio",
+            "relation": "is inflating",
+            "weight": 0.5,
+            "readable": "Fraud Activity is inflating Loss Ratio (weight 0.50)"
+          },
+          {
+            "from": "Reserve Adequacy",
+            "to": "Regulatory Pressure",
+            "relation": "is triggering",
+            "weight": 0.55,
+            "readable": "Reserve Adequacy is triggering Regulatory Pressure (weight 0.55)"
+          },
+          {
+            "from": "Loss Ratio",
+            "to": "Premium Pricing",
+            "relation": "is forcing changes in",
+            "weight": 0.7,
+            "readable": "Loss Ratio is forcing changes in Premium Pricing (weight 0.70)"
+          },
+          {
+            "from": "Loss Ratio",
+            "to": "Reinsurance Cost",
+            "relation": "is driving",
+            "weight": 0.6,
+            "readable": "Loss Ratio is driving Reinsurance Cost (weight 0.60)"
+          },
+          {
+            "from": "Loss Ratio",
+            "to": "Regulatory Pressure",
+            "relation": "is triggering",
+            "weight": 0.45,
+            "readable": "Loss Ratio is triggering Regulatory Pressure (weight 0.45)"
+          },
+          {
+            "from": "SIU Investigations",
+            "to": "Fraud Activity",
+            "relation": "is suppressing",
+            "weight": -0.3,
+            "readable": "SIU Investigations is suppressing Fraud Activity (weight -0.30)"
+          }
+        ],
+        "readable_path": [
+          "Oil Price \u2192 Inflation",
+          "Oil Price \u2192 Repair Costs",
+          "Oil Price \u2192 Supply Chain Stress",
+          "Oil Price \u2192 Interest Rates",
+          "Inflation \u2192 Claims Frequency",
+          "Inflation \u2192 Repair Costs",
+          "Inflation \u2192 Premium Pricing",
+          "Fraud Alerts \u2192 Fraud Activity",
+          "Repair Costs \u2192 Claims Frequency",
+          "Repair Costs \u2192 Reserve Adequacy",
+          "Repair Costs \u2192 Premium Pricing",
+          "Supply Chain Stress \u2192 Repair Costs",
+          "Supply Chain Stress \u2192 Claims Frequency",
+          "Claims Frequency \u2192 Fraud Activity",
+          "Claims Frequency \u2192 Loss Ratio",
+          "Claims Frequency \u2192 Reserve Adequacy",
+          "Fraud Activity \u2192 SIU Investigations",
+          "Fraud Activity \u2192 Loss Ratio",
+          "Reserve Adequacy \u2192 Regulatory Pressure",
+          "Loss Ratio \u2192 Premium Pricing",
+          "Loss Ratio \u2192 Reinsurance Cost",
+          "Loss Ratio \u2192 Regulatory Pressure",
+          "SIU Investigations \u2192 Fraud Activity"
+        ]
+      },
+      "enriched_signals": {
+        "oil_price": {
+          "value": 95,
+          "baseline": 85.0,
+          "delta": 10.0,
+          "direction": "up",
+          "deviation": 0.1176,
+          "category": "macro",
+          "severity": "moderate",
+          "label": "Oil Price (Brent)",
+          "unit": "USD/barrel",
+          "timestamp": "2026-03-25T16:04:15.731370+00:00"
+        },
+        "inflation": {
+          "value": 3.8,
+          "baseline": 2.5,
+          "delta": 1.3,
+          "direction": "up",
+          "deviation": 0.52,
+          "category": "macro",
+          "severity": "moderate",
+          "label": "CPI Inflation Rate",
+          "unit": "percent",
+          "timestamp": "2026-03-25T16:04:15.731370+00:00"
+        },
+        "claims_rate": {
+          "value": 0.78,
+          "baseline": 0.35,
+          "delta": 0.43,
+          "direction": "up",
+          "deviation": 1.2286,
+          "category": "insurance",
+          "severity": "high",
+          "label": "Claims Frequency",
+          "unit": "ratio",
+          "timestamp": "2026-03-25T16:04:15.731370+00:00"
+        },
+        "fraud_index": {
+          "value": 0.91,
+          "baseline": 0.3,
+          "delta": 0.61,
+          "direction": "up",
+          "deviation": 2.0,
+          "category": "risk",
+          "severity": "critical",
+          "label": "Fraud Alert Index",
+          "unit": "index",
+          "timestamp": "2026-03-25T16:04:15.731370+00:00"
+        },
+        "repair_cost_index": {
+          "value": 1.6,
+          "baseline": 1.0,
+          "delta": 0.6,
+          "direction": "up",
+          "deviation": 0.6,
+          "category": "insurance",
+          "severity": "high",
+          "label": "Repair Cost Index",
+          "unit": "index",
+          "timestamp": "2026-03-25T16:04:15.731370+00:00"
+        },
+        "supply_chain_stress": {
+          "value": 0.3,
+          "baseline": 0.3,
+          "delta": 0.0,
+          "direction": "stable",
+          "deviation": 0.0,
+          "category": "macro",
+          "severity": "low",
+          "label": "Supply Chain Stress Index",
+          "unit": "index",
+          "timestamp": "2026-03-25T16:04:15.731370+00:00"
+        },
+        "currency_volatility": {
+          "value": 0.06,
+          "baseline": 0.05,
+          "delta": 0.01,
+          "direction": "up",
+          "deviation": 0.2,
+          "category": "context",
+          "severity": "low",
+          "label": "Currency Volatility",
+          "unit": "index",
+          "timestamp": "2026-03-25T16:04:15.731370+00:00"
+        },
+        "interest_rate": {
+          "value": 5.0,
+          "baseline": 5.0,
+          "delta": 0.0,
+          "direction": "stable",
+          "deviation": 0.0,
+          "category": "macro",
+          "severity": "low",
+          "label": "Central Bank Rate",
+          "unit": "percent",
+          "timestamp": "2026-03-25T16:04:15.731370+00:00"
+        }
+      },
+      "executive_brief": "A Fraud Surge scenario is active, driven primarily by Oil Price (Brent), with cascading effects across 9 risk dimensions. The impact propagates across all 6 GCC markets affecting marine, medical, motor, property lines, with a combined risk score of 98%. Recommendation: ESCALATE for immediate senior review (confidence 94%).",
+      "signal_summary": {
+        "elevated_count": 3,
+        "critical_signals": [
+          "fraud_index"
+        ],
+        "high_signals": [
+          "claims_rate",
+          "repair_cost_index"
+        ],
+        "top_movers": [
+          {
+            "key": "oil_price",
+            "label": "Oil Price (Brent)",
+            "delta": 10.0,
+            "direction": "up",
+            "severity": "moderate"
+          },
+          {
+            "key": "inflation",
+            "label": "CPI Inflation Rate",
+            "delta": 1.3,
+            "direction": "up",
+            "severity": "moderate"
+          },
+          {
+            "key": "fraud_index",
+            "label": "Fraud Alert Index",
+            "delta": 0.61,
+            "direction": "up",
+            "severity": "critical"
+          },
+          {
+            "key": "repair_cost_index",
+            "label": "Repair Cost Index",
+            "delta": 0.6,
+            "direction": "up",
+            "severity": "high"
+          },
+          {
+            "key": "claims_rate",
+            "label": "Claims Frequency",
+            "delta": 0.43,
+            "direction": "up",
+            "severity": "high"
+          }
+        ]
+      }
+    }
+  }
+}

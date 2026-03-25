@@ -1,0 +1,47 @@
+{
+  "brief": "A Fraud Surge scenario is active, driven primarily by Oil Price (Brent), with cascading effects across 10 risk dimensions. The impact propagates across all 6 GCC markets affecting marine, medical, motor, property lines, with a combined risk score of 100%. Recommendation: ESCALATE for immediate senior review (confidence 95%).",
+  "signal_summary": {
+    "elevated_count": 1,
+    "critical_signals": [],
+    "high_signals": [
+      "fraud_index"
+    ],
+    "top_movers": [
+      {
+        "key": "oil_price",
+        "label": "Oil Price (Brent)",
+        "delta": 20.0,
+        "direction": "up",
+        "severity": "moderate"
+      },
+      {
+        "key": "inflation",
+        "label": "CPI Inflation Rate",
+        "delta": 1.7,
+        "direction": "up",
+        "severity": "moderate"
+      },
+      {
+        "key": "fraud_index",
+        "label": "Fraud Alert Index",
+        "delta": 0.44,
+        "direction": "up",
+        "severity": "high"
+      },
+      {
+        "key": "repair_cost_index",
+        "label": "Repair Cost Index",
+        "delta": 0.35,
+        "direction": "up",
+        "severity": "moderate"
+      },
+      {
+        "key": "claims_rate",
+        "label": "Claims Frequency",
+        "delta": 0.27,
+        "direction": "up",
+        "severity": "moderate"
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "engine_entrypoint": "core.api_adapter.execute",
+  "engine_core": "core.engine.run",
+  "canonical_input_file": "data/signals.json",
+  "output_keys": ["simulation_result", "decision_trace", "decision"],
+  "supported_decisions": ["APPROVE", "REVIEW", "ESCALATE"],
+  "supported_scenarios": ["oil_spike", "fraud_surge", "repair_cost_inflation"],
+  "contract_validator": "core.contracts.validate_engine_output",
+  "health_endpoint": "core.api_adapter.health",
+  "input_schema": {
+    "required": ["oil_price", "inflation", "claims_rate", "fraud_index", "repair_cost_index"],
+    "optional": ["currency_volatility", "region", "timestamp"]
+  },
+  "version": "0.2.0",
+  "phase": "integration_ready"
+}

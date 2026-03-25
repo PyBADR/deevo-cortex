@@ -1,0 +1,38 @@
+{
+  "edges": [
+    { "source": "oil_price",           "target": "inflation",           "relation_type": "drives",      "weight": 0.75, "lag_days": 30,  "direction": "increase" },
+    { "source": "oil_price",           "target": "repair_cost_index",   "relation_type": "drives",      "weight": 0.60, "lag_days": 45,  "direction": "increase" },
+    { "source": "oil_price",           "target": "supply_chain_stress", "relation_type": "drives",      "weight": 0.50, "lag_days": 14,  "direction": "increase" },
+    { "source": "oil_price",           "target": "interest_rate",       "relation_type": "correlates",  "weight": 0.35, "lag_days": 60,  "direction": "increase" },
+
+    { "source": "inflation",           "target": "claims",              "relation_type": "drives",      "weight": 0.55, "lag_days": 60,  "direction": "increase" },
+    { "source": "inflation",           "target": "repair_cost_index",   "relation_type": "drives",      "weight": 0.65, "lag_days": 30,  "direction": "increase" },
+    { "source": "inflation",           "target": "pricing",             "relation_type": "pressures",   "weight": 0.40, "lag_days": 90,  "direction": "increase" },
+
+    { "source": "interest_rate",       "target": "reserves",            "relation_type": "affects",     "weight": 0.40, "lag_days": 90,  "direction": "decrease" },
+    { "source": "interest_rate",       "target": "pricing",             "relation_type": "correlates",  "weight": 0.25, "lag_days": 60,  "direction": "increase" },
+
+    { "source": "supply_chain_stress", "target": "repair_cost_index",   "relation_type": "drives",      "weight": 0.70, "lag_days": 14,  "direction": "increase" },
+    { "source": "supply_chain_stress", "target": "claims",              "relation_type": "amplifies",   "weight": 0.30, "lag_days": 30,  "direction": "increase" },
+
+    { "source": "repair_cost_index",   "target": "claims",              "relation_type": "drives",      "weight": 0.50, "lag_days": 14,  "direction": "increase" },
+    { "source": "repair_cost_index",   "target": "reserves",            "relation_type": "erodes",      "weight": 0.55, "lag_days": 30,  "direction": "increase" },
+    { "source": "repair_cost_index",   "target": "pricing",             "relation_type": "pressures",   "weight": 0.45, "lag_days": 90,  "direction": "increase" },
+
+    { "source": "claims",              "target": "fraud",               "relation_type": "enables",     "weight": 0.45, "lag_days": 14,  "direction": "increase" },
+    { "source": "claims",              "target": "loss_ratio",          "relation_type": "drives",      "weight": 0.80, "lag_days": 0,   "direction": "increase" },
+    { "source": "claims",              "target": "reserves",            "relation_type": "depletes",    "weight": 0.70, "lag_days": 30,  "direction": "increase" },
+
+    { "source": "fraud_alerts",        "target": "fraud",               "relation_type": "indicates",   "weight": 0.85, "lag_days": 0,   "direction": "increase" },
+    { "source": "fraud",               "target": "investigation",       "relation_type": "triggers",    "weight": 0.85, "lag_days": 7,   "direction": "increase" },
+    { "source": "fraud",               "target": "loss_ratio",          "relation_type": "inflates",    "weight": 0.50, "lag_days": 30,  "direction": "increase" },
+
+    { "source": "loss_ratio",          "target": "pricing",             "relation_type": "forces",      "weight": 0.70, "lag_days": 90,  "direction": "increase" },
+    { "source": "loss_ratio",          "target": "reinsurance_cost",    "relation_type": "drives",      "weight": 0.60, "lag_days": 180, "direction": "increase" },
+    { "source": "loss_ratio",          "target": "regulatory_pressure", "relation_type": "triggers",    "weight": 0.45, "lag_days": 90,  "direction": "increase" },
+
+    { "source": "reserves",            "target": "regulatory_pressure", "relation_type": "triggers",    "weight": 0.55, "lag_days": 60,  "direction": "increase" },
+
+    { "source": "investigation",       "target": "fraud",               "relation_type": "suppresses",  "weight": -0.30, "lag_days": 30, "direction": "decrease" }
+  ]
+}

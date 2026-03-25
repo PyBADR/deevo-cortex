@@ -1,92 +1,91 @@
-"""DEEVO Cortex-v2 Rules Engine
+"""DEEVO Cortex — Rules Engine
 
-This module contains the evaluation and decision logic for the
-decision intelligence system.
+Scenario-aware evaluation and decision logic for the
+DEEVO Decision Intelligence system. Supports APPROVE / REVIEW / ESCALATE.
 """
 
 import json
+from typing import Tuple
 
+
+# ---------------------------------------------------------------------------
+# Signal evaluation
+# ---------------------------------------------------------------------------
 
 def evaluate(signals: dict) -> float:
-    """Evaluate risk based on input signals.
-    
-    Args:
-        signals: Dictionary containing signal values
-                 (inflation, claims_rate, etc.)
-    
-    Returns:
-        Risk score between 0 and 1
+    """Compute a base risk score from raw signals (0..1).
+
+    VERCEPT contract: evaluate(signals: dict) -> float
     """
     risk = 0.0
 
-    if signals.get("inflation", 0) > 3:
-        risk += 0.2
-
-    if signals.get("claims_rate", 0) > 0.5:
-        risk += 0.3
-
-    if signals.get("oil_price", 0) > 90:
+    oil = signals.get("oil_price", 0)
+    if oil > 100:
+        risk += 0.25
+    elif oil > 90:
         risk += 0.15
 
-    return min(risk, 1.0)  # Cap at 1.0
+    if signals.get("inflation", 0) > 3.5:
+        risk += 0.20
+
+    claims = signals.get("claims_rate", 0)
+    if claims > 0.6:
+        risk += 0.25
+    elif claims > 0.4:
+        risk += 0.15
+
+    if signals.get("fraud_index", 0) > 0.6:
+        risk += 0.20
+
+    if signals.get("repair_cost_index", 0) > 1.2:
+        risk += 0.15
+
+    return min(risk, 1.0)
 
 
-def decide(risk: float) -> dict:
-    """Make a decision based on risk score.
-    
-    Args:
-        risk: Risk score between 0 and 1
-    
-    Returns:
-        Decision dictionary with action and confidence
-    """
-    if risk > 0.6:
-        decision = "ESCALATE"
-        confidence = 0.9
-    elif risk > 0.3:
-        decision = "REVIEW"
-        confidence = 0.75
-    else:
-        decision = "APPROVE"
-        confidence = 0.85
-    
-    return {
-        "decision": decision,
-        "confidence": round(confidence, 2),
-        "risk_score": round(risk, 2)
+# Backward-compatible alias
+evaluate_signal_risk = evaluate
+
+
+# ---------------------------------------------------------------------------
+# Scenario-level severity
+# ---------------------------------------------------------------------------
+
+def compute_scenario_severity(scenario: dict, signals: dict) -> float:
+    """Weighted severity score for a detected scenario (0..1)."""
+    weights = scenario.get("severity_weights", {})
+    severity = 0.0
+
+    mapping = {
+        "oil_price_factor": ("oil_price", 95, 130),
+        "inflation_factor": ("inflation", 3.0, 6.0),
+        "claims_factor": ("claims_rate", 0.4, 0.9),
+        "fraud_index_factor": ("fraud_index", 0.4, 1.0),
+        "repair_cost_factor": ("repair_cost_index", 1.0, 2.0),
     }
 
+    for key, weight in weights.items():
+        if key in mapping:
+            signal_key, low, high = mapping[key]
+            value = signals.get(signal_key, 0)
+            normalised = max(0.0, min(1.0, (value - low) / (high - low)))
+            severity += weight * normalised
 
-def run_decision_engine(signals_path: str = "data/signals.json") -> dict:
-    """Run the complete decision engine pipeline.
-    
-    Args:
-        signals_path: Path to signals JSON file
-    
-    Returns:
-        Final decision output
-    """
-    # Load signals
-    with open(signals_path, 'r') as f:
-        signals = json.load(f)
-    
-    # Evaluate risk
-    risk = evaluate(signals)
-    
-    # Make decision
-    output = decide(risk)
-    output["input_signals"] = signals
-    
-    return output
+    return round(min(severity, 1.0), 4)
 
 
-if __name__ == "__main__":
-    import os
-    
-    # Get the directory where this script is located
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    project_dir = os.path.dirname(script_dir)
-    signals_path = os.path.join(project_dir, "data", "signals.json")
-    
-    result = run_decision_engine(signals_path)
-    print(json.dumps(result, indent=2))
+# ---------------------------------------------------------------------------
+# Decision logic
+# ---------------------------------------------------------------------------
+
+def decide(risk_score: float, context: dict) -> Tuple[str, float]:
+    """Return (decision, confidence) using context thresholds."""
+    esc = context.get("escalation_threshold", 0.65)
+    rev = context.get("review_threshold", 0.35)
+
+    if risk_score >= esc:
+        return "ESCALATE", round(0.70 + 0.25 * min(risk_score, 1.0), 2)
+    elif risk_score >= rev:
+        return "REVIEW", round(0.60 + 0.20 * risk_score, 2)
+    else:
+        return "APPROVE", round(0.80 + 0.15 * (1.0 - risk_score), 2)

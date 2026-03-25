@@ -1,0 +1,177 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "cortex-v2/simulation",
+  "title": "Simulation Schema",
+  "description": "Scenario simulation and stress testing structures",
+  
+  "definitions": {
+    "ScenarioType": {
+      "type": "string",
+      "enum": ["STRESS_TEST", "WHAT_IF", "MONTE_CARLO", "SENSITIVITY", "HISTORICAL_REPLAY"]
+    },
+    
+    "ScenarioStatus": {
+      "type": "string",
+      "enum": ["DRAFT", "READY", "RUNNING", "COMPLETED", "FAILED"]
+    },
+    
+    "SignalOverride": {
+      "type": "object",
+      "required": ["signal_id", "new_value"],
+      "properties": {
+        "signal_id": {
+          "type": "string"
+        },
+        "original_value": {
+          "type": "number"
+        },
+        "new_value": {
+          "type": "number"
+        },
+        "change_type": {
+          "type": "string",
+          "enum": ["ABSOLUTE", "PERCENTAGE", "DELTA"]
+        }
+      }
+    },
+    
+    "SimulationParameters": {
+      "type": "object",
+      "properties": {
+        "iterations": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "time_horizon_days": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "confidence_interval": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 0.99
+        },
+        "random_seed": {
+          "type": "integer"
+        }
+      }
+    },
+    
+    "Scenario": {
+      "type": "object",
+      "required": ["scenario_id", "name", "type", "overrides"],
+      "properties": {
+        "scenario_id": {
+          "type": "string",
+          "pattern": "^SCN-[A-Z]{3}-[0-9]{4}$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/ScenarioType"
+        },
+        "status": {
+          "$ref": "#/definitions/ScenarioStatus"
+        },
+        "overrides": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SignalOverride"
+          }
+        },
+        "parameters": {
+          "$ref": "#/definitions/SimulationParameters"
+        },
+        "baseline_snapshot_id": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    
+    "SimulationResult": {
+      "type": "object",
+      "required": ["result_id", "scenario_id", "timestamp"],
+      "properties": {
+        "result_id": {
+          "type": "string"
+        },
+        "scenario_id": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_ms": {
+          "type": "integer"
+        },
+        "baseline_decision": {
+          "type": "object",
+          "description": "Decision before scenario applied"
+        },
+        "simulated_decision": {
+          "type": "object",
+          "description": "Decision after scenario applied"
+        },
+        "risk_delta": {
+          "type": "number"
+        },
+        "affected_nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "node_id": { "type": "string" },
+              "original_value": { "type": "number" },
+              "simulated_value": { "type": "number" },
+              "impact": { "type": "number" }
+            }
+          }
+        },
+        "distribution": {
+          "type": "object",
+          "description": "For Monte Carlo simulations",
+          "properties": {
+            "mean": { "type": "number" },
+            "std_dev": { "type": "number" },
+            "percentiles": {
+              "type": "object",
+              "properties": {
+                "p5": { "type": "number" },
+                "p25": { "type": "number" },
+                "p50": { "type": "number" },
+                "p75": { "type": "number" },
+                "p95": { "type": "number" }
+              }
+            }
+          }
+        },
+        "insights": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  
+  "type": "object",
+  "properties": {
+    "scenario": {
+      "$ref": "#/definitions/Scenario"
+    },
+    "result": {
+      "$ref": "#/definitions/SimulationResult"
+    }
+  }
+}

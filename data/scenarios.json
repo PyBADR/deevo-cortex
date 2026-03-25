@@ -1,0 +1,44 @@
+{
+  "oil_spike": {
+    "id": "oil_spike",
+    "name": "Oil Price Spike",
+    "trigger_conditions": {
+      "oil_price": { "operator": ">", "threshold": 95 }
+    },
+    "propagation_domains": ["inflation", "claims", "loss_ratio", "pricing"],
+    "severity_weights": {
+      "oil_price_factor": 0.4,
+      "inflation_factor": 0.3,
+      "claims_factor": 0.3
+    },
+    "description": "Rapid oil price increase drives inflation and downstream claims cost escalation"
+  },
+  "fraud_surge": {
+    "id": "fraud_surge",
+    "name": "Fraud Activity Surge",
+    "trigger_conditions": {
+      "fraud_index": { "operator": ">", "threshold": 0.6 }
+    },
+    "propagation_domains": ["claims", "investigation", "loss_ratio"],
+    "severity_weights": {
+      "fraud_index_factor": 0.5,
+      "claims_factor": 0.3,
+      "repair_cost_factor": 0.2
+    },
+    "description": "Spike in fraudulent claims activity requiring investigation escalation"
+  },
+  "repair_cost_inflation": {
+    "id": "repair_cost_inflation",
+    "name": "Repair Cost Inflation",
+    "trigger_conditions": {
+      "repair_cost_index": { "operator": ">", "threshold": 1.2 }
+    },
+    "propagation_domains": ["claims", "reserves", "pricing"],
+    "severity_weights": {
+      "repair_cost_factor": 0.5,
+      "inflation_factor": 0.25,
+      "claims_factor": 0.25
+    },
+    "description": "Systematic increase in vehicle and property repair costs affecting reserves"
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "en": {
+    "app": {
+      "title": "DEEVO Cortex",
+      "subtitle": "DEEVO Decision Intelligence",
+      "tagline": "GCC Intelligence"
+    },
+    "command_center": {
+      "title": "DEEVO GCC Command Center",
+      "subtitle": "Real-Time Intelligence Surface",
+      "initializing": "INITIALIZING",
+      "system_loading": "DEEVO INTELLIGENCE SYSTEM"
+    },
+    "top_bar": {
+      "live": "LIVE",
+      "paused": "PAUSED",
+      "monitoring": "MONITORING",
+      "critical": "CRITICAL",
+      "warning": "WARNING",
+      "last_update": "Last Update"
+    },
+    "signals": {
+      "title": "Signal Feed",
+      "live_label": "LIVE",
+      "no_signals": "NO SIGNALS",
+      "category_macro": "MACRO",
+      "category_insurance": "INSURANCE",
+      "category_risk": "RISK",
+      "category_context": "CONTEXT",
+      "direction_up": "Rising",
+      "direction_down": "Falling",
+      "direction_stable": "Stable",
+      "severity_low": "Low",
+      "severity_moderate": "Moderate",
+      "severity_high": "High",
+      "severity_critical": "Critical",
+      "top_movers": "Top Movers",
+      "elevated_signals": "Elevated Signals"
+    },
+    "decision": {
+      "title": "Decision Rail",
+      "approve": "APPROVE",
+      "review": "REVIEW",
+      "escalate": "ESCALATE",
+      "confidence": "Confidence",
+      "risk_score": "Risk Score",
+      "reasoning": "Reasoning",
+      "trace": "Decision Trace",
+      "scenario_detected": "Scenario Detected",
+      "no_scenario": "No Active Scenario",
+      "agents": "Agent Observations"
+    },
+    "propagation": {
+      "title": "Propagation Panel",
+      "cause_effect": "Cause → Effect Chain",
+      "readable_path": "Impact Path",
+      "active_nodes": "Active Nodes",
+      "edges_traversed": "Edges Traversed",
+      "affected_countries": "Affected Countries",
+      "affected_sectors": "Affected Sectors",
+      "affected_lines": "Affected Insurance Lines",
+      "weight": "Weight"
+    },
+    "executive_brief": {
+      "title": "Executive Brief",
+      "generated_label": "AI-Generated Intelligence Summary",
+      "recommendation": "Recommendation"
+    },
+    "globe": {
+      "title": "GCC Intelligence Network",
+      "nodes": "Nodes",
+      "edges": "Edges",
+      "affected": "Affected"
+    },
+    "live_mode": {
+      "title": "Live Simulation",
+      "enabled": "Live Mode Active",
+      "disabled": "Live Mode Paused",
+      "tick": "Tick",
+      "intensity": "Intensity"
+    },
+    "settings": {
+      "title": "Settings",
+      "display": "Display",
+      "panels": "Panels",
+      "sources": "Data Sources",
+      "region": "Region",
+      "scenario": "Scenario",
+      "language": "Language",
+      "apply": "Apply",
+      "reset": "Reset to Defaults",
+      "close": "Close"
+    },
+    "display": {
+      "title": "Display Settings",
+      "theme": "Theme",
+      "theme_dark": "Dark",
+      "theme_light": "Light",
+      "theme_system": "System",
+      "density": "Information Density",
+      "density_compact": "Compact",
+      "density_comfortable": "Comfortable",
+      "density_expanded": "Expanded",
+      "animation": "Enable Animations",
+      "refresh_interval": "Auto-refresh Interval (seconds)"
+    },
+    "panels": {
+      "title": "Panel Visibility",
+      "signal_feed": "Signal Feed",
+      "decision_rail": "Decision Rail",
+      "propagation_panel": "Propagation Panel",
+      "executive_brief": "Executive Brief",
+      "globe_canvas": "Globe / Graph Canvas"
+    },
+    "sources": {
+      "title": "Data Sources",
+      "description": "Enable or disable intelligence data feeds.",
+      "group_macro": "Macroeconomic Data",
+      "group_intelligence": "Intelligence & Geopolitical",
+      "group_insurance": "Insurance Market Data",
+      "group_ai_ml": "AI & Machine Learning",
+      "group_policy_research": "Policy & Research",
+      "enabled": "Enabled",
+      "disabled": "Disabled"
+    },
+    "region": {
+      "title": "Region Filter",
+      "country": "Country",
+      "lob": "Line of Business",
+      "all_gcc": "All GCC",
+      "all_lines": "All Lines",
+      "motor": "Motor",
+      "medical": "Medical",
+      "property": "Property",
+      "marine": "Marine"
+    },
+    "scenario": {
+      "title": "Scenario Simulation",
+      "active_preset": "Active Scenario",
+      "auto_detect": "Auto-detect",
+      "live_mode": "Live Simulation Mode",
+      "perturbation_intensity": "Perturbation Intensity",
+      "severity": "Severity",
+      "typical_lag": "Typical Lag (days)"
+    },
+    "country_selector": {
+      "all_gcc": "All GCC",
+      "select_country": "Select Country"
+    },
+    "layers": {
+      "signals_layer": "Signals",
+      "graph_layer": "Graph",
+      "decision_layer": "Decision",
+      "propagation_layer": "Propagation"
+    }
+  },
+  "ar": {
+    "app": {
+      "title": "ديڤو كورتكس",
+      "subtitle": "ذكاء القرار من ديڤو",
+      "tagline": "استخبارات الخليج"
+    },
+    "command_center": {
+      "title": "مركز قيادة ديڤو الخليجي",
+      "subtitle": "سطح استخبارات الوقت الحقيقي",
+      "initializing": "جارٍ التهيئة",
+      "system_loading": "نظام ديڤو الذكي"
+    },
+    "top_bar": {
+      "live": "مباشر",
+      "paused": "متوقف",
+      "monitoring": "مراقبة",
+      "critical": "حرج",
+      "warning": "تحذير",
+      "last_update": "آخر تحديث"
+    },
+    "signals": {
+      "title": "تغذية الإشارات",
+      "live_label": "مباشر",
+      "no_signals": "لا توجد إشارات",
+      "category_macro": "اقتصاد كلي",
+      "category_insurance": "تأمين",
+      "category_risk": "مخاطر",
+      "category_context": "سياق",
+      "direction_up": "صاعد",
+      "direction_down": "هابط",
+      "direction_stable": "مستقر",
+      "severity_low": "منخفض",
+      "severity_moderate": "متوسط",
+      "severity_high": "مرتفع",
+      "severity_critical": "حرج",
+      "top_movers": "أكبر التحركات",
+      "elevated_signals": "إشارات مرتفعة"
+    },
+    "decision": {
+      "title": "لوحة القرار",
+      "approve": "موافقة",
+      "review": "مراجعة",
+      "escalate": "تصعيد",
+      "confidence": "الثقة",
+      "risk_score": "درجة المخاطر",
+      "reasoning": "التبرير",
+      "trace": "تتبع القرار",
+      "scenario_detected": "سيناريو مكتشف",
+      "no_scenario": "لا يوجد سيناريو نشط",
+      "agents": "ملاحظات المحللين"
+    },
+    "propagation": {
+      "title": "لوحة الانتشار",
+      "cause_effect": "سلسلة السبب والنتيجة",
+      "readable_path": "مسار التأثير",
+      "active_nodes": "العقد النشطة",
+      "edges_traversed": "الروابط المتتبعة",
+      "affected_countries": "الدول المتأثرة",
+      "affected_sectors": "القطاعات المتأثرة",
+      "affected_lines": "خطوط التأمين المتأثرة",
+      "weight": "الوزن"
+    },
+    "executive_brief": {
+      "title": "الملخص التنفيذي",
+      "generated_label": "ملخص استخباراتي مولّد بالذكاء الاصطناعي",
+      "recommendation": "التوصية"
+    },
+    "globe": {
+      "title": "شبكة استخبارات الخليج",
+      "nodes": "العقد",
+      "edges": "الروابط",
+      "affected": "المتأثرة"
+    },
+    "live_mode": {
+      "title": "المحاكاة المباشرة",
+      "enabled": "وضع المحاكاة نشط",
+      "disabled": "وضع المحاكاة متوقف",
+      "tick": "نبضة",
+      "intensity": "الشدة"
+    },
+    "settings": {
+      "title": "الإعدادات",
+      "display": "العرض",
+      "panels": "اللوحات",
+      "sources": "مصادر البيانات",
+      "region": "المنطقة",
+      "scenario": "السيناريو",
+      "language": "اللغة",
+      "apply": "تطبيق",
+      "reset": "إعادة ضبط",
+      "close": "إغلاق"
+    },
+    "display": {
+      "title": "إعدادات العرض",
+      "theme": "المظهر",
+      "theme_dark": "داكن",
+      "theme_light": "فاتح",
+      "theme_system": "النظام",
+      "density": "كثافة المعلومات",
+      "density_compact": "مضغوط",
+      "density_comfortable": "مريح",
+      "density_expanded": "موسّع",
+      "animation": "تفعيل الرسوم المتحركة",
+      "refresh_interval": "فترة التحديث التلقائي (ثوانٍ)"
+    },
+    "panels": {
+      "title": "إظهار اللوحات",
+      "signal_feed": "تغذية الإشارات",
+      "decision_rail": "لوحة القرار",
+      "propagation_panel": "لوحة الانتشار",
+      "executive_brief": "الملخص التنفيذي",
+      "globe_canvas": "خريطة الشبكة"
+    },
+    "sources": {
+      "title": "مصادر البيانات",
+      "description": "تفعيل أو تعطيل تغذيات بيانات المعلومات.",
+      "group_macro": "بيانات الاقتصاد الكلي",
+      "group_intelligence": "استخبارات وجيوسياسية",
+      "group_insurance": "بيانات سوق التأمين",
+      "group_ai_ml": "الذكاء الاصطناعي والتعلم الآلي",
+      "group_policy_research": "السياسات والأبحاث",
+      "enabled": "مفعّل",
+      "disabled": "معطّل"
+    },
+    "region": {
+      "title": "فلتر المنطقة",
+      "country": "الدولة",
+      "lob": "خط الأعمال",
+      "all_gcc": "جميع دول الخليج",
+      "all_lines": "جميع الخطوط",
+      "motor": "المركبات",
+      "medical": "التأمين الطبي",
+      "property": "الممتلكات",
+      "marine": "التأمين البحري"
+    },
+    "scenario": {
+      "title": "محاكاة السيناريو",
+      "active_preset": "السيناريو النشط",
+      "auto_detect": "اكتشاف تلقائي",
+      "live_mode": "وضع المحاكاة المباشرة",
+      "perturbation_intensity": "شدة الاضطراب",
+      "severity": "الشدة",
+      "typical_lag": "التأخر النموذجي (أيام)"
+    },
+    "country_selector": {
+      "all_gcc": "جميع دول الخليج",
+      "select_country": "اختر الدولة"
+    },
+    "layers": {
+      "signals_layer": "الإشارات",
+      "graph_layer": "الشبكة",
+      "decision_layer": "القرار",
+      "propagation_layer": "الانتشار"
+    }
+  }
+}

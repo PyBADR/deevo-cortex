@@ -1,0 +1,189 @@
+{
+  "demos": {
+    "oil_spike": {
+      "id": "oil_spike",
+      "title_en": "Brent Crude Surge — GCC-Wide Cascade",
+      "title_ar": "ارتفاع خام برنت — تسلسل تأثير على مستوى الخليج",
+      "headline_summary": "Brent crude surges 59% to $135/bbl — inflation pass-through drives motor claims cost up 75%, triggering ESCALATE across all 6 GCC markets with risk 0.95+.",
+      "headline_summary_ar": "ارتفاع خام برنت 59% إلى 135 دولار/برميل — تمرير تضخمي يرفع تكاليف مطالبات المركبات 75%، مما يستدعي التصعيد في جميع أسواق الخليج الست بمخاطر تتجاوز 0.95.",
+      "country_focus": "SA",
+      "country_focus_label": "Saudi Arabia — OPEC swing producer, oil_price node has highest in-degree weight in the graph",
+      "dominant_signals": ["oil_price", "inflation", "repair_cost_index", "supply_chain_stress"],
+      "expected_decision": "ESCALATE",
+      "narrative_en": "Brent crude hits $135/bbl — 59% above the $85 baseline — as OPEC+ production cuts tighten global supply. The propagation cascade is immediate: oil_price → inflation (6.2%, 148% above baseline) → repair_cost_index (1.75, 75% above baseline). Saudi Arabia absorbs the first shock at 0.85 oil dependency, then transmits pressure to Kuwait (0.90) and Qatar (0.80) within the same tick. Motor and property insurance lines cross critical thresholds simultaneously. Three analyst agents converge on ESCALATE with 0.97+ confidence. The executive brief auto-generates in <300ms with a clear action path: freeze new motor underwriting, trigger IFRS 17 reserve adequacy review, notify PDPL compliance for premium adjustment disclosures.",
+      "narrative_ar": "يصل خام برنت إلى 135 دولار/برميل — بزيادة 59% عن خط الأساس البالغ 85 دولاراً — مع تشديد تخفيضات إنتاج أوبك+ للإمدادات العالمية. التأثير التسلسلي فوري: أسعار النفط ← التضخم (6.2%، أعلى 148% من خط الأساس) ← مؤشر تكاليف الإصلاح (1.75، أعلى 75% من خط الأساس). تمتص السعودية الصدمة الأولى باعتمادية نفطية 0.85، ثم تنقل الضغط إلى الكويت (0.90) وقطر (0.80) في نفس النبضة. خطوط تأمين المركبات والممتلكات تتجاوز العتبات الحرجة في وقت واحد. ثلاثة محللين يتفقون على التصعيد بثقة تتجاوز 0.97.",
+      "signal_overrides": {
+        "oil_price": 135,
+        "inflation": 6.2,
+        "claims_rate": 0.68,
+        "fraud_index": 0.35,
+        "repair_cost_index": 1.75,
+        "supply_chain_stress": 0.60,
+        "currency_volatility": 0.10,
+        "interest_rate": 6.5
+      },
+      "demo_kpi": {
+        "oil_price": {"baseline": 85, "demo": 135, "delta_pct": "+59%", "severity": "critical"},
+        "inflation": {"baseline": 2.5, "demo": 6.2, "delta_pct": "+148%", "severity": "high"},
+        "repair_cost_index": {"baseline": 1.0, "demo": 1.75, "delta_pct": "+75%", "severity": "high"},
+        "supply_chain_stress": {"baseline": 0.3, "demo": 0.60, "delta_pct": "+100%", "severity": "moderate"}
+      },
+      "demo_talking_points": [
+        "PRESENTER: 'Brent just hit $135. Watch what happens next.' — click Run, the cascade fills in 300ms",
+        "GRAPH: Oil_price node turns red first (SA), then propagates outward to KW→QA→AE within one tick",
+        "CONTRAST: Fraud index stays at 0.35 (low) — this is a pure macro cascade, not a fraud event. The system knows the difference.",
+        "DECISION: Three independent AI analysts converge on ESCALATE. No human tuning — pure signal-driven.",
+        "COMPLIANCE: Executive brief auto-recommends IFRS 17 reserve review and PDPL disclosure triggers",
+        "SPEED: Full pipeline — 8 signals, 14 graph nodes, 25 edges, 3 agents — completes in <300ms"
+      ]
+    },
+    "fraud_surge": {
+      "id": "fraud_surge",
+      "title_en": "Coordinated Fraud Ring — Motor Claims Network",
+      "title_ar": "شبكة احتيال منظمة — شبكة مطالبات المركبات",
+      "headline_summary": "Fraud index hits 0.91 — 203% above baseline — as a coordinated motor claims ring inflates repair estimates 60% across Dubai and Manama. SIU mobilisation recommended.",
+      "headline_summary_ar": "مؤشر الاحتيال يبلغ 0.91 — أعلى 203% من خط الأساس — مع تضخيم شبكة مطالبات مركبات منظمة لتقديرات الإصلاح بنسبة 60% في دبي والمنامة. التوصية بتعبئة وحدة التحقيقات الخاصة.",
+      "country_focus": "AE",
+      "country_focus_label": "UAE — Largest GCC insurance market ($12.8B GWP), highest motor claims volume, DIFC/ADGM dual-jurisdiction complexity",
+      "dominant_signals": ["fraud_index", "claims_rate", "repair_cost_index"],
+      "expected_decision": "ESCALATE",
+      "narrative_en": "The fraud detection engine flags a 0.91 fraud index — 203% above the 0.30 baseline — the highest severity classification in the DEEVO risk taxonomy. A coordinated motor claims ring is operating across Dubai and Manama: staged collisions, inflated repair estimates (+60%), and systematic workshop collusion. Claims frequency has spiked to 0.78 (123% above baseline) while macro signals remain calm — oil at $95, inflation at 3.8. This is the key differentiator: the system isolates fraud-driven claims pressure from legitimate macro stress. Three analyst agents converge on ESCALATE independently. The SHA-256 audit trail generates a tamper-proof decision hash for direct SIU handoff — no manual documentation required.",
+      "narrative_ar": "يرصد محرك كشف الاحتيال مؤشراً عند 0.91 — أعلى 203% من خط الأساس عند 0.30 — أعلى تصنيف خطورة في نظام مخاطر ديڤو. تعمل شبكة مطالبات مركبات منظمة عبر دبي والمنامة: حوادث مفتعلة، تقديرات إصلاح مضخمة (+60%)، وتواطؤ منهجي مع الورش. ارتفعت تكرارية المطالبات إلى 0.78 (أعلى 123% من خط الأساس) بينما تبقى المؤشرات الاقتصادية هادئة — النفط عند 95 دولاراً، التضخم عند 3.8. هذا هو المفرّق الرئيسي: النظام يعزل ضغط المطالبات الناتج عن الاحتيال عن الإجهاد الاقتصادي المشروع. ثلاثة محللين يتفقون على التصعيد باستقلالية. يولّد مسار تدقيق SHA-256 توقيعاً مقاوماً للتلاعب لتسليم مباشر لوحدة التحقيقات.",
+      "signal_overrides": {
+        "oil_price": 95,
+        "inflation": 3.8,
+        "claims_rate": 0.78,
+        "fraud_index": 0.91,
+        "repair_cost_index": 1.60,
+        "supply_chain_stress": 0.30,
+        "currency_volatility": 0.06,
+        "interest_rate": 5.0
+      },
+      "demo_kpi": {
+        "fraud_index": {"baseline": 0.30, "demo": 0.91, "delta_pct": "+203%", "severity": "critical"},
+        "claims_rate": {"baseline": 0.35, "demo": 0.78, "delta_pct": "+123%", "severity": "critical"},
+        "repair_cost_index": {"baseline": 1.0, "demo": 1.60, "delta_pct": "+60%", "severity": "high"},
+        "oil_price": {"baseline": 85, "demo": 95, "delta_pct": "+12%", "severity": "low"}
+      },
+      "demo_talking_points": [
+        "PRESENTER: 'Oil is calm. Inflation is calm. But watch the fraud index.' — the system catches what humans miss",
+        "CONTRAST: Macro signals are green (oil +12%, inflation +52%). The ESCALATE comes purely from fraud and claims anomaly detection.",
+        "GRAPH: fraud_index → claims_rate → repair_cost propagation path lights up while macro nodes stay dim",
+        "AUDIT: SHA-256 decision hash generates automatically — click Export and the SIU handoff package is ready",
+        "JURISDICTION: UAE triggers DIFC and ADGM dual-regulatory alerts. The system flags both jurisdictions automatically.",
+        "AGENT CONVERGENCE: All 3 analysts independently reach ESCALATE — no majority override, no tuning"
+      ]
+    },
+    "repair_cost_inflation": {
+      "id": "repair_cost_inflation",
+      "title_en": "Repair Cost Spiral — Motor & Property Reserves",
+      "title_ar": "تصاعد تكاليف الإصلاح — احتياطيات المركبات والممتلكات",
+      "headline_summary": "Repair cost index climbs to 1.82 (+82% above baseline) while oil sits at $82 and fraud is low — compounding pressure triggers REVIEW with pricing adjustment recommended.",
+      "headline_summary_ar": "ارتفاع مؤشر تكاليف الإصلاح إلى 1.82 (+82% فوق خط الأساس) بينما النفط عند 82 دولاراً والاحتيال منخفض — الضغط المركّب يفعّل المراجعة مع التوصية بتعديل التسعير.",
+      "country_focus": "KW",
+      "country_focus_label": "Kuwait — Highest oil dependency (0.90), motor-dominated insurance market, KIA sovereign wealth exposed",
+      "dominant_signals": ["repair_cost_index", "inflation", "claims_rate", "supply_chain_stress"],
+      "expected_decision": "REVIEW",
+      "narrative_en": "No single signal is critical. That is the point. Repair cost index has crept to 1.82 — 82% above baseline — as automotive parts shortages compound with 3.8% inflation. Claims frequency sits at 0.42 (moderate, not alarming). Supply chain stress at 0.42 (moderate). Fraud index at 0.32 (low). Oil price at $82 — below baseline. In isolation, every signal passes muster. Together, they erode motor and property reserve adequacy below IFRS 17 thresholds. Kuwait's motor-dominated portfolio (KIA-backed, 62% motor) takes the largest hit. This is the 'silent risk' demo — the system detects compounding pressure that would take a human analyst 3-5 days to identify. Decision: REVIEW, not ESCALATE — demonstrating calibrated judgment, not alarm fatigue.",
+      "narrative_ar": "لا إشارة واحدة حرجة. هذا هو المغزى. زحف مؤشر تكلفة الإصلاح إلى 1.82 — أعلى 82% من خط الأساس — مع تفاقم نقص قطع غيار السيارات بتضخم 3.8%. تكرارية المطالبات عند 0.42 (معتدلة). ضغط سلسلة التوريد عند 0.42 (معتدل). مؤشر الاحتيال عند 0.32 (منخفض). النفط عند 82 دولاراً — دون خط الأساس. كل إشارة على حدة مقبولة. معاً، تتآكل كفاية احتياطيات المركبات والممتلكات دون عتبات IFRS 17. محفظة الكويت المركّزة على المركبات (المدعومة من هيئة الاستثمار، 62% مركبات) تتحمل أكبر ضربة.",
+      "signal_overrides": {
+        "oil_price": 82,
+        "inflation": 3.8,
+        "claims_rate": 0.42,
+        "fraud_index": 0.32,
+        "repair_cost_index": 1.82,
+        "supply_chain_stress": 0.42,
+        "currency_volatility": 0.06,
+        "interest_rate": 5.2
+      },
+      "demo_kpi": {
+        "repair_cost_index": {"baseline": 1.0, "demo": 1.82, "delta_pct": "+82%", "severity": "critical"},
+        "inflation": {"baseline": 2.5, "demo": 3.8, "delta_pct": "+52%", "severity": "moderate"},
+        "claims_rate": {"baseline": 0.35, "demo": 0.42, "delta_pct": "+20%", "severity": "moderate"},
+        "oil_price": {"baseline": 85, "demo": 82, "delta_pct": "-4%", "severity": "low"}
+      },
+      "demo_talking_points": [
+        "PRESENTER: 'Oil is at $82. Fraud is low. Every signal looks fine. Now watch the system's verdict.' — REVIEW appears. The audience gasps.",
+        "KEY INSIGHT: No single signal crosses critical threshold — repair at 1.82, claims at 0.42, oil below baseline — but compounding pressure drives REVIEW",
+        "CONTRAST: Run after oil_spike. That was ESCALATE. This is REVIEW. Same system, calibrated judgment — not alarm fatigue.",
+        "IFRS 17: Reserve adequacy erosion detected below compliance thresholds — auto-flagged for actuarial review before any human notices",
+        "COUNTRY: Kuwait's motor portfolio (62% of GWP, 0.90 oil dependency) absorbs 34% more impact than UAE equivalent",
+        "VALUE PROP: A human analyst needs 3-5 days to spot compounding erosion across 8 signals. DEEVO Cortex catches it in one tick."
+      ]
+    },
+    "supply_chain_break": {
+      "id": "supply_chain_break",
+      "title_en": "Red Sea Shipping Disruption — Marine & Logistics Cascade",
+      "title_ar": "اضطراب الشحن في البحر الأحمر — تسلسل التأمين البحري واللوجستيات",
+      "headline_summary": "Supply chain stress surges to 0.88 (+193%) as Red Sea corridor disruptions cascade through marine insurance, logistics costs, and GCC trade flows — ESCALATE with marine portfolio freeze.",
+      "headline_summary_ar": "ارتفاع ضغط سلسلة التوريد إلى 0.88 (+193%) مع تأثير اضطرابات ممر البحر الأحمر على التأمين البحري وتكاليف اللوجستيات وتدفقات التجارة الخليجية — تصعيد مع تجميد محفظة التأمين البحري.",
+      "country_focus": "OM",
+      "country_focus_label": "Oman — Strait of Hormuz gatekeeper, Duqm port as strategic bypass, 40% of world oil transits this chokepoint",
+      "dominant_signals": ["supply_chain_stress", "repair_cost_index", "inflation", "oil_price"],
+      "expected_decision": "ESCALATE",
+      "narrative_en": "Red Sea shipping corridor restrictions drive supply chain stress to 0.88 — 193% above the 0.30 baseline — as Houthi disruptions force re-routing around the Cape of Good Hope, adding 10-14 days to Asia-Europe transit. Oman's strategic position at the Strait of Hormuz (40% of world oil transit) makes it the first node to activate. But the cascade is multi-dimensional: supply_chain_stress → repair_cost_index (parts delayed, +65%) → inflation (5.2%, import cost pass-through) → oil_price ($120, risk premium). The propagation graph lights up the SA→AE→OM logistics triangle. Marine and property insurance lines cross critical thresholds. Currency volatility spikes to 0.12 as trade uncertainty shakes peg confidence. This scenario tests the system's ability to trace a single geopolitical event through four distinct impact channels.",
+      "narrative_ar": "قيود ممر الشحن في البحر الأحمر ترفع ضغط سلسلة التوريد إلى 0.88 — أعلى 193% من خط الأساس عند 0.30 — مع إعادة توجيه الشحن حول رأس الرجاء الصالح بإضافة 10-14 يوماً لعبور آسيا-أوروبا. موقع عُمان الاستراتيجي على مضيق هرمز (40% من نقل النفط العالمي) يجعلها أول عقدة تنشط. لكن التأثير متعدد الأبعاد: ضغط سلسلة التوريد ← مؤشر تكاليف الإصلاح (تأخير القطع، +65%) ← التضخم (5.2%، تمرير تكاليف الاستيراد) ← أسعار النفط (120 دولار، علاوة مخاطر).",
+      "signal_overrides": {
+        "oil_price": 120,
+        "inflation": 5.2,
+        "claims_rate": 0.60,
+        "fraud_index": 0.48,
+        "repair_cost_index": 1.65,
+        "supply_chain_stress": 0.88,
+        "currency_volatility": 0.12,
+        "interest_rate": 6.0
+      },
+      "demo_kpi": {
+        "supply_chain_stress": {"baseline": 0.30, "demo": 0.88, "delta_pct": "+193%", "severity": "critical"},
+        "oil_price": {"baseline": 85, "demo": 120, "delta_pct": "+41%", "severity": "high"},
+        "repair_cost_index": {"baseline": 1.0, "demo": 1.65, "delta_pct": "+65%", "severity": "high"},
+        "currency_volatility": {"baseline": 0.05, "demo": 0.12, "delta_pct": "+140%", "severity": "high"}
+      },
+      "demo_talking_points": [
+        "PRESENTER: 'A single geopolitical event. Four distinct impact channels. Watch the cascade unfold.'",
+        "GRAPH: supply_chain_stress activates OM first (Hormuz), then propagates through the SA→AE→OM logistics triangle",
+        "MULTI-CHANNEL: One event → supply chain + repair costs + inflation + oil risk premium. Four separate impact paths.",
+        "CURRENCY: Volatility at 0.12 (140% above baseline) — trade uncertainty shakes peg confidence. Marine + FX dual-exposure.",
+        "OMAN: Duqm port positioning as strategic bypass adds a second Omani node — both risk and opportunity in one graph",
+        "MARINE: Marine insurance line crosses critical threshold independently from property — shows line-of-business granularity"
+      ]
+    },
+    "geopolitical_escalation": {
+      "id": "geopolitical_escalation",
+      "title_en": "Regional Tensions — Full-Spectrum Risk Cascade",
+      "title_ar": "توترات إقليمية — تأثير تسلسلي شامل للمخاطر",
+      "headline_summary": "Oil surges to $142, supply chains freeze at 0.92 stress, and currency volatility triples — a full-spectrum geopolitical event cascading across all GCC insurance lines.",
+      "headline_summary_ar": "ارتفاع النفط إلى 142 دولاراً وتجمد سلاسل التوريد عند 0.92 وتضاعف تقلبات العملات ثلاثاً — حدث جيوسياسي شامل يؤثر على جميع خطوط التأمين الخليجية.",
+      "country_focus": "QA",
+      "country_focus_label": "Qatar — LNG exporter with concentrated economy, geopolitical exposure history (2017 blockade precedent)",
+      "dominant_signals": ["oil_price", "supply_chain_stress", "currency_volatility", "interest_rate"],
+      "expected_decision": "ESCALATE",
+      "narrative_en": "A full-spectrum geopolitical event: oil at $142, supply chain stress at 0.92, currency volatility tripled to 0.19. Qatar — with its concentrated LNG economy and 2017 blockade precedent — is the focal point, but all 6 GCC countries hit critical impact levels. Every signal elevated, every graph node active, every insurance line affected. The system maintains composure: traceable decision, audit-ready hash, clear executive brief. This is the stress-test demo — proving the system does not collapse under maximum load but instead produces a higher-quality output when it matters most.",
+      "narrative_ar": "حدث جيوسياسي شامل: النفط عند 142 دولاراً، ضغط سلسلة التوريد عند 0.92، تقلبات العملات تضاعفت ثلاثاً إلى 0.19. قطر — باقتصادها المركّز على الغاز المسال وسابقة حصار 2017 — هي نقطة التركيز، لكن جميع دول الخليج الست تصل لمستويات تأثير حرجة. النظام يحافظ على رباطة جأشه: قرار قابل للتتبع، توقيع جاهز للتدقيق، ملخص تنفيذي واضح.",
+      "signal_overrides": {
+        "oil_price": 142,
+        "inflation": 6.8,
+        "claims_rate": 0.72,
+        "fraud_index": 0.62,
+        "repair_cost_index": 1.80,
+        "supply_chain_stress": 0.92,
+        "currency_volatility": 0.19,
+        "interest_rate": 7.8
+      },
+      "demo_kpi": {
+        "oil_price": {"baseline": 85, "demo": 142, "delta_pct": "+67%", "severity": "critical"},
+        "supply_chain_stress": {"baseline": 0.30, "demo": 0.92, "delta_pct": "+207%", "severity": "critical"},
+        "currency_volatility": {"baseline": 0.05, "demo": 0.19, "delta_pct": "+280%", "severity": "critical"},
+        "interest_rate": {"baseline": 5.0, "demo": 7.8, "delta_pct": "+56%", "severity": "high"}
+      },
+      "demo_talking_points": [
+        "PRESENTER: 'Everything is breaking at once. This is the stress test.' — system does not collapse, it clarifies",
+        "FULL SPECTRUM: All 8 signals elevated, all 14 graph nodes active, all 4 insurance lines affected",
+        "QATAR: 2017 blockade precedent gives this scenario real-world credibility with GCC enterprise audiences",
+        "COMPOSURE: Under maximum load the system produces higher-quality output — more reasoning, clearer brief",
+        "AUDIT: SHA-256 hash chain unbroken under stress — tamper-proof even at peak system load",
+        "CONTRAST: Run this after oil_spike — shows how the system differentiates targeted shock from systemic crisis"
+      ]
+    }
+  }
+}

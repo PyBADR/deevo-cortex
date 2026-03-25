@@ -1,0 +1,19 @@
+{
+  "rules_signature": "evaluate(signals: dict) -> float",
+  "simulate_signature": "simulate(scenario: str, signals: dict) -> dict",
+  "analyze_signature": "analyze(context: dict) -> dict",
+  "engine_entrypoint": "core.engine.run",
+  "engine_run_signature": "run(signals: dict | None = None, input_path: str | None = None) -> dict",
+  "canonical_input": "data/signals.json",
+  "top_level_output_keys": ["simulation_result", "decision_trace", "decision"],
+  "supported_decisions": ["APPROVE", "REVIEW", "ESCALATE"],
+  "supported_scenarios": ["oil_spike", "fraud_surge", "repair_cost_inflation"],
+  "backward_compat": {
+    "evaluate_signal_risk": "alias for evaluate()",
+    "simulate_with_dict": "simulate() still accepts scenario as dict",
+    "simulate_with_graph_path": "simulate() still accepts optional graph_path",
+    "observe_and_weighted_risk": "original agents functions preserved"
+  },
+  "status": "compatible",
+  "version": "0.2.1"
+}

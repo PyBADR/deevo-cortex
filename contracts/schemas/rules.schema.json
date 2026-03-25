@@ -1,0 +1,159 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "cortex-v2/rules",
+  "title": "Rules Schema",
+  "description": "Decision rules and evaluation logic",
+  
+  "definitions": {
+    "Operator": {
+      "type": "string",
+      "enum": ["GT", "GTE", "LT", "LTE", "EQ", "NEQ", "BETWEEN", "IN", "NOT_IN"]
+    },
+    
+    "LogicalOperator": {
+      "type": "string",
+      "enum": ["AND", "OR", "NOT", "XOR"]
+    },
+    
+    "RuleCategory": {
+      "type": "string",
+      "enum": ["RISK_THRESHOLD", "FRAUD_DETECTION", "CLAIMS_TRIGGER", "UNDERWRITING", "COMPLIANCE", "ESCALATION"]
+    },
+    
+    "Condition": {
+      "type": "object",
+      "required": ["field", "operator", "value"],
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "Signal or node ID to evaluate"
+        },
+        "operator": {
+          "$ref": "#/definitions/Operator"
+        },
+        "value": {
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" },
+            { "type": "array" }
+          ]
+        },
+        "value_end": {
+          "type": "number",
+          "description": "End value for BETWEEN operator"
+        }
+      }
+    },
+    
+    "ConditionGroup": {
+      "type": "object",
+      "required": ["operator", "conditions"],
+      "properties": {
+        "operator": {
+          "$ref": "#/definitions/LogicalOperator"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/Condition" },
+              { "$ref": "#/definitions/ConditionGroup" }
+            ]
+          }
+        }
+      }
+    },
+    
+    "Action": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["SET_RISK", "ESCALATE", "APPROVE", "REJECT", "REVIEW", "FLAG", "NOTIFY", "SIMULATE"]
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    
+    "Rule": {
+      "type": "object",
+      "required": ["id", "name", "category", "conditions", "actions"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^RULE-[A-Z]{3}-[0-9]{4}$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/definitions/RuleCategory"
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "conditions": {
+          "$ref": "#/definitions/ConditionGroup"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Action"
+          }
+        },
+        "risk_contribution": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "author": { "type": "string" },
+            "created_at": { "type": "string", "format": "date-time" },
+            "last_triggered": { "type": "string", "format": "date-time" },
+            "trigger_count": { "type": "integer" }
+          }
+        }
+      }
+    },
+    
+    "RuleSet": {
+      "type": "object",
+      "required": ["ruleset_id", "rules"],
+      "properties": {
+        "ruleset_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Rule"
+          }
+        }
+      }
+    }
+  },
+  
+  "type": "object",
+  "$ref": "#/definitions/RuleSet"
+}

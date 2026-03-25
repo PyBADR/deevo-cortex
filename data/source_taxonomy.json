@@ -1,0 +1,61 @@
+{
+  "categories": {
+    "macro": {
+      "id": "macro",
+      "label_en": "Macroeconomic Data",
+      "label_ar": "بيانات الاقتصاد الكلي",
+      "sources": [
+        { "id": "src_opec_bulletin", "label_en": "OPEC Market Bulletin", "label_ar": "نشرة أوبك السوقية", "category": "macro", "enabled_default": true },
+        { "id": "src_gcc_cpi", "label_en": "GCC CPI Index Feed", "label_ar": "مؤشر أسعار المستهلك الخليجي", "category": "macro", "enabled_default": true },
+        { "id": "src_central_bank", "label_en": "Central Bank Rate Monitor", "label_ar": "مراقب أسعار البنك المركزي", "category": "macro", "enabled_default": true },
+        { "id": "src_trade_balance", "label_en": "GCC Trade Balance Tracker", "label_ar": "متتبع الميزان التجاري الخليجي", "category": "macro", "enabled_default": false },
+        { "id": "src_fx_volatility", "label_en": "FX Volatility Index", "label_ar": "مؤشر تقلبات العملات", "category": "macro", "enabled_default": true }
+      ]
+    },
+    "intelligence": {
+      "id": "intelligence",
+      "label_en": "Intelligence & Geopolitical",
+      "label_ar": "استخبارات وجيوسياسية",
+      "sources": [
+        { "id": "src_shipping_risk", "label_en": "Shipping Lane Risk Monitor", "label_ar": "مراقب مخاطر ممرات الشحن", "category": "intelligence", "enabled_default": true },
+        { "id": "src_sanctions_feed", "label_en": "Sanctions & Compliance Feed", "label_ar": "تغذية العقوبات والامتثال", "category": "intelligence", "enabled_default": true },
+        { "id": "src_geopolitical", "label_en": "Geopolitical Risk Index", "label_ar": "مؤشر المخاطر الجيوسياسية", "category": "intelligence", "enabled_default": false },
+        { "id": "src_supply_chain", "label_en": "Supply Chain Stress Tracker", "label_ar": "متتبع ضغط سلسلة التوريد", "category": "intelligence", "enabled_default": true }
+      ]
+    },
+    "insurance": {
+      "id": "insurance",
+      "label_en": "Insurance Market Data",
+      "label_ar": "بيانات سوق التأمين",
+      "sources": [
+        { "id": "src_claims_feed", "label_en": "Claims Frequency Feed", "label_ar": "تغذية تكرار المطالبات", "category": "insurance", "enabled_default": true },
+        { "id": "src_fraud_index", "label_en": "Fraud Detection Index", "label_ar": "مؤشر كشف الاحتيال", "category": "insurance", "enabled_default": true },
+        { "id": "src_loss_ratio", "label_en": "Loss Ratio Monitor", "label_ar": "مراقب نسبة الخسائر", "category": "insurance", "enabled_default": true },
+        { "id": "src_repair_cost", "label_en": "Repair Cost Tracker", "label_ar": "متتبع تكاليف الإصلاح", "category": "insurance", "enabled_default": true },
+        { "id": "src_reinsurance", "label_en": "Reinsurance Rate Feed", "label_ar": "تغذية أسعار إعادة التأمين", "category": "insurance", "enabled_default": false }
+      ]
+    },
+    "ai_ml": {
+      "id": "ai_ml",
+      "label_en": "AI & Machine Learning",
+      "label_ar": "الذكاء الاصطناعي والتعلم الآلي",
+      "sources": [
+        { "id": "src_anomaly_detector", "label_en": "Anomaly Detection Engine", "label_ar": "محرك كشف الشذوذ", "category": "ai_ml", "enabled_default": true },
+        { "id": "src_nlp_sentiment", "label_en": "NLP Market Sentiment", "label_ar": "تحليل المشاعر السوقية", "category": "ai_ml", "enabled_default": false },
+        { "id": "src_image_claims", "label_en": "Image-Based Claims AI", "label_ar": "ذكاء اصطناعي لمطالبات الصور", "category": "ai_ml", "enabled_default": false },
+        { "id": "src_pattern_engine", "label_en": "Pattern Recognition Engine", "label_ar": "محرك التعرف على الأنماط", "category": "ai_ml", "enabled_default": true }
+      ]
+    },
+    "policy_research": {
+      "id": "policy_research",
+      "label_en": "Policy & Research",
+      "label_ar": "السياسات والأبحاث",
+      "sources": [
+        { "id": "src_sama_circulars", "label_en": "SAMA Regulatory Circulars", "label_ar": "تعاميم ساما التنظيمية", "category": "policy_research", "enabled_default": true },
+        { "id": "src_ifrs17_updates", "label_en": "IFRS 17 Implementation Updates", "label_ar": "تحديثات تطبيق IFRS 17", "category": "policy_research", "enabled_default": true },
+        { "id": "src_pdpl_compliance", "label_en": "PDPL Compliance Tracker", "label_ar": "متتبع الامتثال لنظام حماية البيانات", "category": "policy_research", "enabled_default": true },
+        { "id": "src_gcc_regulation", "label_en": "GCC Insurance Regulation Feed", "label_ar": "تغذية تنظيم التأمين الخليجي", "category": "policy_research", "enabled_default": false }
+      ]
+    }
+  }
+}

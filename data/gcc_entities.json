@@ -1,0 +1,42 @@
+{
+  "countries": {
+    "SA": { "id": "SA", "label": "Saudi Arabia", "currency": "SAR", "oil_dependency": 0.85 },
+    "KW": { "id": "KW", "label": "Kuwait", "currency": "KWD", "oil_dependency": 0.90 },
+    "AE": { "id": "AE", "label": "UAE", "currency": "AED", "oil_dependency": 0.65 },
+    "QA": { "id": "QA", "label": "Qatar", "currency": "QAR", "oil_dependency": 0.80 },
+    "BH": { "id": "BH", "label": "Bahrain", "currency": "BHD", "oil_dependency": 0.70 },
+    "OM": { "id": "OM", "label": "Oman", "currency": "OMR", "oil_dependency": 0.75 }
+  },
+  "sectors": {
+    "insurance":  { "id": "insurance",  "label": "Insurance",  "oil_sensitivity": 0.60 },
+    "banking":    { "id": "banking",    "label": "Banking",    "oil_sensitivity": 0.50 },
+    "energy":     { "id": "energy",     "label": "Energy",     "oil_sensitivity": 0.95 },
+    "logistics":  { "id": "logistics",  "label": "Logistics",  "oil_sensitivity": 0.75 },
+    "healthcare": { "id": "healthcare", "label": "Healthcare", "oil_sensitivity": 0.35 },
+    "retail":     { "id": "retail",     "label": "Retail",     "oil_sensitivity": 0.45 }
+  },
+  "insurance_lines": {
+    "motor":    { "id": "motor",    "label": "Motor Insurance",    "baseline_loss_ratio": 0.65 },
+    "medical":  { "id": "medical",  "label": "Medical Insurance",  "baseline_loss_ratio": 0.72 },
+    "property": { "id": "property", "label": "Property Insurance", "baseline_loss_ratio": 0.55 },
+    "marine":   { "id": "marine",   "label": "Marine Insurance",   "baseline_loss_ratio": 0.50 }
+  },
+  "macro_variables": {
+    "oil_price":            { "id": "oil_price",            "label": "Oil Price (Brent)",         "unit": "USD/barrel", "baseline": 85,   "signal_key": "oil_price" },
+    "inflation":            { "id": "inflation",            "label": "CPI Inflation Rate",        "unit": "percent",    "baseline": 2.5,  "signal_key": "inflation" },
+    "interest_rate":        { "id": "interest_rate",        "label": "Central Bank Rate",         "unit": "percent",    "baseline": 5.0,  "signal_key": "interest_rate" },
+    "supply_chain_stress":  { "id": "supply_chain_stress",  "label": "Supply Chain Stress Index", "unit": "index",      "baseline": 0.3,  "signal_key": "supply_chain_stress" },
+    "fraud_alerts":         { "id": "fraud_alerts",         "label": "Fraud Alert Index",         "unit": "index",      "baseline": 0.3,  "signal_key": "fraud_index" },
+    "repair_cost_index":    { "id": "repair_cost_index",    "label": "Repair Cost Index",         "unit": "index",      "baseline": 1.0,  "signal_key": "repair_cost_index" }
+  },
+  "derived_nodes": {
+    "claims":               { "id": "claims",               "label": "Claims Frequency",          "domain": "insurance" },
+    "loss_ratio":           { "id": "loss_ratio",           "label": "Loss Ratio",                "domain": "insurance" },
+    "reserves":             { "id": "reserves",             "label": "Reserve Adequacy",          "domain": "insurance" },
+    "pricing":              { "id": "pricing",              "label": "Premium Pricing Pressure",  "domain": "insurance" },
+    "fraud":                { "id": "fraud",                "label": "Fraud Activity",            "domain": "insurance" },
+    "investigation":        { "id": "investigation",        "label": "SIU Investigation Load",    "domain": "insurance" },
+    "regulatory_pressure":  { "id": "regulatory_pressure",  "label": "Regulatory Pressure",       "domain": "governance" },
+    "reinsurance_cost":     { "id": "reinsurance_cost",     "label": "Reinsurance Cost",          "domain": "insurance" }
+  }
+}
