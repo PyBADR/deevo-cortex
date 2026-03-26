@@ -1,7 +1,8 @@
 // ============================================================================
 // DEEVO Monitor — Decision Panel (RIGHT)
-// A decision system, not a dashboard. Guides users through:
-// Signal → Why → What to do → Expected impact.
+// Palantir-style: every piece of information in a card.
+// Recommendation → Confidence → Impact → Entities → Alerts
+// No paragraphs. Only metrics, short insights, structured panels.
 // ============================================================================
 
 import type { Decision, AIBrief, Alert, CountryIntel } from '../engine/types';
@@ -15,114 +16,123 @@ interface Props {
   onDismissAlert: (id: string) => void;
 }
 
-const DECISION_STYLES: Record<string, { bg: string; border: string; text: string }> = {
-  ESCALATE: { bg: 'bg-d-danger/8', border: 'border-d-danger/30', text: 'text-d-danger' },
-  REVIEW: { bg: 'bg-d-amber/8', border: 'border-d-amber/30', text: 'text-d-amber' },
-  APPROVE: { bg: 'bg-d-success/8', border: 'border-d-success/30', text: 'text-d-success' },
-};
-
 const SEVERITY_DOT: Record<string, string> = {
-  critical: 'bg-d-danger',
-  high: 'bg-d-amber',
-  moderate: 'bg-d-cyan',
-  low: 'bg-d-success',
+  critical: '#C96A6A',
+  high: '#D6A24A',
+  moderate: '#4DB6D6',
+  low: '#67B58A',
 };
 
 export function AlertsRail({ decision, aiBrief, alerts, countries, onDismissAlert }: Props) {
-  const ds = DECISION_STYLES[decision.type] ?? DECISION_STYLES.APPROVE;
   const activeAlerts = alerts.filter(a => !a.dismissed);
-
-  // Affected entities: countries with risk > 0.3, sorted by risk descending
   const affectedCountries = countries
     .filter(c => c.riskScore > 0.3)
     .sort((a, b) => b.riskScore - a.riskScore)
     .slice(0, 5);
 
-  return (
-    <div className="flex flex-col gap-4 h-full overflow-y-auto pr-1">
+  const decisionColor = decision.type === 'ESCALATE' ? '#C96A6A'
+    : decision.type === 'REVIEW' ? '#D6A24A' : '#67B58A';
 
-      {/* ===== 1. RECOMMENDATION: What should we do? ===== */}
-      <div className={`rounded-lg border p-4 ${ds.bg} ${ds.border}`}>
-        <div className="text-[9px] font-mono text-d-muted tracking-widest mb-2">RECOMMENDATION</div>
-        <div className={`text-2xl font-mono font-bold tracking-wider ${ds.text} mb-2`}>
+  return (
+    <div className="flex flex-col gap-3 h-full overflow-y-auto">
+
+      {/* ===== DECISION CARD: Visually dominant ===== */}
+      <div
+        className="rounded-lg border-2 p-4"
+        style={{ borderColor: decisionColor + '60', backgroundColor: decisionColor + '08' }}
+      >
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-[9px] font-mono text-d-muted tracking-widest">DECISION</span>
+          <div
+            className="w-2.5 h-2.5 rounded-full animate-pulse"
+            style={{ backgroundColor: decisionColor }}
+          />
+        </div>
+        <div
+          className="text-3xl font-mono font-black tracking-wider mb-3"
+          style={{ color: decisionColor }}
+        >
           {decision.type}
         </div>
-        <div className="text-xs text-d-text leading-snug">
-          {decision.reasoning}
-        </div>
-      </div>
-
-      {/* ===== 2. CONFIDENCE + RISK: How sure are we? ===== */}
-      <div className="rounded-lg border border-d-border bg-d-surface/30 p-4">
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <div>
-            <div className="text-[9px] font-mono text-d-muted tracking-widest mb-1">CONFIDENCE</div>
-            <div className="text-2xl font-mono font-bold text-d-blue">
+        {/* Confidence + Risk as metric pair */}
+        <div className="grid grid-cols-2 gap-2">
+          <div className="rounded border border-d-border/30 bg-d-bg/50 p-2.5">
+            <div className="text-[8px] font-mono text-d-muted tracking-wider">CONFIDENCE</div>
+            <div className="text-xl font-mono font-bold text-d-blue mt-0.5">
               {(decision.confidence * 100).toFixed(0)}%
             </div>
           </div>
-          <div>
-            <div className="text-[9px] font-mono text-d-muted tracking-widest mb-1">RISK SCORE</div>
-            <div className={`text-2xl font-mono font-bold ${ds.text}`}>
+          <div className="rounded border border-d-border/30 bg-d-bg/50 p-2.5">
+            <div className="text-[8px] font-mono text-d-muted tracking-wider">RISK SCORE</div>
+            <div className="text-xl font-mono font-bold mt-0.5" style={{ color: decisionColor }}>
               {(decision.riskScore * 100).toFixed(0)}%
             </div>
           </div>
         </div>
-        <div className="h-2 bg-d-bg rounded-full overflow-hidden">
+        {/* Risk bar */}
+        <div className="mt-3 h-1.5 bg-d-bg rounded-full overflow-hidden">
           <div
             className="h-full rounded-full transition-all duration-700"
-            style={{
-              width: `${decision.riskScore * 100}%`,
-              backgroundColor: decision.type === 'ESCALATE' ? '#C96A6A' : decision.type === 'REVIEW' ? '#D6A24A' : '#67B58A',
-            }}
+            style={{ width: `${decision.riskScore * 100}%`, backgroundColor: decisionColor }}
           />
         </div>
       </div>
 
-      {/* ===== 3. WHY: Key drivers — Why is this happening? ===== */}
+      {/* ===== KEY DRIVERS ===== */}
       {decision.drivers.length > 0 && (
-        <div className="rounded-lg border border-d-border bg-d-panel/40 p-4">
-          <div className="text-[9px] font-mono text-d-muted tracking-widest mb-3">KEY DRIVERS</div>
-          <div className="space-y-2">
+        <div className="rounded-lg border border-d-border bg-d-surface p-3">
+          <div className="text-[9px] font-mono text-d-muted tracking-widest mb-2">KEY DRIVERS</div>
+          <div className="space-y-1.5">
             {decision.drivers.map((driver, i) => (
-              <div key={i} className="flex items-start gap-2.5">
-                <span className="text-d-blue flex-shrink-0 mt-0.5">›</span>
-                <span className="text-xs text-d-text leading-snug">{driver}</span>
+              <div key={i} className="flex items-start gap-2 rounded border border-d-border/20 bg-d-panel/50 px-2.5 py-2">
+                <span className="text-d-cyan flex-shrink-0 text-xs mt-px">›</span>
+                <span className="text-[11px] text-d-text leading-snug">{driver}</span>
               </div>
             ))}
           </div>
         </div>
       )}
 
-      {/* ===== 4. IMPACT ESTIMATE: What is the expected impact? ===== */}
-      <div className="rounded-lg border border-d-border bg-d-panel/40 p-4">
-        <div className="text-[9px] font-mono text-d-muted tracking-widest mb-2">PROJECTED IMPACT</div>
-        <div className="text-xs text-d-text leading-snug mb-4">
-          {aiBrief.impact}
+      {/* ===== SIGNAL BRIEF: headline + recommendation ===== */}
+      <div className="rounded-lg border border-d-border bg-d-surface p-3">
+        <div className="text-[9px] font-mono text-d-muted tracking-widest mb-2">SIGNAL BRIEF</div>
+        <div className="text-sm font-mono font-semibold text-d-text mb-2 leading-snug">
+          {aiBrief.headline}
         </div>
+        <div className="rounded border border-d-border/20 bg-d-panel/50 p-2.5 mb-2">
+          <div className="text-[8px] font-mono text-d-muted tracking-wider mb-1">RECOMMENDATION</div>
+          <div className="text-[11px] text-d-text leading-snug">{aiBrief.recommendation}</div>
+        </div>
+      </div>
+
+      {/* ===== PROJECTED IMPACT ===== */}
+      <div className="rounded-lg border border-d-border bg-d-surface p-3">
+        <div className="text-[9px] font-mono text-d-muted tracking-widest mb-2">PROJECTED IMPACT</div>
+        <div className="text-[11px] text-d-sub leading-snug mb-3">{aiBrief.impact}</div>
 
         {affectedCountries.length > 0 && (
           <div>
-            <div className="text-[9px] font-mono text-d-muted tracking-widest mb-2">AFFECTED ENTITIES</div>
-            <div className="space-y-2">
+            <div className="text-[8px] font-mono text-d-muted tracking-widest mb-2">AFFECTED ENTITIES</div>
+            <div className="space-y-1">
               {affectedCountries.map(country => (
-                <div key={country.code} className="flex items-center justify-between">
+                <div
+                  key={country.code}
+                  className="flex items-center justify-between rounded border border-d-border/20 bg-d-panel/50 px-2.5 py-2"
+                >
                   <div className="flex items-center gap-2">
                     <span className="text-sm">{country.flag}</span>
-                    <span className="text-xs font-mono text-d-text">{country.code}</span>
+                    <span className="text-xs font-mono text-d-text font-semibold">{country.code}</span>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-4">
                     <div className="text-right">
-                      <div className="text-[10px] font-mono text-d-danger font-bold">
+                      <div className="text-[11px] font-mono font-bold" style={{ color: '#C96A6A' }}>
                         {(country.riskScore * 100).toFixed(0)}%
                       </div>
-                      <div className="text-[8px] text-d-muted">risk</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-[10px] font-mono text-d-cyan font-bold">
+                      <div className="text-[11px] font-mono font-bold text-d-cyan">
                         ${country.exposure.toFixed(1)}B
                       </div>
-                      <div className="text-[8px] text-d-muted">exposure</div>
                     </div>
                   </div>
                 </div>
@@ -132,46 +142,34 @@ export function AlertsRail({ decision, aiBrief, alerts, countries, onDismissAler
         )}
       </div>
 
-      {/* ===== 5. AI BRIEF: What is happening? ===== */}
-      <div className="rounded-lg border border-d-border bg-d-panel/40 p-4">
-        <div className="text-[9px] font-mono text-d-muted tracking-widest mb-2">SIGNAL BRIEF</div>
-        <div className="text-sm font-mono text-d-text font-semibold mb-2">
-          {aiBrief.headline}
-        </div>
-        <div className="text-[11px] text-d-muted leading-relaxed mb-3">
-          {aiBrief.summary}
-        </div>
-        <div className="border-t border-d-border/30 pt-2">
-          <div className="text-[9px] font-mono text-d-muted mb-1">RECOMMENDATION</div>
-          <div className="text-[10px] text-d-text">{aiBrief.recommendation}</div>
-        </div>
-      </div>
-
-      {/* ===== 6. ACTIVE ALERTS: What needs attention right now? ===== */}
+      {/* ===== ACTIVE ALERTS ===== */}
       {activeAlerts.length > 0 && (
-        <div>
+        <div className="rounded-lg border border-d-border bg-d-surface p-3">
           <div className="text-[9px] font-mono text-d-muted tracking-widest mb-2">
-            ACTIVE ALERTS ({activeAlerts.length})
+            ALERTS ({activeAlerts.length})
           </div>
           <div className="space-y-1.5">
             {activeAlerts.slice(0, 5).map(alert => (
               <div
                 key={alert.id}
-                className="rounded border border-d-border/40 bg-d-panel/50 p-2.5 group flex items-start gap-2 hover:border-d-border/60 transition-colors"
+                className="flex items-start gap-2 rounded border border-d-border/30 bg-d-panel/50 p-2.5 group hover:border-d-border/60 transition-colors"
               >
-                <div className={`w-1.5 h-1.5 rounded-full mt-1 flex-shrink-0 ${SEVERITY_DOT[alert.severity]}`} />
+                <div
+                  className="w-2 h-2 rounded-full mt-0.5 flex-shrink-0"
+                  style={{ backgroundColor: SEVERITY_DOT[alert.severity] ?? '#4DB6D6' }}
+                />
                 <div className="flex-1 min-w-0">
                   <div className="text-[10px] font-mono font-semibold text-d-text truncate">
                     {alert.title}
                   </div>
-                  <div className="text-[8px] text-d-muted/70 mt-0.5">
+                  <div className="text-[8px] text-d-muted/60 mt-0.5">
                     {new Date(alert.timestamp).toLocaleTimeString()}
                   </div>
                 </div>
                 <button
                   onClick={() => onDismissAlert(alert.id)}
                   className="text-d-muted/30 hover:text-d-muted text-xs flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                  aria-label="Dismiss alert"
+                  aria-label="Dismiss"
                 >
                   ✕
                 </button>
@@ -180,7 +178,6 @@ export function AlertsRail({ decision, aiBrief, alerts, countries, onDismissAler
           </div>
         </div>
       )}
-
     </div>
   );
 }
