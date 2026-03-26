@@ -5,6 +5,23 @@ All notable changes to DEEVO Cortex are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026-03-26
+
+### Added
+- **DEEVO Monitor** — Live decision intelligence operating system at `/monitor`
+- **Signal Engine** — Mean-reverting random walk signal simulation with scenario biases
+- **Causal Graph Engine** — 3-iteration weighted influence propagation across 8 nodes, 10 edges
+- **Decision Engine** — Rule-based computation with configurable client profiles, 6 risk rules
+- **Causal Wave Engine** — requestAnimationFrame particle propagation with speed controls
+- **Cognitive Scenario Engine** — Multi-path reasoning (3-5 futures), probability scoring, dominant path selection, convergence metrics
+- **Pre-Causal Engine** — Pressure field model across 8 domains, narrative ingestion, anomaly detection, cross-domain contagion, forming indicators with ETA
+- **Scenario Video Engine** — Canvas-based cinematic renderer, 5 scenarios, 4-scene structure (Hook→Chain→Decision→Branding), vertical/horizontal export, batch generation
+- **5 interactive view modes** — GCC Map, Wave Sim, Cognitive Futures, Pre-Causal Intelligence, Video Engine
+- **Interactive GCC Map** — SVG country nodes, trade corridors, click-to-select, hover tooltips
+- **Signal Bar** — Real-time sparkline signal cards with severity coloring
+- **Intel Blocks** — 6 clickable intelligence blocks (Risk, Claims, Fraud, Oil, Inflation, Supply)
+- **Alerts Rail** — Decision badge, AI brief panel, country detail, alert feed
+
 ## [2.0.0] - 2026-03-25
 
 ### Added

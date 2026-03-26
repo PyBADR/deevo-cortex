@@ -38,13 +38,21 @@
 - Risk assessment
 - Audit trail generation
 
+#### DEEVO Monitor (v2.1)
+- Live decision intelligence operating system at `/monitor`
+- Causal Wave Engine with requestAnimationFrame particle simulation
+- Cognitive Scenario Engine — multi-path futures with probability scoring
+- Pre-Causal Engine — pressure field model detecting risk before signals form
+- Scenario Video Engine — cinematic 15s video generation (1080×1920 / 1920×1080)
+- 5 interactive view modes: GCC Map, Wave Sim, Cognitive, Pre-Causal, Video
+
 ### 🛠️ Technical
 
-- Next.js 14 with App Router
-- TypeScript throughout
-- FastAPI backend
-- Canvas-based visualizations
-- Mock data fallback for demo mode
+- React 18 + Vite + TypeScript + Tailwind CSS
+- useReducer + Context for central state (no Redux)
+- FastAPI backend (optional — demo fallback built in)
+- HTML5 Canvas + SVG visualizations
+- MediaRecorder video export (H.264/VP9)
 
 ### 📚 Documentation
 

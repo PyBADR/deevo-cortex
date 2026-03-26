@@ -41,3 +41,6 @@ npm-debug.log*
 .cache/
 .parcel-cache/
 .playwright/
+
+# TypeScript build info
+*.tsbuildinfo

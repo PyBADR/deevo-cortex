@@ -18,7 +18,7 @@
 
 ## Live Demo
 
-[**Open Command Center**](https://deevo-cortex.vercel.app/command-center)
+[**Open DEEVO Monitor**](https://deevo-cortex.vercel.app/monitor) · [**Command Center**](https://deevo-cortex.vercel.app/command-center)
 
 ![Command Center](./assets/command-center.png)
 
@@ -26,14 +26,21 @@
 
 ## What This Is
 
-DEEVO is a decision intelligence system designed for GCC markets.
+DEEVO is a decision intelligence operating system designed for GCC insurance markets.
 
-It ingests signals, builds relationships, and produces actionable decisions.
+It ingests signals, builds causal graphs, simulates competing futures, detects pre-causal risk, and produces actionable decisions — all in real time.
 
-This is NOT a dashboard.
-This is NOT a demo.
+**Five intelligence layers:**
 
-**This is a decision system.**
+| Layer | Engine | Function |
+|-------|--------|----------|
+| GCC Map | GraphEngine | Interactive country risk map with trade corridors |
+| Wave Sim | WaveEngine | Causal wave propagation with animated particles |
+| Cognitive | CognitiveEngine | Multi-path reasoning — 3-5 competing futures per scenario |
+| Pre-Causal | PreCausalEngine | Pressure fields detecting risk before signals form |
+| Video | VideoRenderer | Auto-generates cinematic scenario videos for distribution |
+
+This is NOT a dashboard. This is NOT a demo. **This is a decision system.**
 
 ---
 
