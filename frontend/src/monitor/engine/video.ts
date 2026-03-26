@@ -267,7 +267,7 @@ function renderBackground(
   w: number, h: number, accent: string, particles: Particle[],
 ) {
   // Solid dark base
-  ctx.fillStyle = '#05070b';
+  ctx.fillStyle = '#1F232A';
   ctx.fillRect(0, 0, w, h);
 
   // Accent radial glow (very subtle)

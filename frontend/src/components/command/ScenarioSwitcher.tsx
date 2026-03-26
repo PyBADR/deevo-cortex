@@ -24,7 +24,7 @@ const getDecisionBadgeColor = (decision?: string) => {
     case 'APPROVE':
       return 'bg-emerald-950/30 border-emerald-500/50 text-emerald-400';
     default:
-      return 'bg-gray-950/30 border-gray-500/50 text-gray-400';
+      return 'bg-gray-950/30 border-gray-500/50 text-d-sub';
   }
 };
 
@@ -35,7 +35,7 @@ export const ScenarioSwitcher: React.FC<ScenarioSwitcherProps> = ({
   locale,
 }) => {
   return (
-    <div className="w-full space-y-3 p-6 bg-[#080c14] border border-white/10 rounded-lg">
+    <div className="w-full space-y-3 p-6 bg-d-shell border border-d-border/30 rounded-lg">
       {/* Header */}
       <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-gray-300">
         {locale === 'ar' ? 'السيناريو' : 'Scenario'}
@@ -46,9 +46,9 @@ export const ScenarioSwitcher: React.FC<ScenarioSwitcherProps> = ({
         {scenarios.map((scenario) => {
           const isActive = scenario.id === value;
           const borderClass = isActive
-            ? 'border-cyan-500/50 bg-cyan-950/20'
+            ? 'border-d-cyan/50 bg-cyan-950/20'
             : 'border-gray-700/30 bg-gray-950/20 hover:border-gray-600/50';
-          const textClass = isActive ? 'text-cyan-300' : 'text-gray-400 hover:text-gray-300';
+          const textClass = isActive ? 'text-d-blue' : 'text-d-sub hover:text-gray-300';
 
           return (
             <button
@@ -78,7 +78,7 @@ export const ScenarioSwitcher: React.FC<ScenarioSwitcherProps> = ({
                   </span>
                 )}
                 {scenario.country_focus && (
-                  <span className="text-gray-600 font-mono">
+                  <span className="text-d-muted font-mono">
                     {scenario.country_focus}
                   </span>
                 )}
@@ -88,7 +88,7 @@ export const ScenarioSwitcher: React.FC<ScenarioSwitcherProps> = ({
         })}
 
         {scenarios.length === 0 && (
-          <div className="text-xs text-gray-600 text-center py-4">
+          <div className="text-xs text-d-muted text-center py-4">
             {locale === 'ar' ? 'لا توجد سيناريوهات' : 'No scenarios available'}
           </div>
         )}

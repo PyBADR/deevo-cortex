@@ -24,13 +24,13 @@ export const TopCommandBar: React.FC<TopCommandBarProps> = ({
   const headline = data.demo_headline || data.headline_summary || '';
 
   return (
-    <div className="h-12 bg-[#05070b]/95 backdrop-blur-md border-b border-white/5 flex items-center px-5 gap-6 font-mono">
+    <div className="h-12 bg-d-bg/95 backdrop-blur-md border-b border-d-border/30 flex items-center px-5 gap-6 font-mono">
       {/* Left: Branding */}
       <div className="flex items-center gap-3 shrink-0">
         <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-        <span className="text-sm font-bold text-cyan-400">DEEVO</span>
-        <div className="w-px h-4 bg-white/10" />
-        <span className="text-[10px] text-gray-600 uppercase tracking-[0.2em]">
+        <span className="text-sm font-bold text-d-cyan">DEEVO</span>
+        <div className="w-px h-4 bg-d-border/30" />
+        <span className="text-[10px] text-d-muted uppercase tracking-[0.2em]">
           {locale === 'ar' ? 'مركز القيادة' : 'Command Center'}
         </span>
       </div>
@@ -40,7 +40,7 @@ export const TopCommandBar: React.FC<TopCommandBarProps> = ({
         <div className={`${decisionColor} border rounded px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider shrink-0`}>
           {data.decision}
         </div>
-        <span className="text-xs text-gray-400 truncate">{headline}</span>
+        <span className="text-xs text-d-sub truncate">{headline}</span>
       </div>
 
       {/* Right: Controls */}
@@ -56,7 +56,7 @@ export const TopCommandBar: React.FC<TopCommandBarProps> = ({
           className={`px-2 py-0.5 rounded text-[10px] uppercase tracking-wider border transition-colors ${
             live
               ? 'bg-emerald-950/30 border-emerald-500/40 text-emerald-400'
-              : 'bg-gray-950/30 border-gray-700 text-gray-500'
+              : 'bg-d-surface border-d-border text-d-muted'
           }`}
         >
           {live ? (locale === 'ar' ? 'مباشر' : 'LIVE') : (locale === 'ar' ? 'متوقف' : 'PAUSED')}
@@ -64,12 +64,12 @@ export const TopCommandBar: React.FC<TopCommandBarProps> = ({
 
         <button
           onClick={() => onLocaleChange(locale === 'en' ? 'ar' : 'en')}
-          className="px-2 py-0.5 rounded text-[10px] uppercase tracking-wider border bg-gray-950/30 border-gray-700 text-gray-500 hover:text-gray-300 transition-colors"
+          className="px-2 py-0.5 rounded text-[10px] uppercase tracking-wider border bg-d-surface border-d-border text-d-muted hover:text-d-sub transition-colors"
         >
           {locale === 'en' ? 'AR' : 'EN'}
         </button>
 
-        <span className="text-[10px] text-gray-700">
+        <span className="text-[10px] text-d-muted">
           {data.timestamp ? new Date(data.timestamp).toLocaleTimeString('en-US', { hour12: false }) : ''}
         </span>
       </div>

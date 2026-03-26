@@ -16,9 +16,9 @@ const getSeverityColor = (severity: string) => {
     case 'moderate':
       return { border: 'border-l-amber-500', text: 'text-amber-400', bg: 'bg-amber-950/20' };
     case 'low':
-      return { border: 'border-l-cyan-500', text: 'text-cyan-400', bg: 'bg-cyan-950/20' };
+      return { border: 'border-l-cyan-500', text: 'text-d-cyan', bg: 'bg-cyan-950/20' };
     default:
-      return { border: 'border-l-gray-500', text: 'text-gray-400', bg: 'bg-gray-950/20' };
+      return { border: 'border-l-gray-500', text: 'text-d-sub', bg: 'bg-gray-950/20' };
   }
 };
 
@@ -62,13 +62,13 @@ export const SignalRail: React.FC<SignalRailProps> = ({ data, locale }) => {
   const isDeltaUp = (delta?: number) => delta !== undefined && delta > 0;
 
   return (
-    <div className="w-full h-full flex flex-col bg-[#080c14] border border-white/10 rounded-lg overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-d-shell border border-d-border/30 rounded-lg overflow-hidden">
       {/* Header */}
-      <div className="px-4 py-3 border-b border-white/5 flex items-center justify-between">
+      <div className="px-4 py-3 border-b border-d-border/20 flex items-center justify-between">
         <span className="text-xs font-mono font-bold uppercase tracking-wider text-gray-300">
           {locale === 'ar' ? 'الإشارات' : 'Signals'}
         </span>
-        <span className="text-xs font-mono text-gray-600 bg-gray-900/50 px-2 py-1 rounded">
+        <span className="text-xs font-mono text-d-muted bg-gray-900/50 px-2 py-1 rounded">
           {sortedSignals.length}
         </span>
       </div>
@@ -86,11 +86,11 @@ export const SignalRail: React.FC<SignalRailProps> = ({ data, locale }) => {
             >
               {/* Label */}
               <div className="flex justify-between items-start">
-                <span className="text-xs text-gray-500 font-mono uppercase tracking-wider">
+                <span className="text-xs text-d-muted font-mono uppercase tracking-wider">
                   {signal.label}
                 </span>
                 {signal.sparkline && signal.sparkline.length > 0 && (
-                  <div className={`text-cyan-400`}>
+                  <div className={`text-d-cyan`}>
                     <SignalSparkline values={sparklineValues} />
                   </div>
                 )}
@@ -102,7 +102,7 @@ export const SignalRail: React.FC<SignalRailProps> = ({ data, locale }) => {
                   {typeof signal.value === 'number' ? signal.value.toFixed(2) : signal.value}
                 </span>
                 {signal.delta !== undefined && (
-                  <div className="flex items-center gap-1 text-xs text-gray-400">
+                  <div className="flex items-center gap-1 text-xs text-d-sub">
                     {isDeltaUp(signal.delta) ? (
                       <TrendingUp className="w-3 h-3 text-red-400" />
                     ) : (
@@ -120,7 +120,7 @@ export const SignalRail: React.FC<SignalRailProps> = ({ data, locale }) => {
         })}
 
         {sortedSignals.length === 0 && (
-          <div className="flex items-center justify-center h-full text-gray-600 text-xs">
+          <div className="flex items-center justify-center h-full text-d-muted text-xs">
             {locale === 'ar' ? 'لا توجد إشارات' : 'No signals'}
           </div>
         )}

@@ -123,24 +123,7 @@ export function WaveGraph({ scenario, isLive, speed, onNodeClick }: Props) {
       {/* Main SVG canvas */}
       <div className="flex-1 relative min-h-0">
         <svg viewBox="0 0 600 400" className="w-full h-full">
-          <defs>
-            {/* Glow filter */}
-            <filter id="waveGlow">
-              <feGaussianBlur stdDeviation="4" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-            <filter id="strongGlow">
-              <feGaussianBlur stdDeviation="8" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
+          {/* No SVG filters — flat, clean rendering */}
 
           {/* Title */}
           <text x="300" y="22" textAnchor="middle" fill="#5D8BFF" fontSize="10" fontFamily="monospace" letterSpacing="3" opacity="0.5">

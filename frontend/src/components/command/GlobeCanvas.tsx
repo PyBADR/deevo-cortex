@@ -32,13 +32,13 @@ export const GlobeCanvas: React.FC<GlobeCanvasProps> = ({ data, locale }) => {
   const intensity = data.max_intensity ?? 0.5;
 
   return (
-    <div className="h-full flex flex-col bg-[#080c14] border border-white/[0.06] rounded-xl overflow-hidden">
+    <div className="h-full flex flex-col bg-d-shell border border-d-border/30 rounded-xl overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between px-5 py-3 border-b border-white/5">
-        <h2 className="font-mono text-xs font-bold text-cyan-400 uppercase tracking-[0.2em]">
+      <div className="flex items-center justify-between px-5 py-3 border-b border-d-border/30">
+        <h2 className="font-mono text-xs font-bold text-d-cyan uppercase tracking-[0.2em]">
           {locale === 'ar' ? 'شبكة استخبارات الخليج' : 'GCC Intelligence Network'}
         </h2>
-        <div className="flex gap-4 text-[10px] font-mono text-gray-600">
+        <div className="flex gap-4 text-[10px] font-mono text-d-muted">
           <span>{data.active_nodes} nodes</span>
           <span>{data.traversed_edges} edges</span>
         </div>
@@ -47,22 +47,7 @@ export const GlobeCanvas: React.FC<GlobeCanvasProps> = ({ data, locale }) => {
       {/* SVG Canvas */}
       <div className="flex-1 flex items-center justify-center p-4" style={{ minHeight: 320 }}>
         <svg viewBox="0 0 450 320" className="w-full h-full max-w-[450px]">
-          <defs>
-            <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="rgba(6,182,212,0.06)" />
-              <stop offset="100%" stopColor="rgba(0,0,0,0)" />
-            </radialGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-
-          {/* Background glow */}
-          <rect width="450" height="320" fill="url(#bgGlow)" />
+          {/* Clean flat background — no filters, no glow */}
 
           {/* Edges */}
           {GCC_EDGES.map(([fromId, toId], idx) => {
@@ -73,7 +58,7 @@ export const GlobeCanvas: React.FC<GlobeCanvasProps> = ({ data, locale }) => {
                 key={idx}
                 x1={from.x} y1={from.y}
                 x2={to.x} y2={to.y}
-                stroke="rgb(6,182,212)"
+                stroke="#4DB6D6"
                 strokeWidth="1"
                 opacity={0.15 + intensity * 0.2}
               />
@@ -88,14 +73,14 @@ export const GlobeCanvas: React.FC<GlobeCanvasProps> = ({ data, locale }) => {
             return (
               <g key={node.id}>
                 {/* Outer pulse */}
-                <circle cx={node.x} cy={node.y} r={r + 8} fill="none" stroke="rgb(6,182,212)" strokeWidth="0.5" opacity={0.15}>
+                <circle cx={node.x} cy={node.y} r={r + 8} fill="none" stroke="#4DB6D6" strokeWidth="0.5" opacity={0.15}>
                   <animate attributeName="r" from={r + 4} to={r + 14} dur="3s" repeatCount="indefinite" />
                   <animate attributeName="opacity" from="0.2" to="0" dur="3s" repeatCount="indefinite" />
                 </circle>
                 {/* Node */}
-                <circle cx={node.x} cy={node.y} r={r} fill="rgb(6,182,212)" opacity={0.7 + pressure * 0.3} filter="url(#glow)" />
+                <circle cx={node.x} cy={node.y} r={r} fill="#4DB6D6" opacity={0.7 + pressure * 0.3} />
                 {/* Label */}
-                <text x={node.x} y={node.y + r + 14} textAnchor="middle" fill="rgb(148,163,184)" fontSize="10" fontFamily="monospace">
+                <text x={node.x} y={node.y + r + 14} textAnchor="middle" fill="#AAB3BF" fontSize="10" fontFamily="monospace">
                   {locale === 'ar' ? node.labelAr : node.id}
                 </text>
               </g>
@@ -105,15 +90,15 @@ export const GlobeCanvas: React.FC<GlobeCanvasProps> = ({ data, locale }) => {
       </div>
 
       {/* Stats Footer */}
-      <div className="grid grid-cols-3 border-t border-white/5">
+      <div className="grid grid-cols-3 border-t border-d-border/30">
         {[
           { label: locale === 'ar' ? 'العقد' : 'Nodes', value: data.active_nodes },
           { label: locale === 'ar' ? 'الروابط' : 'Edges', value: data.traversed_edges },
           { label: locale === 'ar' ? 'الشدة' : 'Intensity', value: (intensity * 100).toFixed(0) + '%' },
         ].map((stat) => (
           <div key={stat.label} className="px-4 py-3 text-center">
-            <div className="text-lg font-mono font-bold text-cyan-400">{stat.value}</div>
-            <div className="text-[10px] font-mono text-gray-600 uppercase tracking-wider">{stat.label}</div>
+            <div className="text-lg font-mono font-bold text-d-cyan">{stat.value}</div>
+            <div className="text-[10px] font-mono text-d-muted uppercase tracking-wider">{stat.label}</div>
           </div>
         ))}
       </div>

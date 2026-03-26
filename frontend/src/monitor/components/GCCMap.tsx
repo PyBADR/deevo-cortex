@@ -60,14 +60,10 @@ export function GCCMap({ countries, graph, selectedCountry, selectedEdge, onSele
   };
 
   return (
-    <div className="relative w-full h-full min-h-[400px] flex items-center justify-center">
-      {/* Background glow — subtle radial gradient */}
-      <div className="absolute inset-0 bg-gradient-radial from-slate-800/5 via-transparent to-transparent" />
-
+    <div className="relative w-full h-full min-h-[400px] flex items-center justify-center bg-d-bg">
       <svg
         viewBox="0 0 520 400"
         className="w-full h-full max-h-[500px]"
-        style={{ filter: 'drop-shadow(0 0 40px rgba(93,139,255,0.06))' }}
       >
         <defs>
           {/* Pulse animation */}
@@ -183,7 +179,7 @@ export function GCCMap({ countries, graph, selectedCountry, selectedEdge, onSele
                 fontFamily="monospace"
                 fontWeight="bold"
                 letterSpacing="1"
-                style={isSelected || isHovered ? { filter: 'drop-shadow(0 0 4px rgba(93,139,255,0.6))' } : undefined}
+                style={undefined}
               >
                 {code}
               </text>

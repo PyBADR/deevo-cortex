@@ -8,7 +8,7 @@ interface CountryCardProps {
 
 export const CountryCard: React.FC<CountryCardProps> = ({ data, locale }) => {
   return (
-    <div className="h-full p-5 bg-[#080c14] border border-white/[0.06] rounded-xl">
+    <div className="h-full p-5 bg-d-shell border border-d-border/30 rounded-xl">
       {/* Header: Flag + Name */}
       <div className="flex items-center gap-3 mb-4">
         {data.flag_emoji && (
@@ -26,7 +26,7 @@ export const CountryCard: React.FC<CountryCardProps> = ({ data, locale }) => {
 
       {/* Risk Signature */}
       {data.risk_signature && (
-        <p className="text-sm text-gray-400 italic mb-4 leading-relaxed border-l-2 border-cyan-500/30 pl-3">
+        <p className="text-sm text-d-sub italic mb-4 leading-relaxed border-l-2 border-d-cyan/30 pl-3">
           &ldquo;{data.risk_signature}&rdquo;
         </p>
       )}
@@ -34,7 +34,7 @@ export const CountryCard: React.FC<CountryCardProps> = ({ data, locale }) => {
       {/* Key Metric */}
       {data.key_metric && (
         <div className="bg-gray-900/40 border border-gray-800/50 rounded-lg p-3 mb-3">
-          <div className="text-[10px] font-mono text-gray-600 uppercase tracking-wider mb-1">Key Metric</div>
+          <div className="text-[10px] font-mono text-d-muted uppercase tracking-wider mb-1">Key Metric</div>
           <div className="text-sm text-gray-200">{data.key_metric}</div>
         </div>
       )}
@@ -49,9 +49,9 @@ export const CountryCard: React.FC<CountryCardProps> = ({ data, locale }) => {
 
       {/* Strategic Role */}
       {data.strategic_role && (
-        <div className="pt-3 border-t border-white/5 mt-auto">
-          <span className="text-[10px] font-mono text-gray-600 uppercase tracking-wider">Role: </span>
-          <span className="text-xs text-cyan-400">{data.strategic_role}</span>
+        <div className="pt-3 border-t border-d-border/20 mt-auto">
+          <span className="text-[10px] font-mono text-d-muted uppercase tracking-wider">Role: </span>
+          <span className="text-xs text-d-cyan">{data.strategic_role}</span>
         </div>
       )}
     </div>

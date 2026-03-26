@@ -114,16 +114,7 @@ export function PreCausalView({ signals, scenario, isLive }: Props) {
         {/* Left: Pressure field visualization */}
         <div className="flex-1 min-h-0 relative">
           <svg viewBox="0 0 650 420" className="w-full h-full">
-            <defs>
-              <filter id="pcGlow">
-                <feGaussianBlur stdDeviation="6" result="blur" />
-                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-              <filter id="pcSoftGlow">
-                <feGaussianBlur stdDeviation="15" result="blur" />
-                <feMerge><feMergeNode in="blur" /><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-            </defs>
+            {/* No SVG filters — flat, clean rendering */}
 
             <text x="325" y="20" textAnchor="middle" fill="#8B85C2" fontSize="9" fontFamily="monospace" letterSpacing="3" opacity="0.4">
               PRESSURE FIELD MAP

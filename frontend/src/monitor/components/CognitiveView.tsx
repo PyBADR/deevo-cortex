@@ -133,16 +133,7 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
         {/* Left: Path graph */}
         <div className={`${showComparison ? 'w-1/2' : 'flex-1'} min-h-0 relative`}>
           <svg viewBox="0 0 720 350" className="w-full h-full">
-            <defs>
-              <filter id="cogGlow">
-                <feGaussianBlur stdDeviation="4" result="blur" />
-                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-              <filter id="cogStrongGlow">
-                <feGaussianBlur stdDeviation="8" result="blur" />
-                <feMerge><feMergeNode in="blur" /><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-            </defs>
+            {/* No SVG filters — flat, clean rendering */}
 
             <text x="360" y="18" textAnchor="middle" fill="#5D8BFF" fontSize="9" fontFamily="monospace" letterSpacing="3" opacity="0.4">
               COGNITIVE FUTURE PATHS

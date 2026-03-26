@@ -32,7 +32,7 @@ export const DecisionRail: React.FC<DecisionRailProps> = ({ data, locale }) => {
   const reasoning = data.demo_short_reasoning || data.short_reasoning || '';
 
   return (
-    <div className="h-full flex flex-col gap-6 p-5 bg-[#080c14] border border-white/[0.06] rounded-xl">
+    <div className="h-full flex flex-col gap-6 p-5 bg-d-shell border border-d-border/30 rounded-xl">
       {/* HERO: Decision Badge */}
       <div
         className={`rounded-lg border ${s.bg} ${s.border} px-6 py-5 text-center`}
@@ -41,7 +41,7 @@ export const DecisionRail: React.FC<DecisionRailProps> = ({ data, locale }) => {
         <div className={`font-mono text-4xl font-black tracking-wide ${s.text}`}>
           {data.decision}
         </div>
-        <div className="mt-1 text-[10px] font-mono text-gray-600 uppercase tracking-[0.25em]">
+        <div className="mt-1 text-[10px] font-mono text-d-muted uppercase tracking-[0.25em]">
           {locale === 'ar' ? 'قرار النظام' : 'System Decision'}
         </div>
       </div>
@@ -52,9 +52,9 @@ export const DecisionRail: React.FC<DecisionRailProps> = ({ data, locale }) => {
           <span className="text-5xl font-black font-mono text-white tabular-nums">
             {data.risk_score.toFixed(2)}
           </span>
-          <span className="text-lg font-mono text-gray-600">/ 1.00</span>
+          <span className="text-lg font-mono text-d-muted">/ 1.00</span>
         </div>
-        <p className="mt-1 text-[10px] font-mono text-gray-600 uppercase tracking-[0.2em]">
+        <p className="mt-1 text-[10px] font-mono text-d-muted uppercase tracking-[0.2em]">
           {locale === 'ar' ? 'درجة المخاطر' : 'Risk Score'}
         </p>
       </div>
@@ -62,10 +62,10 @@ export const DecisionRail: React.FC<DecisionRailProps> = ({ data, locale }) => {
       {/* Confidence Bar */}
       <div>
         <div className="flex justify-between mb-2">
-          <span className="text-[10px] font-mono text-gray-600 uppercase tracking-wider">
+          <span className="text-[10px] font-mono text-d-muted uppercase tracking-wider">
             {locale === 'ar' ? 'الثقة' : 'Confidence'}
           </span>
-          <span className="text-sm font-mono font-bold text-cyan-400">
+          <span className="text-sm font-mono font-bold text-d-cyan">
             {(data.confidence * 100).toFixed(0)}%
           </span>
         </div>
@@ -80,10 +80,10 @@ export const DecisionRail: React.FC<DecisionRailProps> = ({ data, locale }) => {
       {/* Reasoning */}
       {reasoning && (
         <div className="flex-1">
-          <p className="text-[10px] font-mono text-gray-600 uppercase tracking-wider mb-2">
+          <p className="text-[10px] font-mono text-d-muted uppercase tracking-wider mb-2">
             {locale === 'ar' ? 'التبرير' : 'Reasoning'}
           </p>
-          <p className="text-xs text-gray-400 leading-relaxed">
+          <p className="text-xs text-d-sub leading-relaxed">
             {reasoning}
           </p>
         </div>
@@ -91,8 +91,8 @@ export const DecisionRail: React.FC<DecisionRailProps> = ({ data, locale }) => {
 
       {/* Scenario Label */}
       {data.scenario_id && (
-        <div className="pt-3 border-t border-white/5">
-          <span className="inline-block px-3 py-1 bg-gray-950 border border-gray-800 rounded text-[10px] font-mono text-gray-500 uppercase tracking-wider">
+        <div className="pt-3 border-t border-d-border/20">
+          <span className="inline-block px-3 py-1 bg-gray-950 border border-gray-800 rounded text-[10px] font-mono text-d-muted uppercase tracking-wider">
             {data.scenario_label || data.scenario_id}
           </span>
         </div>
