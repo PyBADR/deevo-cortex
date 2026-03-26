@@ -5,6 +5,7 @@ import CommandCenterPage from "./pages/CommandCenterPage";
 import DocsPage from "./pages/DocsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { MonitorPage } from "./monitor/MonitorPage";
+import { ClaimsPage } from "./claims/ClaimsPage";
 
 type Locale = "en" | "ar";
 interface LocaleCtx { locale: Locale; setLocale: (l: Locale) => void; }
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/command-center" element={<CommandCenterPage />} />
           <Route path="/monitor" element={<MonitorPage />} />
+          <Route path="/claims" element={<ClaimsPage />} />
           <Route path="/docs" element={<DocsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
