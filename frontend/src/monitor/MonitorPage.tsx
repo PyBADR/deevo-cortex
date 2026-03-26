@@ -1,7 +1,7 @@
 // ============================================================================
 // DEEVO Monitor — Main Page
-// Layout: Header → Signals → [Left: Layers | Center: Map/Wave/Cognitive/PreCausal | Right: AI+Alerts] → Blocks
-// Four view modes: GCC Map, Wave Simulation, Cognitive Futures, Pre-Causal Intelligence
+// Layout: Header → Signals → [Left: Layers | Center: Views | Right: AI+Alerts] → Blocks
+// Five view modes: GCC Map, Wave Sim, Cognitive, Pre-Causal, Video Engine
 // ============================================================================
 
 import { useState } from 'react';
@@ -13,10 +13,11 @@ import { GCCMap } from './components/GCCMap';
 import { WaveGraph } from './components/WaveGraph';
 import { CognitiveView } from './components/CognitiveView';
 import { PreCausalView } from './components/PreCausalView';
+import { VideoEngine } from './components/VideoEngine';
 import { AlertsRail } from './components/AlertsRail';
 import { IntelBlocks } from './components/IntelBlocks';
 
-type ViewMode = 'map' | 'wave' | 'cognitive' | 'precausal';
+type ViewMode = 'map' | 'wave' | 'cognitive' | 'precausal' | 'video';
 
 export function MonitorPage() {
   const { state, actions } = useMonitor();
@@ -28,6 +29,7 @@ export function MonitorPage() {
     { id: 'wave', label: 'WAVE SIM' },
     { id: 'cognitive', label: 'COGNITIVE' },
     { id: 'precausal', label: 'PRE-CAUSAL' },
+    { id: 'video', label: 'VIDEO' },
   ];
 
   return (
@@ -73,7 +75,9 @@ export function MonitorPage() {
                         ? 'bg-violet-500/15 text-violet-400 border border-violet-500/30'
                         : tab.id === 'precausal'
                           ? 'bg-rose-500/15 text-rose-400 border border-rose-500/30'
-                          : 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30'
+                          : tab.id === 'video'
+                            ? 'bg-amber-500/15 text-amber-400 border border-amber-500/30'
+                            : 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30'
                       : 'text-deevo-muted hover:text-deevo-text border border-transparent'
                   }`}
                 >
@@ -117,6 +121,14 @@ export function MonitorPage() {
                 <span className="text-[9px] font-mono text-rose-400 tracking-wider">EARLY WARNING</span>
               </div>
             )}
+
+            {/* Video mode indicator */}
+            {viewMode === 'video' && (
+              <div className="flex items-center gap-1.5">
+                <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                <span className="text-[9px] font-mono text-amber-400 tracking-wider">VIDEO ENGINE</span>
+              </div>
+            )}
           </div>
 
           {/* View content */}
@@ -151,6 +163,9 @@ export function MonitorPage() {
                 scenario={state.activeScenario}
                 isLive={state.isLive}
               />
+            )}
+            {viewMode === 'video' && (
+              <VideoEngine isLive={state.isLive} />
             )}
           </div>
 
