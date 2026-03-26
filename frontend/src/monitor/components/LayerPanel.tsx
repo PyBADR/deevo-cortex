@@ -18,7 +18,7 @@ export function LayerPanel({ activeLayers, activeScenario, onToggleLayer, onSetS
     <div className="flex flex-col gap-4 h-full overflow-y-auto pr-1">
       {/* Scenarios */}
       <div>
-        <div className="text-[10px] font-mono text-deevo-muted tracking-widest mb-2">SCENARIOS</div>
+        <div className="text-[10px] font-mono text-d-muted tracking-widest mb-2">SCENARIOS</div>
         <div className="flex flex-col gap-1.5">
           {SCENARIOS.map(s => (
             <button
@@ -26,21 +26,21 @@ export function LayerPanel({ activeLayers, activeScenario, onToggleLayer, onSetS
               onClick={() => onSetScenario(s.id)}
               className={`w-full text-left px-3 py-2.5 rounded border transition-all ${
                 activeScenario === s.id
-                  ? 'border-cyan-500/50 bg-cyan-500/10 text-cyan-300'
-                  : 'border-deevo-border bg-deevo-surface/50 text-deevo-text/70 hover:border-deevo-border hover:bg-deevo-surface'
+                  ? 'border-d-blue/50 bg-d-blue/10 text-d-blue'
+                  : 'border-d-border bg-d-surface/50 text-d-text/70 hover:border-d-border hover:bg-d-surface'
               }`}
             >
               <div className="flex items-center gap-2">
                 <span className="text-base">{s.icon}</span>
                 <div className="min-w-0">
                   <div className="text-xs font-mono font-semibold truncate">{s.name}</div>
-                  <div className="text-[9px] text-deevo-muted mt-0.5 line-clamp-2 leading-tight">{s.description}</div>
+                  <div className="text-[9px] text-d-muted mt-0.5 line-clamp-2 leading-tight">{s.description}</div>
                 </div>
               </div>
               {activeScenario === s.id && (
                 <div className="mt-1.5 flex items-center gap-1">
-                  <div className="w-1 h-1 rounded-full bg-cyan-400 animate-pulse" />
-                  <span className="text-[8px] font-mono text-cyan-400 tracking-wider">ACTIVE</span>
+                  <div className="w-1 h-1 rounded-full bg-d-blue" />
+                  <span className="text-[8px] font-mono text-d-blue tracking-wider">ACTIVE</span>
                 </div>
               )}
             </button>
@@ -49,11 +49,11 @@ export function LayerPanel({ activeLayers, activeScenario, onToggleLayer, onSetS
       </div>
 
       {/* Divider */}
-      <div className="h-px bg-deevo-border/50" />
+      <div className="h-px bg-d-border/30" />
 
       {/* Layers */}
       <div>
-        <div className="text-[10px] font-mono text-deevo-muted tracking-widest mb-2">INTELLIGENCE LAYERS</div>
+        <div className="text-[10px] font-mono text-d-muted tracking-widest mb-2">INTELLIGENCE LAYERS</div>
         <div className="flex flex-col gap-1">
           {LAYERS.map(layer => {
             const isActive = activeLayers.includes(layer.id);
@@ -64,7 +64,7 @@ export function LayerPanel({ activeLayers, activeScenario, onToggleLayer, onSetS
                 className={`w-full flex items-center gap-2.5 px-3 py-2 rounded border transition-all ${
                   isActive
                     ? 'border-opacity-30 bg-opacity-10 text-white'
-                    : 'border-deevo-border/30 bg-transparent text-deevo-muted hover:text-deevo-text/70'
+                    : 'border-d-border/30 bg-transparent text-d-muted hover:text-d-text/70'
                 }`}
                 style={{
                   borderColor: isActive ? layer.color + '4d' : undefined,
@@ -84,22 +84,22 @@ export function LayerPanel({ activeLayers, activeScenario, onToggleLayer, onSetS
       </div>
 
       {/* Divider */}
-      <div className="h-px bg-deevo-border/50" />
+      <div className="h-px bg-d-border/30" />
 
       {/* Legend */}
       <div>
-        <div className="text-[10px] font-mono text-deevo-muted tracking-widest mb-2">RISK LEVELS</div>
+        <div className="text-[10px] font-mono text-d-muted tracking-widest mb-2">RISK LEVELS</div>
         <div className="flex flex-col gap-1">
           {[
-            { label: 'Critical', color: '#ef4444', range: '75–100%' },
-            { label: 'High', color: '#f59e0b', range: '50–75%' },
-            { label: 'Moderate', color: '#06b6d4', range: '30–50%' },
-            { label: 'Low', color: '#22c55e', range: '0–30%' },
+            { label: 'Critical', color: '#FF5C6C', range: '75–100%' },
+            { label: 'High', color: '#F5B942', range: '50–75%' },
+            { label: 'Moderate', color: '#37C5F3', range: '30–50%' },
+            { label: 'Low', color: '#3CCB7F', range: '0–30%' },
           ].map(l => (
             <div key={l.label} className="flex items-center gap-2 px-3 py-1">
               <div className="w-2 h-2 rounded-full" style={{ backgroundColor: l.color }} />
-              <span className="text-[10px] font-mono text-deevo-muted flex-1">{l.label}</span>
-              <span className="text-[9px] font-mono text-deevo-muted/60">{l.range}</span>
+              <span className="text-[10px] font-mono text-d-muted flex-1">{l.label}</span>
+              <span className="text-[9px] font-mono text-d-muted/60">{l.range}</span>
             </div>
           ))}
         </div>

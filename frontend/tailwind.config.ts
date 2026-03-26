@@ -4,11 +4,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        deevo: { bg: "#05070b", surface: "#0a0e17", border: "#1a1f2e", cyan: "#06b6d4", text: "#e2e8f0", muted: "#64748b" },
+        d: {
+          bg: "#0B0F14",
+          surface: "#11161D",
+          panel: "#161C24",
+          border: "#273140",
+          text: "#E8EEF5",
+          sub: "#9FB0C3",
+          muted: "#5A6E82",
+          blue: "#4DA3FF",
+          cyan: "#37C5F3",
+          amber: "#F5B942",
+          danger: "#FF5C6C",
+          success: "#3CCB7F",
+        },
       },
-      fontFamily: { mono: ["JetBrains Mono", "Fira Code", "monospace"], sans: ["Inter", "system-ui", "sans-serif"] },
-      animation: { "pulse-slow": "pulse 3s cubic-bezier(0.4,0,0.6,1) infinite", glow: "glow 2s ease-in-out infinite alternate" },
-      keyframes: { glow: { "0%": { boxShadow: "0 0 5px rgba(6,182,212,0.2)" }, "100%": { boxShadow: "0 0 20px rgba(6,182,212,0.4)" } } },
+      fontFamily: {
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        ar: ['"IBM Plex Sans Arabic"', '"Noto Sans Arabic"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', '"IBM Plex Mono"', 'monospace'],
+      },
+      animation: {
+        "pulse-slow": "pulse 3s cubic-bezier(0.4,0,0.6,1) infinite",
+      },
     },
   },
   plugins: [],

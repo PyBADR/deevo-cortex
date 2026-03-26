@@ -26,10 +26,10 @@ function MiniSparkline({ data, color }: { data: number[]; color: string }) {
 }
 
 const SEV_COLORS: Record<string, string> = {
-  critical: '#ef4444',
-  high: '#f59e0b',
-  moderate: '#06b6d4',
-  low: '#22c55e',
+  critical: '#FF5C6C',
+  high: '#F5B942',
+  moderate: '#37C5F3',
+  low: '#3CCB7F',
 };
 
 export function SignalBar({ signals }: Props) {
@@ -42,25 +42,25 @@ export function SignalBar({ signals }: Props) {
   return (
     <div className="flex gap-2 overflow-x-auto px-1 py-1 scrollbar-thin">
       {sorted.map(signal => {
-        const color = SEV_COLORS[signal.severity] ?? '#06b6d4';
+        const color = SEV_COLORS[signal.severity] ?? '#37C5F3';
         return (
           <div
             key={signal.id}
-            className="flex-shrink-0 rounded-lg border border-deevo-border/40 bg-deevo-surface/30 px-3 py-2 min-w-[150px]"
+            className="flex-shrink-0 rounded-lg border border-d-border/40 bg-d-panel/30 px-3 py-2 min-w-[150px]"
             style={{ borderLeftColor: color, borderLeftWidth: 2 }}
           >
             <div className="flex items-center justify-between gap-2">
               <div className="min-w-0">
-                <div className="text-[8px] font-mono text-deevo-muted tracking-wider truncate">
+                <div className="text-[8px] font-mono text-d-muted tracking-wider truncate">
                   {signal.label.toUpperCase()}
                 </div>
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-lg font-mono font-bold text-deevo-text">{signal.value}</span>
-                  <span className={`text-[10px] font-mono ${signal.change >= 0 ? 'text-red-400' : 'text-emerald-400'}`}>
+                  <span className="text-lg font-mono font-bold text-d-text">{signal.value}</span>
+                  <span className={`text-[10px] font-mono ${signal.change >= 0 ? 'text-d-danger' : 'text-d-success'}`}>
                     {signal.change >= 0 ? '↑' : '↓'}{Math.abs(signal.change).toFixed(1)}%
                   </span>
                 </div>
-                <div className="text-[8px] font-mono text-deevo-muted/50">{signal.unit}</div>
+                <div className="text-[8px] font-mono text-d-muted/50">{signal.unit}</div>
               </div>
               <MiniSparkline data={signal.sparkline} color={color} />
             </div>

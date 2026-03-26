@@ -1,5 +1,5 @@
 // ============================================================================
-// DEEVO Monitor — Scenario Definitions
+// DEEVO Monitor — Scenario & Layer Definitions (Enterprise Redesign)
 // ============================================================================
 
 import type { Scenario, Layer } from './types';
@@ -9,7 +9,7 @@ export const SCENARIOS: Scenario[] = [
     id: 'oil_spike',
     name: 'Oil Price Spike',
     description: 'Brent crude surges past $130/bbl — OPEC+ production cuts tighten global supply. GCC insurance markets face cascading inflation pressure.',
-    icon: '🛢️',
+    icon: '⚡',
     signalOverrides: {
       oil: { value: 135, change: 59 },
       inflation: { value: 6.2, change: 94 },
@@ -22,7 +22,7 @@ export const SCENARIOS: Scenario[] = [
     id: 'fraud_ring',
     name: 'Organized Fraud Ring',
     description: 'Cross-border fraud network detected across UAE, Bahrain, and Qatar. Staged accidents and inflated claims targeting motor and medical lines.',
-    icon: '🕵️',
+    icon: '🔒',
     signalOverrides: {
       fraud: { value: 0.52, change: 189 },
       claims: { value: 0.58, change: 38 },
@@ -34,7 +34,7 @@ export const SCENARIOS: Scenario[] = [
     id: 'supply_disruption',
     name: 'Supply Chain Disruption',
     description: 'Red Sea shipping delays and Gulf port congestion drive repair cost inflation. Parts shortages extend claim resolution timelines across GCC.',
-    icon: '🚢',
+    icon: '📦',
     signalOverrides: {
       supply_chain: { value: 1.65, change: 65 },
       claims: { value: 0.52, change: 24 },
@@ -45,13 +45,30 @@ export const SCENARIOS: Scenario[] = [
   },
 ];
 
+// Core engine layers (mapped to SignalType and used by all engines)
 export const LAYERS: Layer[] = [
-  { id: 'oil',            label: 'Oil & Energy',    color: '#f59e0b', enabled: true,  icon: '🛢️' },
-  { id: 'inflation',      label: 'Inflation',       color: '#ef4444', enabled: true,  icon: '📈' },
-  { id: 'claims',         label: 'Claims',          color: '#06b6d4', enabled: true,  icon: '📋' },
-  { id: 'fraud',          label: 'Fraud',           color: '#f43f5e', enabled: true,  icon: '🔍' },
-  { id: 'supply_chain',   label: 'Supply Chain',    color: '#8b5cf6', enabled: true,  icon: '🚢' },
-  { id: 'interest_rates', label: 'Interest Rates',  color: '#22c55e', enabled: false, icon: '🏦' },
+  { id: 'oil',            label: 'Macro Risk',          color: '#F5B942', enabled: true,  icon: '◆' },
+  { id: 'inflation',      label: 'Rates & Inflation',   color: '#FF5C6C', enabled: true,  icon: '◆' },
+  { id: 'claims',         label: 'Claims Stress',       color: '#37C5F3', enabled: true,  icon: '◆' },
+  { id: 'fraud',          label: 'Fraud Signals',       color: '#FF5C6C', enabled: true,  icon: '◆' },
+  { id: 'supply_chain',   label: 'Supply Chain',        color: '#9B8AFF', enabled: true,  icon: '◆' },
+  { id: 'interest_rates', label: 'Regulatory',          color: '#4DA3FF', enabled: false, icon: '◆' },
+];
+
+// Extended display-only layers (shown in UI panel but not tied to engine signals)
+export interface DisplayLayer {
+  id: string;
+  label: string;
+  color: string;
+  group: string;
+  enabled: boolean;
+}
+
+export const DISPLAY_LAYERS: DisplayLayer[] = [
+  { id: 'insurance_pressure', label: 'Insurance Pressure', color: '#37C5F3', group: 'Insurance', enabled: true },
+  { id: 'gcc_exposure',       label: 'GCC Exposure',       color: '#4DA3FF', group: 'Regional',  enabled: true },
+  { id: 'country_focus',      label: 'Country Focus',      color: '#3CCB7F', group: 'Regional',  enabled: false },
+  { id: 'scenario_paths',     label: 'Scenario Paths',     color: '#9B8AFF', group: 'Analysis',  enabled: true },
 ];
 
 export function getScenario(id: string): Scenario | undefined {

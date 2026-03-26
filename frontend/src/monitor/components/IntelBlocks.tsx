@@ -1,9 +1,10 @@
 // ============================================================================
-// DEEVO Monitor — Intelligence Blocks Grid (BOTTOM)
-// Clickable blocks that update when state changes.
+// DEEVO Monitor — Decision-Supporting Signal Cards
+// NOT a data dashboard. A DECISION SYSTEM.
+// Each card answers: WHAT (signal) → WHY (detail) → ACTION (cue)
 // ============================================================================
 
-import type { IntelBlock, SignalType, LayerId } from '../engine/types';
+import type { IntelBlock, SignalType, LayerId, Severity } from '../engine/types';
 
 interface Props {
   blocks: IntelBlock[];
@@ -11,21 +12,37 @@ interface Props {
   onToggleLayer: (id: LayerId) => void;
 }
 
-const BLOCK_COLORS: Record<string, { accent: string; bg: string; border: string }> = {
-  oil: { accent: '#f59e0b', bg: 'rgba(245,158,11,0.06)', border: 'rgba(245,158,11,0.2)' },
-  inflation: { accent: '#ef4444', bg: 'rgba(239,68,68,0.06)', border: 'rgba(239,68,68,0.2)' },
-  claims: { accent: '#06b6d4', bg: 'rgba(6,182,212,0.06)', border: 'rgba(6,182,212,0.2)' },
-  fraud: { accent: '#f43f5e', bg: 'rgba(244,63,94,0.06)', border: 'rgba(244,63,94,0.2)' },
-  supply_chain: { accent: '#8b5cf6', bg: 'rgba(139,92,246,0.06)', border: 'rgba(139,92,246,0.2)' },
-  interest_rates: { accent: '#22c55e', bg: 'rgba(34,197,94,0.06)', border: 'rgba(34,197,94,0.2)' },
+// Design system colors (d-* tokens)
+const BLOCK_COLORS: Record<string, string> = {
+  oil: '#F5B942',           // d-amber
+  inflation: '#FF5C6C',     // d-danger
+  claims: '#37C5F3',        // d-cyan
+  fraud: '#FF5C6C',         // d-danger
+  supply_chain: '#9B8AFF',  // custom purple
+  interest_rates: '#4DA3FF', // d-blue
 };
 
-const SEVERITY_LABELS: Record<string, string> = {
-  critical: 'CRITICAL',
-  high: 'HIGH',
-  moderate: 'MODERATE',
-  low: 'LOW',
-};
+// Severity → impact sentence
+function getImpactSentence(severity: Severity): string {
+  const sentences: Record<Severity, string> = {
+    critical: 'Immediate action required',
+    high: 'Monitor closely — escalation threshold approaching',
+    moderate: 'Within tolerance — tracking',
+    low: 'Normal operating range',
+  };
+  return sentences[severity];
+}
+
+// Severity → action cue (label + bar color)
+function getActionCue(severity: Severity): { label: string; color: string } {
+  const cues: Record<Severity, { label: string; color: string }> = {
+    critical: { label: 'ESCALATE', color: '#FF5C6C' }, // d-danger
+    high: { label: 'REVIEW', color: '#F5B942' },       // d-amber
+    moderate: { label: 'MONITOR', color: '#37C5F3' },  // d-cyan
+    low: { label: 'CLEAR', color: '#3CCB7F' },         // d-success
+  };
+  return cues[severity];
+}
 
 function MiniSparkline({ data, color }: { data: number[]; color: string }) {
   if (data.length < 2) return null;
@@ -59,56 +76,86 @@ export function IntelBlocks({ blocks, activeLayers, onToggleLayer }: Props) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
       {blocks.map(block => {
-        const colors = BLOCK_COLORS[block.type] ?? BLOCK_COLORS.claims;
+        const accentColor = BLOCK_COLORS[block.type] ?? BLOCK_COLORS.claims;
         const isActive = activeLayers.includes(block.type as LayerId);
         const layerId = block.type as LayerId;
+        const actionCue = getActionCue(block.severity);
+        const impactSentence = getImpactSentence(block.severity);
 
         return (
           <button
             key={block.id}
             onClick={() => onToggleLayer(layerId)}
-            className="text-left rounded-lg border p-3 transition-all hover:scale-[1.02] active:scale-[0.98]"
+            className="relative text-left rounded-lg border p-3 transition-all hover:scale-[1.02] active:scale-[0.98] flex flex-col h-full"
             style={{
-              borderColor: isActive ? colors.border : 'rgba(26,31,46,0.5)',
-              backgroundColor: isActive ? colors.bg : 'rgba(10,14,23,0.3)',
+              borderColor: isActive ? accentColor : '#273140',
+              backgroundColor: isActive ? '#161C24' : 'rgba(17,22,29,0.5)',
             }}
           >
-            {/* Header */}
+            {/* WHAT: Signal name + Severity badge */}
             <div className="flex items-center justify-between mb-2">
               <span
                 className="text-[9px] font-mono font-semibold tracking-wider"
-                style={{ color: colors.accent }}
+                style={{ color: accentColor }}
               >
                 {block.title.toUpperCase()}
               </span>
               <span
                 className="text-[7px] font-mono px-1.5 py-0.5 rounded"
                 style={{
-                  color: colors.accent,
-                  backgroundColor: colors.bg,
-                  border: `1px solid ${colors.border}`,
+                  color: accentColor,
+                  backgroundColor: 'rgba(0,0,0,0.3)',
+                  border: `1px solid ${accentColor}`,
                 }}
               >
-                {SEVERITY_LABELS[block.severity]}
+                {block.severity.toUpperCase()}
               </span>
             </div>
 
-            {/* Value + Change */}
+            {/* VALUE: Current number + direction + sparkline */}
             <div className="flex items-end justify-between mb-1">
-              <div className="text-xl font-mono font-bold text-deevo-text">
+              <div className="text-xl font-mono font-bold text-d-text">
                 {block.value.toFixed(block.unit === 'USD/barrel' ? 0 : 2)}
               </div>
-              <div className={`text-[10px] font-mono ${block.change >= 0 ? 'text-red-400' : 'text-emerald-400'}`}>
+              <div
+                className="text-[10px] font-mono"
+                style={{
+                  color: block.change >= 0 ? '#FF5C6C' : '#3CCB7F', // d-danger / d-success
+                }}
+              >
                 {block.change >= 0 ? '↑' : '↓'} {Math.abs(block.change).toFixed(1)}%
               </div>
             </div>
 
-            {/* Sparkline */}
-            <MiniSparkline data={block.sparkline} color={colors.accent} />
+            <div className="mb-2">
+              <MiniSparkline data={block.sparkline} color={accentColor} />
+            </div>
 
-            {/* Detail */}
-            <div className="text-[9px] text-deevo-muted mt-1.5 leading-tight line-clamp-2">
-              {block.detail}
+            {/* WHY IT MATTERS: Original detail + impact sentence */}
+            <div className="flex-grow">
+              <div className="text-[8px] text-d-muted leading-tight mb-1">
+                {block.detail}
+              </div>
+              <div
+                className="text-[8px] font-semibold leading-tight"
+                style={{ color: accentColor }}
+              >
+                {impactSentence}
+              </div>
+            </div>
+
+            {/* ACTION CUE: Tiny colored bar + label at bottom */}
+            <div className="mt-2 pt-2 border-t border-d-border">
+              <div
+                className="h-1 rounded mb-1"
+                style={{ backgroundColor: actionCue.color }}
+              />
+              <div
+                className="text-[7px] font-mono font-semibold tracking-wide"
+                style={{ color: actionCue.color }}
+              >
+                {actionCue.label}
+              </div>
             </div>
           </button>
         );
