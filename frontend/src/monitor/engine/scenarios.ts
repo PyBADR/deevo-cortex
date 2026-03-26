@@ -47,12 +47,12 @@ export const SCENARIOS: Scenario[] = [
 
 // Core engine layers (mapped to SignalType and used by all engines)
 export const LAYERS: Layer[] = [
-  { id: 'oil',            label: 'Macro Risk',          color: '#F5B942', enabled: true,  icon: '◆' },
-  { id: 'inflation',      label: 'Rates & Inflation',   color: '#FF5C6C', enabled: true,  icon: '◆' },
-  { id: 'claims',         label: 'Claims Stress',       color: '#37C5F3', enabled: true,  icon: '◆' },
-  { id: 'fraud',          label: 'Fraud Signals',       color: '#FF5C6C', enabled: true,  icon: '◆' },
-  { id: 'supply_chain',   label: 'Supply Chain',        color: '#9B8AFF', enabled: true,  icon: '◆' },
-  { id: 'interest_rates', label: 'Regulatory',          color: '#4DA3FF', enabled: false, icon: '◆' },
+  { id: 'oil',            label: 'Macro Risk',          color: '#D6A24A', enabled: true,  icon: '◆' },
+  { id: 'inflation',      label: 'Rates & Inflation',   color: '#C96A6A', enabled: true,  icon: '◆' },
+  { id: 'claims',         label: 'Claims Stress',       color: '#4DB6D6', enabled: true,  icon: '◆' },
+  { id: 'fraud',          label: 'Fraud Signals',       color: '#C96A6A', enabled: true,  icon: '◆' },
+  { id: 'supply_chain',   label: 'Supply Chain',        color: '#8B85C2', enabled: true,  icon: '◆' },
+  { id: 'interest_rates', label: 'Regulatory',          color: '#5D8BFF', enabled: false, icon: '◆' },
 ];
 
 // Extended display-only layers (shown in UI panel but not tied to engine signals)
@@ -65,10 +65,10 @@ export interface DisplayLayer {
 }
 
 export const DISPLAY_LAYERS: DisplayLayer[] = [
-  { id: 'insurance_pressure', label: 'Insurance Pressure', color: '#37C5F3', group: 'Insurance', enabled: true },
-  { id: 'gcc_exposure',       label: 'GCC Exposure',       color: '#4DA3FF', group: 'Regional',  enabled: true },
-  { id: 'country_focus',      label: 'Country Focus',      color: '#3CCB7F', group: 'Regional',  enabled: false },
-  { id: 'scenario_paths',     label: 'Scenario Paths',     color: '#9B8AFF', group: 'Analysis',  enabled: true },
+  { id: 'insurance_pressure', label: 'Insurance Pressure', color: '#4DB6D6', group: 'Insurance', enabled: true },
+  { id: 'gcc_exposure',       label: 'GCC Exposure',       color: '#5D8BFF', group: 'Regional',  enabled: true },
+  { id: 'country_focus',      label: 'Country Focus',      color: '#67B58A', group: 'Regional',  enabled: false },
+  { id: 'scenario_paths',     label: 'Scenario Paths',     color: '#8B85C2', group: 'Analysis',  enabled: true },
 ];
 
 export function getScenario(id: string): Scenario | undefined {

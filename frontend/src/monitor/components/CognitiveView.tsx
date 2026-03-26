@@ -31,9 +31,9 @@ const NODE_POSITIONS: Record<string, { x: number; y: number }> = {
 };
 
 const DECISION_COLORS: Record<DecisionType, string> = {
-  ESCALATE: '#ef4444',
-  REVIEW: '#f59e0b',
-  APPROVE: '#22c55e',
+  ESCALATE: '#C96A6A',
+  REVIEW: '#D6A24A',
+  APPROVE: '#67B58A',
 };
 
 export function CognitiveView({ signals, scenario, isLive }: Props) {
@@ -76,7 +76,7 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
   if (!cogState || cogState.paths.length === 0) {
     return (
       <div className="flex items-center justify-center h-full">
-        <div className="text-deevo-muted font-mono text-sm">Computing causal futures...</div>
+        <div className="text-d-muted font-mono text-sm">Computing causal futures...</div>
       </div>
     );
   }
@@ -88,7 +88,7 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
   return (
     <div className="flex flex-col h-full">
       {/* Top: Path selector */}
-      <div className="flex-shrink-0 flex items-center gap-1.5 px-2 py-1.5 border-b border-deevo-border/20 overflow-x-auto">
+      <div className="flex-shrink-0 flex items-center gap-1.5 px-2 py-1.5 border-b border-d-border/20 overflow-x-auto">
         {paths.map(path => {
           const isActive = path.id === selectedPathId;
           const isDom = path.isDominant;
@@ -101,7 +101,7 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
               className={`flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-md border text-[10px] font-mono transition-all ${
                 isActive
                   ? 'bg-opacity-15 border-opacity-40 text-white'
-                  : 'border-deevo-border/30 text-deevo-muted hover:text-deevo-text bg-transparent'
+                  : 'border-d-border/30 text-d-muted hover:text-d-text bg-transparent'
               }`}
               style={{
                 borderColor: isActive ? path.color + '66' : undefined,
@@ -120,8 +120,8 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
           onClick={() => setShowComparison(!showComparison)}
           className={`flex-shrink-0 px-2.5 py-1 rounded-md border text-[10px] font-mono transition-all ${
             showComparison
-              ? 'border-cyan-500/40 bg-cyan-500/10 text-cyan-400'
-              : 'border-deevo-border/30 text-deevo-muted hover:text-deevo-text'
+              ? 'border-d-blue/40 bg-d-blue/10 text-d-blue'
+              : 'border-d-border/30 text-d-muted hover:text-d-text'
           }`}
         >
           COMPARE
@@ -132,7 +132,7 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
       <div className="flex-1 flex min-h-0">
         {/* Left: Path graph */}
         <div className={`${showComparison ? 'w-1/2' : 'flex-1'} min-h-0 relative`}>
-          <svg viewBox="0 0 720 350" className="w-full h-full" style={{ filter: 'drop-shadow(0 0 20px rgba(6,182,212,0.05))' }}>
+          <svg viewBox="0 0 720 350" className="w-full h-full">
             <defs>
               <filter id="cogGlow">
                 <feGaussianBlur stdDeviation="4" result="blur" />
@@ -144,7 +144,7 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
               </filter>
             </defs>
 
-            <text x="360" y="18" textAnchor="middle" fill="#06b6d4" fontSize="9" fontFamily="monospace" letterSpacing="3" opacity="0.4">
+            <text x="360" y="18" textAnchor="middle" fill="#5D8BFF" fontSize="9" fontFamily="monospace" letterSpacing="3" opacity="0.4">
               COGNITIVE FUTURE PATHS
             </text>
 
@@ -167,7 +167,7 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
               const inPath = displayedPath?.sequence.some(n => n.nodeId === id);
               const pathNode = displayedPath?.sequence.find(n => n.nodeId === id);
               const activation = pathNode?.activation ?? 0;
-              const nodeColor = inPath ? (displayedPath?.color ?? '#06b6d4') : '#1e293b';
+              const nodeColor = inPath ? (displayedPath?.color ?? '#4DB6D6') : '#39414C';
 
               return (
                 <g key={id} opacity={inPath ? 1 : 0.2}>
@@ -177,7 +177,6 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
                       cx={pos.x} cy={pos.y}
                       r={20 + Math.sin(animationPhase * 2 + (pathNode?.step ?? 0)) * 4}
                       fill={nodeColor} opacity={activation * 0.1}
-                      filter="url(#cogStrongGlow)"
                     />
                   )}
                   {/* Ring */}
@@ -210,7 +209,7 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
                   <text
                     x={pos.x} y={pos.y - 22}
                     textAnchor="middle"
-                    fill={inPath ? '#e2e8f0' : '#475569'}
+                    fill={inPath ? '#E5EAF0' : '#818B97'}
                     fontSize="8" fontFamily="monospace"
                     fontWeight={inPath ? 'bold' : 'normal'}
                   >
@@ -238,7 +237,7 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
                   stroke={DECISION_COLORS[displayedPath.decision] + '40'}
                   strokeWidth="1"
                 />
-                <text x="645" y="307" textAnchor="middle" fill="#94a3b8" fontSize="7" fontFamily="monospace">
+                <text x="645" y="307" textAnchor="middle" fill="#AAB3BF" fontSize="7" fontFamily="monospace">
                   PATH DECISION
                 </text>
                 <text x="645" y="323" textAnchor="middle"
@@ -254,14 +253,14 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
 
         {/* Right: Comparison panel (conditional) */}
         {showComparison && (
-          <div className="w-1/2 border-l border-deevo-border/30 p-3 overflow-y-auto">
-            <div className="text-[9px] font-mono text-cyan-400 tracking-widest mb-2">PATH COMPARISON</div>
+          <div className="w-1/2 border-l border-d-border/30 p-3 overflow-y-auto">
+            <div className="text-[9px] font-mono text-d-blue tracking-widest mb-2">PATH COMPARISON</div>
             <div className="space-y-2">
               {paths.map(path => (
                 <div
                   key={path.id}
                   className={`rounded-lg border p-2.5 cursor-pointer transition-all ${
-                    path.id === selectedPathId ? 'border-opacity-40' : 'border-deevo-border/20 hover:border-deevo-border/40'
+                    path.id === selectedPathId ? 'border-opacity-40' : 'border-d-border/20 hover:border-d-border/40'
                   }`}
                   style={{
                     borderColor: path.id === selectedPathId ? path.color + '66' : undefined,
@@ -290,19 +289,19 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
                   {/* Metrics row */}
                   <div className="grid grid-cols-3 gap-2 mb-1.5">
                     <div>
-                      <div className="text-[7px] font-mono text-deevo-muted">PROBABILITY</div>
+                      <div className="text-[7px] font-mono text-d-muted">PROBABILITY</div>
                       <div className="text-xs font-mono font-bold" style={{ color: path.color }}>
                         {(path.probability * 100).toFixed(0)}%
                       </div>
                     </div>
                     <div>
-                      <div className="text-[7px] font-mono text-deevo-muted">IMPACT</div>
-                      <div className="text-xs font-mono font-bold text-deevo-text">
+                      <div className="text-[7px] font-mono text-d-muted">IMPACT</div>
+                      <div className="text-xs font-mono font-bold text-d-text">
                         {(path.impactScore * 100).toFixed(0)}%
                       </div>
                     </div>
                     <div>
-                      <div className="text-[7px] font-mono text-deevo-muted">RISK</div>
+                      <div className="text-[7px] font-mono text-d-muted">RISK</div>
                       <div className="text-xs font-mono font-bold" style={{ color: DECISION_COLORS[path.decision] }}>
                         {(path.riskScore * 100).toFixed(0)}%
                       </div>
@@ -313,14 +312,14 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
                   <div className="flex items-center gap-0.5 flex-wrap">
                     {path.sequence.map((node, i) => (
                       <span key={i} className="flex items-center gap-0.5">
-                        <span className="text-[8px] font-mono text-deevo-text/70">{node.label}</span>
-                        {i < path.sequence.length - 1 && <span className="text-[8px] text-deevo-muted">→</span>}
+                        <span className="text-[8px] font-mono text-d-text/70">{node.label}</span>
+                        {i < path.sequence.length - 1 && <span className="text-[8px] text-d-muted">→</span>}
                       </span>
                     ))}
                   </div>
 
                   {/* Probability bar */}
-                  <div className="mt-1.5 h-1 bg-deevo-bg rounded-full overflow-hidden">
+                  <div className="mt-1.5 h-1 bg-d-bg rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-500"
                       style={{ width: `${path.probability * 100}%`, backgroundColor: path.color }}
@@ -331,18 +330,18 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
             </div>
 
             {/* Convergence metrics */}
-            <div className="mt-3 rounded-lg border border-deevo-border/20 p-2.5">
-              <div className="text-[8px] font-mono text-deevo-muted tracking-wider mb-1.5">SYSTEM METRICS</div>
+            <div className="mt-3 rounded-lg border border-d-border/20 p-2.5">
+              <div className="text-[8px] font-mono text-d-muted tracking-wider mb-1.5">SYSTEM METRICS</div>
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <div className="text-[7px] font-mono text-deevo-muted">CONVERGENCE</div>
-                  <div className="text-lg font-mono font-bold text-cyan-400">
+                  <div className="text-[7px] font-mono text-d-muted">CONVERGENCE</div>
+                  <div className="text-lg font-mono font-bold text-d-blue">
                     {(cogState.convergenceScore * 100).toFixed(0)}%
                   </div>
                 </div>
                 <div>
-                  <div className="text-[7px] font-mono text-deevo-muted">UNCERTAINTY</div>
-                  <div className="text-lg font-mono font-bold text-amber-400">
+                  <div className="text-[7px] font-mono text-d-muted">UNCERTAINTY</div>
+                  <div className="text-lg font-mono font-bold text-d-amber">
                     {(cogState.uncertaintyIndex * 100).toFixed(0)}%
                   </div>
                 </div>
@@ -353,22 +352,22 @@ export function CognitiveView({ signals, scenario, isLive }: Props) {
       </div>
 
       {/* Bottom: Reasoning panel */}
-      <div className="flex-shrink-0 border-t border-deevo-border/30 bg-deevo-bg/80 px-4 py-2 max-h-28 overflow-y-auto">
+      <div className="flex-shrink-0 border-t border-d-border/30 bg-d-bg/80 px-4 py-2 max-h-28 overflow-y-auto">
         <div className="flex items-start gap-4">
           <div className="flex-1 min-w-0">
-            <div className="text-[8px] font-mono text-cyan-400/60 tracking-widest mb-0.5">COGNITIVE REASONING</div>
-            <div className="text-[10px] font-mono text-deevo-text/80 leading-relaxed">
+            <div className="text-[8px] font-mono text-d-blue/60 tracking-widest mb-0.5">COGNITIVE REASONING</div>
+            <div className="text-[10px] font-mono text-d-text/80 leading-relaxed">
               {reasoning.selectedBecause}
             </div>
             {reasoning.uncertaintyFactors.length > 0 && (
-              <div className="mt-1 text-[9px] font-mono text-amber-400/70">
+              <div className="mt-1 text-[9px] font-mono text-d-amber/70">
                 Uncertainty: {reasoning.uncertaintyFactors.join('. ')}
               </div>
             )}
           </div>
           <div className="flex-shrink-0 w-64">
-            <div className="text-[8px] font-mono text-cyan-400/60 tracking-widest mb-0.5">RECOMMENDATION</div>
-            <div className="text-[10px] font-mono text-deevo-text/90 leading-relaxed">
+            <div className="text-[8px] font-mono text-d-blue/60 tracking-widest mb-0.5">RECOMMENDATION</div>
+            <div className="text-[10px] font-mono text-d-text/90 leading-relaxed">
               {reasoning.recommendation}
             </div>
           </div>
@@ -423,7 +422,6 @@ function renderPathEdges(
         strokeWidth={animated ? 2 + activation * 2 : 1}
         opacity={animated ? 0.4 + activation * 0.4 : 0.3}
         strokeDasharray={animated ? 'none' : '3 5'}
-        filter={animated && activation > 0.3 ? 'url(#cogGlow)' : undefined}
       />
     );
 
@@ -436,7 +434,7 @@ function renderPathEdges(
 
       elements.push(
         <g key={`${key}-particle`}>
-          <circle cx={px} cy={py} r={3 + activation * 3} fill={color} opacity={activation * 0.3} filter="url(#cogGlow)" />
+          <circle cx={px} cy={py} r={3 + activation * 3} fill={color} opacity={activation * 0.3} />
           <circle cx={px} cy={py} r={1.5 + activation} fill="#ffffff" opacity={0.8} />
         </g>
       );

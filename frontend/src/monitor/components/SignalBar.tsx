@@ -26,10 +26,10 @@ function MiniSparkline({ data, color }: { data: number[]; color: string }) {
 }
 
 const SEV_COLORS: Record<string, string> = {
-  critical: '#FF5C6C',
-  high: '#F5B942',
-  moderate: '#37C5F3',
-  low: '#3CCB7F',
+  critical: '#C96A6A',
+  high: '#D6A24A',
+  moderate: '#4DB6D6',
+  low: '#67B58A',
 };
 
 export function SignalBar({ signals }: Props) {
@@ -42,7 +42,7 @@ export function SignalBar({ signals }: Props) {
   return (
     <div className="flex gap-2 overflow-x-auto px-1 py-1 scrollbar-thin">
       {sorted.map(signal => {
-        const color = SEV_COLORS[signal.severity] ?? '#37C5F3';
+        const color = SEV_COLORS[signal.severity] ?? '#4DB6D6';
         return (
           <div
             key={signal.id}

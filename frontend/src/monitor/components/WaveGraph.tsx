@@ -41,10 +41,10 @@ const EDGE_DEFS = [
 ];
 
 function nodeColor(level: number): string {
-  if (level > 0.7) return '#ef4444';
-  if (level > 0.4) return '#f59e0b';
-  if (level > 0.15) return '#06b6d4';
-  return '#334155';
+  if (level > 0.7) return '#C96A6A';
+  if (level > 0.4) return '#D6A24A';
+  if (level > 0.15) return '#4DB6D6';
+  return '#39414C';
 }
 
 function lerp(a: number, b: number, t: number): number {
@@ -122,7 +122,7 @@ export function WaveGraph({ scenario, isLive, speed, onNodeClick }: Props) {
     <div className="relative w-full h-full flex flex-col">
       {/* Main SVG canvas */}
       <div className="flex-1 relative min-h-0">
-        <svg viewBox="0 0 600 400" className="w-full h-full" style={{ filter: 'drop-shadow(0 0 30px rgba(6,182,212,0.05))' }}>
+        <svg viewBox="0 0 600 400" className="w-full h-full">
           <defs>
             {/* Glow filter */}
             <filter id="waveGlow">
@@ -143,7 +143,7 @@ export function WaveGraph({ scenario, isLive, speed, onNodeClick }: Props) {
           </defs>
 
           {/* Title */}
-          <text x="300" y="22" textAnchor="middle" fill="#06b6d4" fontSize="10" fontFamily="monospace" letterSpacing="3" opacity="0.5">
+          <text x="300" y="22" textAnchor="middle" fill="#5D8BFF" fontSize="10" fontFamily="monospace" letterSpacing="3" opacity="0.5">
             CAUSAL PROPAGATION ENGINE
           </text>
 
@@ -163,7 +163,7 @@ export function WaveGraph({ scenario, isLive, speed, onNodeClick }: Props) {
                 {/* Base edge */}
                 <line
                   x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y}
-                  stroke={intensity > 0.3 ? '#06b6d4' : '#1e293b'}
+                  stroke={intensity > 0.3 ? '#4DB6D6' : '#39414C'}
                   strokeWidth={1 + intensity * 2.5}
                   opacity={0.2 + intensity * 0.6}
                   strokeDasharray={intensity < 0.1 ? '4 6' : 'none'}
@@ -173,10 +173,9 @@ export function WaveGraph({ scenario, isLive, speed, onNodeClick }: Props) {
                 {intensity > 0.2 && (
                   <line
                     x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y}
-                    stroke={intensity > 0.5 ? '#f59e0b' : '#06b6d4'}
+                    stroke={intensity > 0.5 ? '#D6A24A' : '#4DB6D6'}
                     strokeWidth={intensity * 4}
                     opacity={intensity * 0.3}
-                    filter="url(#waveGlow)"
                   />
                 )}
 
@@ -190,9 +189,8 @@ export function WaveGraph({ scenario, isLive, speed, onNodeClick }: Props) {
                       <circle
                         cx={px} cy={py}
                         r={3 + particle.strength * 5}
-                        fill={particle.strength > 0.5 ? '#f59e0b' : '#06b6d4'}
+                        fill={particle.strength > 0.5 ? '#D6A24A' : '#4DB6D6'}
                         opacity={particle.strength * 0.4}
-                        filter="url(#waveGlow)"
                       />
                       {/* Core */}
                       <circle
@@ -209,7 +207,7 @@ export function WaveGraph({ scenario, isLive, speed, onNodeClick }: Props) {
                 {intensity > 0.1 && (
                   <polygon
                     points={arrowPoints(p1, p2)}
-                    fill={intensity > 0.5 ? '#f59e0b' : '#06b6d4'}
+                    fill={intensity > 0.5 ? '#D6A24A' : '#4DB6D6'}
                     opacity={0.4 + intensity * 0.4}
                   />
                 )}
@@ -255,7 +253,6 @@ export function WaveGraph({ scenario, isLive, speed, onNodeClick }: Props) {
                     r={pulseRadius + 8}
                     fill={color}
                     opacity={level * 0.12}
-                    filter="url(#strongGlow)"
                   />
                 )}
 
@@ -289,7 +286,7 @@ export function WaveGraph({ scenario, isLive, speed, onNodeClick }: Props) {
                 <text
                   x={pos.x} y={pos.y - pulseRadius - 6}
                   textAnchor="middle"
-                  fill={level > 0.3 ? '#ffffff' : '#94a3b8'}
+                  fill={level > 0.3 ? '#ffffff' : '#AAB3BF'}
                   fontSize="9"
                   fontFamily="monospace"
                   fontWeight={level > 0.3 ? 'bold' : 'normal'}
@@ -317,8 +314,8 @@ export function WaveGraph({ scenario, isLive, speed, onNodeClick }: Props) {
       </div>
 
       {/* Timeline bar at bottom */}
-      <div className="flex-shrink-0 h-16 border-t border-deevo-border/30 bg-deevo-bg/80 px-3 py-1 overflow-hidden">
-        <div className="text-[8px] font-mono text-deevo-muted tracking-widest mb-1">PROPAGATION TIMELINE</div>
+      <div className="flex-shrink-0 h-16 border-t border-d-border/30 bg-d-bg/80 px-3 py-1 overflow-hidden">
+        <div className="text-[8px] font-mono text-d-muted tracking-widest mb-1">PROPAGATION TIMELINE</div>
         <div className="flex gap-1 overflow-x-auto items-center h-8">
           {timeline.slice(-15).map((evt, i) => {
             const color = nodeColor(evt.strength);
@@ -336,7 +333,7 @@ export function WaveGraph({ scenario, isLive, speed, onNodeClick }: Props) {
             );
           })}
           {timeline.length === 0 && (
-            <span className="text-[9px] font-mono text-deevo-muted/40">Awaiting propagation...</span>
+            <span className="text-[9px] font-mono text-d-muted/40">Awaiting propagation...</span>
           )}
         </div>
       </div>

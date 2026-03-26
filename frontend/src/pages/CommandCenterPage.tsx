@@ -30,7 +30,7 @@ export default function CommandCenterPage() {
   if (!data) return <EmptyState message="No intelligence payload available" />;
 
   return (
-    <div className="min-h-screen bg-deevo-bg text-white">
+    <div className="min-h-screen bg-d-bg text-white">
       <TopCommandBar
         data={data.top_bar}
         locale={locale}
@@ -98,7 +98,7 @@ export default function CommandCenterPage() {
             {countryCard && countryCard.available !== false ? (
               <CountryCard data={countryCard} locale={locale} />
             ) : (
-              <div className="rounded-2xl border border-deevo-border bg-deevo-surface p-6 text-center text-white/40 text-sm">
+              <div className="rounded-2xl border border-d-border bg-d-surface p-6 text-center text-white/40 text-sm">
                 Select a scenario to view country intelligence
               </div>
             )}

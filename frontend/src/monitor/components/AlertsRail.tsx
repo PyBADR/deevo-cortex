@@ -73,7 +73,7 @@ export function AlertsRail({ decision, aiBrief, alerts, countries, onDismissAler
             className="h-full rounded-full transition-all duration-700"
             style={{
               width: `${decision.riskScore * 100}%`,
-              backgroundColor: decision.type === 'ESCALATE' ? '#FF5C6C' : decision.type === 'REVIEW' ? '#F5B942' : '#3CCB7F',
+              backgroundColor: decision.type === 'ESCALATE' ? '#C96A6A' : decision.type === 'REVIEW' ? '#D6A24A' : '#67B58A',
             }}
           />
         </div>

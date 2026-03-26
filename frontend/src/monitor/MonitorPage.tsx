@@ -18,6 +18,7 @@ import { PreCausalView } from './components/PreCausalView';
 import { VideoEngine } from './components/VideoEngine';
 import { AlertsRail } from './components/AlertsRail';
 import { IntelBlocks } from './components/IntelBlocks';
+import { SettingsModal } from './components/SettingsModal';
 
 type ViewMode = 'map' | 'wave' | 'cognitive' | 'precausal' | 'video';
 
@@ -26,6 +27,7 @@ export function MonitorPage() {
   const { locale, toggle: toggleLocale } = useLocale();
   const [viewMode, setViewMode] = useState<ViewMode>('cognitive');
   const [waveSpeed, setWaveSpeed] = useState(1);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const VIEW_TABS: { id: ViewMode; label: string }[] = [
     { id: 'map', label: 'GCC MAP' },
@@ -37,20 +39,20 @@ export function MonitorPage() {
 
   const getTabActiveStyles = (tabId: ViewMode) => {
     if (tabId === 'cognitive') {
-      return 'bg-violet-500/15 text-violet-400 border border-violet-500/30';
+      return 'border border-[#8B85C2]/30 bg-[#8B85C2]/12 text-[#8B85C2]';
     }
     if (tabId === 'precausal') {
-      return 'bg-d-danger/15 text-d-danger border border-d-danger/30';
+      return 'bg-d-danger/12 text-d-danger border border-d-danger/30';
     }
     if (tabId === 'video') {
-      return 'bg-d-amber/15 text-d-amber border border-d-amber/30';
+      return 'bg-d-amber/12 text-d-amber border border-d-amber/30';
     }
     // map & wave
-    return 'bg-d-blue/15 text-d-blue border border-d-blue/30';
+    return 'bg-d-blue/12 text-d-blue border border-d-blue/30';
   };
 
   const getIndicatorColor = (tabId: ViewMode) => {
-    if (tabId === 'cognitive') return 'bg-violet-400 text-violet-400';
+    if (tabId === 'cognitive') return 'bg-[#8B85C2] text-[#8B85C2]';
     if (tabId === 'precausal') return 'bg-d-danger text-d-danger';
     if (tabId === 'video') return 'bg-d-amber text-d-amber';
     return 'bg-d-blue text-d-blue';
@@ -70,9 +72,30 @@ export function MonitorPage() {
       />
 
       {/* Signal Ticker Bar */}
-      <div className="flex-shrink-0 border-b border-d-border/30 bg-d-bg/50">
-        <SignalBar signals={state.signals} />
+      <div className="flex-shrink-0 border-b border-d-border/30 bg-d-bg/50 flex items-center">
+        <div className="flex-1 min-w-0">
+          <SignalBar signals={state.signals} />
+        </div>
+        <button
+          onClick={() => setSettingsOpen(true)}
+          className="flex-shrink-0 px-2.5 py-1.5 mr-2 rounded text-d-muted hover:text-d-text hover:bg-d-panel/50 transition-all"
+          title="Settings"
+        >
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+          </svg>
+        </button>
       </div>
+
+      {/* Settings Modal */}
+      <SettingsModal
+        isOpen={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+        locale={locale}
+        onToggleLocale={toggleLocale}
+        activeScenario={state.activeScenario}
+        onSetScenario={actions.setScenario}
+      />
 
       {/* Main Content: 3-column layout */}
       <div className="flex-1 flex min-h-0 overflow-hidden">
@@ -129,8 +152,8 @@ export function MonitorPage() {
             {/* Cognitive mode indicator */}
             {viewMode === 'cognitive' && (
               <div className="flex items-center gap-1.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
-                <span className="text-[9px] font-mono text-violet-400 tracking-wider">REASONING</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#8B85C2] animate-pulse" />
+                <span className="text-[9px] font-mono text-[#8B85C2] tracking-wider">REASONING</span>
               </div>
             )}
 

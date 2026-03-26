@@ -14,12 +14,12 @@ interface Props {
 
 // Design system colors (d-* tokens)
 const BLOCK_COLORS: Record<string, string> = {
-  oil: '#F5B942',           // d-amber
-  inflation: '#FF5C6C',     // d-danger
-  claims: '#37C5F3',        // d-cyan
-  fraud: '#FF5C6C',         // d-danger
-  supply_chain: '#9B8AFF',  // custom purple
-  interest_rates: '#4DA3FF', // d-blue
+  oil: '#D6A24A',           // d-amber
+  inflation: '#C96A6A',     // d-danger
+  claims: '#4DB6D6',        // d-cyan
+  fraud: '#C96A6A',         // d-danger
+  supply_chain: '#8B85C2',  // custom purple
+  interest_rates: '#5D8BFF', // d-blue
 };
 
 // Severity → impact sentence
@@ -36,10 +36,10 @@ function getImpactSentence(severity: Severity): string {
 // Severity → action cue (label + bar color)
 function getActionCue(severity: Severity): { label: string; color: string } {
   const cues: Record<Severity, { label: string; color: string }> = {
-    critical: { label: 'ESCALATE', color: '#FF5C6C' }, // d-danger
-    high: { label: 'REVIEW', color: '#F5B942' },       // d-amber
-    moderate: { label: 'MONITOR', color: '#37C5F3' },  // d-cyan
-    low: { label: 'CLEAR', color: '#3CCB7F' },         // d-success
+    critical: { label: 'ESCALATE', color: '#C96A6A' }, // d-danger
+    high: { label: 'REVIEW', color: '#D6A24A' },       // d-amber
+    moderate: { label: 'MONITOR', color: '#4DB6D6' },  // d-cyan
+    low: { label: 'CLEAR', color: '#67B58A' },         // d-success
   };
   return cues[severity];
 }
@@ -88,8 +88,8 @@ export function IntelBlocks({ blocks, activeLayers, onToggleLayer }: Props) {
             onClick={() => onToggleLayer(layerId)}
             className="relative text-left rounded-lg border p-3 transition-all hover:scale-[1.02] active:scale-[0.98] flex flex-col h-full"
             style={{
-              borderColor: isActive ? accentColor : '#273140',
-              backgroundColor: isActive ? '#161C24' : 'rgba(17,22,29,0.5)',
+              borderColor: isActive ? accentColor : '#39414C',
+              backgroundColor: isActive ? '#2E353F' : 'rgba(42,48,56,0.5)',
             }}
           >
             {/* WHAT: Signal name + Severity badge */}
@@ -120,7 +120,7 @@ export function IntelBlocks({ blocks, activeLayers, onToggleLayer }: Props) {
               <div
                 className="text-[10px] font-mono"
                 style={{
-                  color: block.change >= 0 ? '#FF5C6C' : '#3CCB7F', // d-danger / d-success
+                  color: block.change >= 0 ? '#C96A6A' : '#67B58A', // d-danger / d-success
                 }}
               >
                 {block.change >= 0 ? '↑' : '↓'} {Math.abs(block.change).toFixed(1)}%

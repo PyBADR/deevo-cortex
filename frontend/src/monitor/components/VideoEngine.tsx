@@ -211,12 +211,12 @@ export function VideoEngine({ isLive }: Props) {
   return (
     <div className="h-full flex flex-col overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between px-3 py-2 border-b border-deevo-border/20">
+      <div className="flex items-center justify-between px-3 py-2 border-b border-d-border/20">
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-mono text-amber-400 tracking-wider font-bold">
+          <span className="text-[11px] font-mono text-d-amber tracking-wider font-bold">
             SCENARIO VIDEO ENGINE
           </span>
-          <span className="text-[9px] font-mono text-deevo-muted">
+          <span className="text-[9px] font-mono text-d-muted">
             {config.width}×{config.height} · {config.fps}fps · {config.duration}s
           </span>
         </div>
@@ -229,8 +229,8 @@ export function VideoEngine({ isLive }: Props) {
               onClick={() => setFormat(f)}
               className={`px-2 py-0.5 rounded text-[9px] font-mono tracking-wider transition-all ${
                 format === f
-                  ? 'bg-amber-500/15 text-amber-400 border border-amber-500/30'
-                  : 'text-deevo-muted hover:text-deevo-text border border-deevo-border/30'
+                  ? 'bg-d-amber/12 text-d-amber border border-d-amber/30'
+                  : 'text-d-muted hover:text-d-text border border-d-border/30'
               }`}
             >
               {f === 'vertical' ? '9:16' : '16:9'}
@@ -245,7 +245,7 @@ export function VideoEngine({ isLive }: Props) {
         <div className="flex-1 flex flex-col items-center justify-center p-3 gap-3">
           {/* Canvas preview */}
           <div
-            className="relative border border-deevo-border/30 rounded-lg overflow-hidden bg-deevo-bg"
+            className="relative border border-d-border/30 rounded-lg overflow-hidden bg-d-bg"
             style={{ width: previewW, height: previewH }}
           >
             <canvas ref={previewRef} className="w-full h-full" />
@@ -253,10 +253,10 @@ export function VideoEngine({ isLive }: Props) {
               <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                 <button
                   onClick={startPreview}
-                  className="w-12 h-12 rounded-full bg-amber-500/20 border border-amber-500/40
-                    flex items-center justify-center hover:bg-amber-500/30 transition-all"
+                  className="w-12 h-12 rounded-full bg-d-amber/20 border border-d-amber/40
+                    flex items-center justify-center hover:bg-d-amber/30 transition-all"
                 >
-                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-amber-400 ml-0.5" fill="currentColor">
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-d-amber ml-0.5" fill="currentColor">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </button>
@@ -273,7 +273,7 @@ export function VideoEngine({ isLive }: Props) {
                 className={`px-2 py-1 rounded text-[9px] font-mono tracking-wider transition-all ${
                   selectedIdx === i
                     ? 'text-white border'
-                    : 'text-deevo-muted hover:text-deevo-text border border-deevo-border/30'
+                    : 'text-d-muted hover:text-d-text border border-d-border/30'
                 }`}
                 style={selectedIdx === i ? {
                   backgroundColor: s.accent + '20',
@@ -292,8 +292,8 @@ export function VideoEngine({ isLive }: Props) {
               onClick={startPreview}
               disabled={busy}
               className="px-3 py-1.5 rounded text-[10px] font-mono tracking-wider
-                bg-deevo-surface border border-deevo-border/30 text-deevo-text
-                hover:border-cyan-500/30 hover:text-cyan-400 transition-all
+                bg-d-surface border border-d-border/30 text-d-text
+                hover:border-d-cyan/30 hover:text-d-cyan transition-all
                 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               ▶ PREVIEW
@@ -302,8 +302,8 @@ export function VideoEngine({ isLive }: Props) {
               onClick={handleExport}
               disabled={busy}
               className="px-3 py-1.5 rounded text-[10px] font-mono tracking-wider
-                bg-amber-500/10 border border-amber-500/30 text-amber-400
-                hover:bg-amber-500/20 transition-all
+                bg-d-amber/10 border border-d-amber/30 text-d-amber
+                hover:bg-d-amber/20 transition-all
                 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               ⬇ EXPORT {format === 'vertical' ? '9:16' : '16:9'}
@@ -312,8 +312,8 @@ export function VideoEngine({ isLive }: Props) {
               onClick={handleBatchExport}
               disabled={busy}
               className="px-3 py-1.5 rounded text-[10px] font-mono tracking-wider
-                bg-violet-500/10 border border-violet-500/30 text-violet-400
-                hover:bg-violet-500/20 transition-all
+                bg-[#8B85C2]/10 border border-[#8B85C2]/30 text-[#8B85C2]
+                hover:bg-[#8B85C2]/20 transition-all
                 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               ⬇ EXPORT ALL (10)
@@ -324,17 +324,17 @@ export function VideoEngine({ isLive }: Props) {
           {busy && (
             <div className="w-full max-w-md">
               {batchLabel && (
-                <div className="text-[9px] font-mono text-deevo-muted mb-1 text-center truncate">
+                <div className="text-[9px] font-mono text-d-muted mb-1 text-center truncate">
                   {batchLabel}
                 </div>
               )}
-              <div className="h-1.5 bg-deevo-surface rounded-full overflow-hidden border border-deevo-border/20">
+              <div className="h-1.5 bg-d-surface rounded-full overflow-hidden border border-d-border/20">
                 <div
-                  className="h-full bg-gradient-to-r from-amber-500 to-amber-400 transition-all duration-200"
+                  className="h-full bg-gradient-to-r from-d-amber to-d-amber/80 transition-all duration-200"
                   style={{ width: `${exportProgress * 100}%` }}
                 />
               </div>
-              <div className="text-[9px] font-mono text-amber-400/60 mt-0.5 text-center">
+              <div className="text-[9px] font-mono text-d-amber/60 mt-0.5 text-center">
                 {isExporting ? 'RECORDING...' : `BATCH ${Math.round(exportProgress * 100)}%`}
                 {' · '}
                 {Math.round(exportProgress * config.duration)}s / {config.duration}s
@@ -344,13 +344,13 @@ export function VideoEngine({ isLive }: Props) {
         </div>
 
         {/* Right: Downloads panel */}
-        <div className="w-64 flex-shrink-0 border-l border-deevo-border/20 p-3 overflow-y-auto">
-          <div className="text-[10px] font-mono text-deevo-muted tracking-wider mb-2">
+        <div className="w-64 flex-shrink-0 border-l border-d-border/20 p-3 overflow-y-auto">
+          <div className="text-[10px] font-mono text-d-muted tracking-wider mb-2">
             EXPORTS ({downloads.length})
           </div>
 
           {downloads.length === 0 && !busy && (
-            <div className="text-[10px] text-deevo-muted/50 font-mono text-center py-8">
+            <div className="text-[10px] text-d-muted/50 font-mono text-center py-8">
               No videos exported yet.<br />
               Click EXPORT to generate.
             </div>
@@ -360,15 +360,15 @@ export function VideoEngine({ isLive }: Props) {
             {downloads.map(dl => (
               <div
                 key={dl.id}
-                className="p-2 rounded border border-deevo-border/20 bg-deevo-surface/50
-                  hover:border-amber-500/20 transition-all group"
+                className="p-2 rounded border border-d-border/20 bg-d-surface/50
+                  hover:border-d-amber/20 transition-all group"
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">
-                    <div className="text-[9px] font-mono text-deevo-text truncate">
+                    <div className="text-[9px] font-mono text-d-text truncate">
                       {dl.filename}
                     </div>
-                    <div className="text-[8px] font-mono text-deevo-muted mt-0.5">
+                    <div className="text-[8px] font-mono text-d-muted mt-0.5">
                       {fmtSize(dl.size)} · {dl.format === 'vertical' ? '9:16' : '16:9'}
                     </div>
                   </div>
@@ -376,8 +376,8 @@ export function VideoEngine({ isLive }: Props) {
                     href={dl.url}
                     download={dl.filename}
                     className="px-1.5 py-0.5 rounded text-[9px] font-mono
-                      bg-amber-500/10 text-amber-400 border border-amber-500/20
-                      hover:bg-amber-500/20 transition-all flex-shrink-0"
+                      bg-d-amber/10 text-d-amber border border-d-amber/20
+                      hover:bg-d-amber/20 transition-all flex-shrink-0"
                   >
                     ⬇
                   </a>
@@ -387,9 +387,9 @@ export function VideoEngine({ isLive }: Props) {
           </div>
 
           {/* Info section */}
-          <div className="mt-4 p-2 rounded border border-deevo-border/10 bg-deevo-bg/50">
-            <div className="text-[9px] font-mono text-deevo-muted space-y-1">
-              <div className="text-amber-400/60 font-bold tracking-wider mb-1">VIDEO SPECS</div>
+          <div className="mt-4 p-2 rounded border border-d-border/10 bg-d-bg/50">
+            <div className="text-[9px] font-mono text-d-muted space-y-1">
+              <div className="text-d-amber/60 font-bold tracking-wider mb-1">VIDEO SPECS</div>
               <div>Format: {getSupportedMimeType()}</div>
               <div>Vertical: 1080×1920 (IG/TikTok)</div>
               <div>Horizontal: 1920×1080 (LinkedIn)</div>

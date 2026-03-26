@@ -75,7 +75,7 @@ export function LayerPanel({ activeLayers, activeScenario, onToggleLayer, onSetS
                 <span className="text-xs font-mono flex-1 text-left">{layer.label}</span>
                 <div
                   className="w-2 h-2 rounded-full transition-all"
-                  style={{ backgroundColor: isActive ? layer.color : '#334155' }}
+                  style={{ backgroundColor: isActive ? layer.color : '#39414C' }}
                 />
               </button>
             );
@@ -91,10 +91,10 @@ export function LayerPanel({ activeLayers, activeScenario, onToggleLayer, onSetS
         <div className="text-[10px] font-mono text-d-muted tracking-widest mb-2">RISK LEVELS</div>
         <div className="flex flex-col gap-1">
           {[
-            { label: 'Critical', color: '#FF5C6C', range: '75–100%' },
-            { label: 'High', color: '#F5B942', range: '50–75%' },
-            { label: 'Moderate', color: '#37C5F3', range: '30–50%' },
-            { label: 'Low', color: '#3CCB7F', range: '0–30%' },
+            { label: 'Critical', color: '#C96A6A', range: '75–100%' },
+            { label: 'High', color: '#D6A24A', range: '50–75%' },
+            { label: 'Moderate', color: '#4DB6D6', range: '30–50%' },
+            { label: 'Low', color: '#67B58A', range: '0–30%' },
           ].map(l => (
             <div key={l.label} className="flex items-center gap-2 px-3 py-1">
               <div className="w-2 h-2 rounded-full" style={{ backgroundColor: l.color }} />

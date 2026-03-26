@@ -39,10 +39,10 @@ const COUNTRY_EDGES: { from: CountryCode; to: CountryCode }[] = [
 ];
 
 function riskColor(score: number): string {
-  if (score >= 0.75) return '#FF5C6C';
-  if (score >= 0.5) return '#F5B942';
-  if (score >= 0.3) return '#37C5F3';
-  return '#3CCB7F';
+  if (score >= 0.75) return '#C96A6A';
+  if (score >= 0.5) return '#D6A24A';
+  if (score >= 0.3) return '#4DB6D6';
+  return '#67B58A';
 }
 
 export function GCCMap({ countries, graph, selectedCountry, selectedEdge, onSelectCountry, onSelectEdge }: Props) {
@@ -62,32 +62,32 @@ export function GCCMap({ countries, graph, selectedCountry, selectedEdge, onSele
   return (
     <div className="relative w-full h-full min-h-[400px] flex items-center justify-center">
       {/* Background glow — subtle radial gradient */}
-      <div className="absolute inset-0 bg-gradient-radial from-blue-900/8 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-radial from-slate-800/5 via-transparent to-transparent" />
 
       <svg
         viewBox="0 0 520 400"
         className="w-full h-full max-h-[500px]"
-        style={{ filter: 'drop-shadow(0 0 40px rgba(77,163,255,0.06))' }}
+        style={{ filter: 'drop-shadow(0 0 40px rgba(93,139,255,0.06))' }}
       >
         <defs>
           {/* Pulse animation */}
           <radialGradient id="pulseGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#4DA3FF" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#4DA3FF" stopOpacity="0" />
+            <stop offset="0%" stopColor="#5D8BFF" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#5D8BFF" stopOpacity="0" />
           </radialGradient>
           {/* Edge gradient */}
           <linearGradient id="edgeGradActive" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#4DA3FF" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#4DA3FF" stopOpacity="0.3" />
+            <stop offset="0%" stopColor="#5D8BFF" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#5D8BFF" stopOpacity="0.3" />
           </linearGradient>
           <linearGradient id="edgeGradDim" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#273140" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#273140" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="#39414C" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#39414C" stopOpacity="0.2" />
           </linearGradient>
         </defs>
 
         {/* Title */}
-        <text x="260" y="28" textAnchor="middle" fill="#4DA3FF" fontSize="11" fontFamily="monospace" letterSpacing="3" opacity="0.7">
+        <text x="260" y="28" textAnchor="middle" fill="#5D8BFF" fontSize="11" fontFamily="monospace" letterSpacing="3" opacity="0.7">
           GCC INTELLIGENCE NETWORK
         </text>
 
@@ -115,14 +115,14 @@ export function GCCMap({ countries, graph, selectedCountry, selectedEdge, onSele
               {/* Visible edge */}
               <line
                 x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y}
-                stroke={isSelected || isHovered ? '#4DA3FF' : active ? 'url(#edgeGradActive)' : 'url(#edgeGradDim)'}
+                stroke={isSelected || isHovered ? '#5D8BFF' : active ? 'url(#edgeGradActive)' : 'url(#edgeGradDim)'}
                 strokeWidth={isSelected ? 3 : isHovered ? 2.5 : active ? 1.5 : 0.8}
                 strokeDasharray={active ? 'none' : '4 4'}
                 opacity={isSelected ? 1 : isHovered ? 0.9 : active ? 0.6 : 0.25}
               />
               {/* Data flow particles on active edges */}
               {active && (
-                <circle r="2.5" fill="#4DA3FF" opacity="0.8">
+                <circle r="2.5" fill="#5D8BFF" opacity="0.8">
                   <animateMotion
                     dur={`${3 - intensity * 1.5}s`}
                     repeatCount="indefinite"
@@ -183,7 +183,7 @@ export function GCCMap({ countries, graph, selectedCountry, selectedEdge, onSele
                 fontFamily="monospace"
                 fontWeight="bold"
                 letterSpacing="1"
-                style={isSelected || isHovered ? { filter: 'drop-shadow(0 0 4px rgba(77,163,255,0.6))' } : undefined}
+                style={isSelected || isHovered ? { filter: 'drop-shadow(0 0 4px rgba(93,139,255,0.6))' } : undefined}
               >
                 {code}
               </text>
@@ -206,13 +206,13 @@ export function GCCMap({ countries, graph, selectedCountry, selectedEdge, onSele
                   <rect
                     x={pos.x - 75} y={pos.y - radius - 50}
                     width="150" height="40" rx="4"
-                    fill="#11161D" stroke="#273140" strokeWidth="1"
+                    fill="#232830" stroke="#39414C" strokeWidth="1"
                     opacity="0.95"
                   />
-                  <text x={pos.x} y={pos.y - radius - 36} textAnchor="middle" fill="#E8EEF5" fontSize="10" fontFamily="monospace">
+                  <text x={pos.x} y={pos.y - radius - 36} textAnchor="middle" fill="#E5EAF0" fontSize="10" fontFamily="monospace">
                     {country.name}
                   </text>
-                  <text x={pos.x} y={pos.y - radius - 22} textAnchor="middle" fill="#5A6E82" fontSize="9" fontFamily="monospace">
+                  <text x={pos.x} y={pos.y - radius - 22} textAnchor="middle" fill="#818B97" fontSize="9" fontFamily="monospace">
                     GWP: ${country.insuranceGwp}B · Risk: {(country.riskScore * 100).toFixed(0)}%
                   </text>
                 </g>
@@ -228,7 +228,7 @@ export function GCCMap({ countries, graph, selectedCountry, selectedEdge, onSele
               key={node.id}
               cx={node.x + 20} cy={node.y + 30}
               r={3 + node.intensity * 4}
-              fill={node.intensity > 0.6 ? '#FF5C6C' : node.intensity > 0.3 ? '#F5B942' : '#37C5F3'}
+              fill={node.intensity > 0.6 ? '#C96A6A' : node.intensity > 0.3 ? '#D6A24A' : '#4DB6D6'}
               opacity={node.intensity * 0.6}
             />
           ))}
@@ -237,8 +237,8 @@ export function GCCMap({ countries, graph, selectedCountry, selectedEdge, onSele
         {/* Edge info tooltip */}
         {selectedEdge && (
           <g>
-            <rect x="160" y="355" width="200" height="30" rx="4" fill="#11161D" stroke="#4DA3FF" strokeWidth="1" opacity="0.9" />
-            <text x="260" y="374" textAnchor="middle" fill="#4DA3FF" fontSize="10" fontFamily="monospace">
+            <rect x="160" y="355" width="200" height="30" rx="4" fill="#232830" stroke="#5D8BFF" strokeWidth="1" opacity="0.9" />
+            <text x="260" y="374" textAnchor="middle" fill="#5D8BFF" fontSize="10" fontFamily="monospace">
               {selectedEdge.source} → {selectedEdge.target} | Intensity: {(getEdgeIntensity(selectedEdge.source as CountryCode, selectedEdge.target as CountryCode) * 100).toFixed(0)}%
             </text>
           </g>

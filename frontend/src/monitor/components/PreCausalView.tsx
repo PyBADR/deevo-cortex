@@ -16,14 +16,14 @@ interface Props {
 }
 
 const DOMAIN_COLORS: Record<PressureDomain, string> = {
-  oil_instability:     '#f59e0b',
-  inflation_pressure:  '#ef4444',
-  claims_surge:        '#06b6d4',
-  fraud_emergence:     '#f43f5e',
-  supply_stress:       '#8b5cf6',
-  regulatory_shift:    '#3b82f6',
-  geopolitical_tension: '#dc2626',
-  market_sentiment:    '#22c55e',
+  oil_instability:     '#D6A24A',
+  inflation_pressure:  '#C96A6A',
+  claims_surge:        '#4DB6D6',
+  fraud_emergence:     '#E97C7C',
+  supply_stress:       '#8B85C2',
+  regulatory_shift:    '#5D8BFF',
+  geopolitical_tension: '#E85D5D',
+  market_sentiment:    '#67B58A',
 };
 
 // Pressure field positions in a radial layout
@@ -78,7 +78,7 @@ export function PreCausalView({ signals, scenario, isLive }: Props) {
   if (!pcState) {
     return (
       <div className="flex items-center justify-center h-full">
-        <div className="text-deevo-muted font-mono text-sm animate-pulse">Scanning for weak signals...</div>
+        <div className="text-d-muted font-mono text-sm animate-pulse">Scanning for weak signals...</div>
       </div>
     );
   }
@@ -89,23 +89,23 @@ export function PreCausalView({ signals, scenario, isLive }: Props) {
   return (
     <div className="flex flex-col h-full">
       {/* Top metrics bar */}
-      <div className="flex-shrink-0 flex items-center gap-4 px-3 py-1.5 border-b border-deevo-border/20">
+      <div className="flex-shrink-0 flex items-center gap-4 px-3 py-1.5 border-b border-d-border/20">
         <div className="flex items-center gap-1.5">
-          <div className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
-          <span className="text-[9px] font-mono text-violet-400 tracking-widest">PRE-CAUSAL SENSING</span>
+          <div className="w-2 h-2 rounded-full bg-[#8B85C2] animate-pulse" />
+          <span className="text-[9px] font-mono text-[#8B85C2] tracking-widest">PRE-CAUSAL SENSING</span>
         </div>
-        <div className="text-[9px] font-mono text-deevo-muted">
-          PRESSURE: <span className={`font-bold ${totalPressure > 0.3 ? 'text-amber-400' : 'text-deevo-text'}`}>
+        <div className="text-[9px] font-mono text-d-muted">
+          PRESSURE: <span className={`font-bold ${totalPressure > 0.3 ? 'text-[#D6A24A]' : 'text-d-text'}`}>
             {(totalPressure * 100).toFixed(0)}%
           </span>
         </div>
-        <div className="text-[9px] font-mono text-deevo-muted">
-          FORMING: <span className={`font-bold ${formingCount > 0 ? 'text-red-400' : 'text-deevo-text'}`}>
+        <div className="text-[9px] font-mono text-d-muted">
+          FORMING: <span className={`font-bold ${formingCount > 0 ? 'text-[#C96A6A]' : 'text-d-text'}`}>
             {formingCount}
           </span>
         </div>
-        <div className="text-[9px] font-mono text-deevo-muted">
-          SIGNALS: <span className="font-bold text-cyan-400">{emergingSignals.length}</span>
+        <div className="text-[9px] font-mono text-d-muted">
+          SIGNALS: <span className="font-bold text-[#4DB6D6]">{emergingSignals.length}</span>
         </div>
       </div>
 
@@ -125,7 +125,7 @@ export function PreCausalView({ signals, scenario, isLive }: Props) {
               </filter>
             </defs>
 
-            <text x="325" y="20" textAnchor="middle" fill="#a78bfa" fontSize="9" fontFamily="monospace" letterSpacing="3" opacity="0.4">
+            <text x="325" y="20" textAnchor="middle" fill="#8B85C2" fontSize="9" fontFamily="monospace" letterSpacing="3" opacity="0.4">
               PRESSURE FIELD MAP
             </text>
 
@@ -155,7 +155,6 @@ export function PreCausalView({ signals, scenario, isLive }: Props) {
                       <circle
                         cx={pos.x} cy={pos.y} r={pulseSize + 20}
                         fill={color} opacity={field.intensity * 0.04}
-                        filter="url(#pcSoftGlow)"
                       />
                       <circle
                         cx={pos.x} cy={pos.y} r={pulseSize}
@@ -172,7 +171,6 @@ export function PreCausalView({ signals, scenario, isLive }: Props) {
                     r={radius + 8}
                     fill={color}
                     opacity={field.intensity * 0.06}
-                    filter={field.intensity > 0.3 ? 'url(#pcGlow)' : undefined}
                   />
 
                   {/* Main ring */}
@@ -209,7 +207,7 @@ export function PreCausalView({ signals, scenario, isLive }: Props) {
                   <text
                     x={pos.x} y={pos.y - 5}
                     textAnchor="middle"
-                    fill={field.intensity > 0.25 ? '#e2e8f0' : '#64748b'}
+                    fill={field.intensity > 0.25 ? '#E5EAF0' : '#818B97'}
                     fontSize="8" fontFamily="monospace" fontWeight={field.forming ? 'bold' : 'normal'}
                   >
                     {field.label.toUpperCase()}
@@ -258,23 +256,23 @@ export function PreCausalView({ signals, scenario, isLive }: Props) {
             })}
 
             {/* Center label */}
-            <text x="325" y="205" textAnchor="middle" fill="#475569" fontSize="8" fontFamily="monospace">
+            <text x="325" y="205" textAnchor="middle" fill="#818B97" fontSize="8" fontFamily="monospace">
               GCC RISK FIELD
             </text>
           </svg>
         </div>
 
         {/* Right: Detail panel */}
-        <div className="w-72 flex-shrink-0 border-l border-deevo-border/30 p-3 overflow-y-auto">
+        <div className="w-72 flex-shrink-0 border-l border-d-border/30 p-3 overflow-y-auto">
           {/* Emerging Signals */}
           <div className="mb-3">
-            <div className="text-[9px] font-mono text-violet-400 tracking-widest mb-1.5">EMERGING SIGNALS</div>
+            <div className="text-[9px] font-mono text-[#8B85C2] tracking-widest mb-1.5">EMERGING SIGNALS</div>
             {emergingSignals.length === 0 ? (
-              <div className="text-[9px] font-mono text-deevo-muted/40 py-2">No emerging signals detected</div>
+              <div className="text-[9px] font-mono text-d-muted/40 py-2">No emerging signals detected</div>
             ) : (
               <div className="space-y-1.5">
                 {emergingSignals.slice(0, 6).map(es => {
-                  const color = DOMAIN_COLORS[es.type] ?? '#06b6d4';
+                  const color = DOMAIN_COLORS[es.type] ?? '#4DB6D6';
                   return (
                     <div
                       key={es.id}
@@ -288,16 +286,16 @@ export function PreCausalView({ signals, scenario, isLive }: Props) {
                         </span>
                       </div>
                       {/* Formation progress */}
-                      <div className="h-1 bg-deevo-bg rounded-full overflow-hidden mb-1">
+                      <div className="h-1 bg-d-bg rounded-full overflow-hidden mb-1">
                         <div
                           className="h-full rounded-full transition-all duration-1000"
                           style={{ width: `${es.formingPhase * 100}%`, backgroundColor: color }}
                         />
                       </div>
-                      <div className="text-[8px] text-deevo-muted leading-tight">{es.explanation}</div>
+                      <div className="text-[8px] text-d-muted leading-tight">{es.explanation}</div>
                       <div className="mt-1 flex gap-1 flex-wrap">
                         {es.feedsInto.map(f => (
-                          <span key={f} className="text-[7px] font-mono px-1 py-0 rounded bg-white/5 text-deevo-muted/70">
+                          <span key={f} className="text-[7px] font-mono px-1 py-0 rounded bg-white/5 text-d-muted/70">
                             → {f}
                           </span>
                         ))}
@@ -315,37 +313,37 @@ export function PreCausalView({ signals, scenario, isLive }: Props) {
               <div className="text-[9px] font-mono tracking-widest mb-1" style={{ color: DOMAIN_COLORS[selectedPF.domain] }}>
                 FIELD DETAIL
               </div>
-              <div className="text-xs font-mono font-bold text-deevo-text mb-1">{selectedPF.label}</div>
+              <div className="text-xs font-mono font-bold text-d-text mb-1">{selectedPF.label}</div>
               <div className="grid grid-cols-3 gap-2 mb-2">
                 <div>
-                  <div className="text-[7px] font-mono text-deevo-muted">INTENSITY</div>
+                  <div className="text-[7px] font-mono text-d-muted">INTENSITY</div>
                   <div className="text-sm font-mono font-bold" style={{ color: DOMAIN_COLORS[selectedPF.domain] }}>
                     {(selectedPF.intensity * 100).toFixed(0)}%
                   </div>
                 </div>
                 <div>
-                  <div className="text-[7px] font-mono text-deevo-muted">VELOCITY</div>
-                  <div className="text-sm font-mono font-bold text-amber-400">
+                  <div className="text-[7px] font-mono text-d-muted">VELOCITY</div>
+                  <div className="text-sm font-mono font-bold text-[#D6A24A]">
                     {selectedPF.velocity > 0 ? '+' : ''}{(selectedPF.velocity * 100).toFixed(0)}
                   </div>
                 </div>
                 <div>
-                  <div className="text-[7px] font-mono text-deevo-muted">UNCERTAIN</div>
-                  <div className="text-sm font-mono font-bold text-deevo-muted">
+                  <div className="text-[7px] font-mono text-d-muted">UNCERTAIN</div>
+                  <div className="text-sm font-mono font-bold text-d-muted">
                     {(selectedPF.uncertainty * 100).toFixed(0)}%
                   </div>
                 </div>
               </div>
-              <div className="text-[9px] text-deevo-muted leading-tight mb-2">{selectedPF.explanation}</div>
+              <div className="text-[9px] text-d-muted leading-tight mb-2">{selectedPF.explanation}</div>
               {selectedPF.sources.length > 0 && (
                 <div>
-                  <div className="text-[7px] font-mono text-deevo-muted tracking-wider mb-1">SOURCES</div>
+                  <div className="text-[7px] font-mono text-d-muted tracking-wider mb-1">SOURCES</div>
                   {selectedPF.sources.map((src, i) => (
                     <div key={i} className="flex items-start gap-1.5 mb-1">
-                      <span className="text-[7px] font-mono px-1 rounded bg-white/5 text-deevo-muted/60 mt-0.5 flex-shrink-0">
+                      <span className="text-[7px] font-mono px-1 rounded bg-white/5 text-d-muted/60 mt-0.5 flex-shrink-0">
                         {src.type}
                       </span>
-                      <span className="text-[8px] text-deevo-muted leading-tight">{src.title}</span>
+                      <span className="text-[8px] text-d-muted leading-tight">{src.title}</span>
                     </div>
                   ))}
                 </div>
@@ -355,16 +353,16 @@ export function PreCausalView({ signals, scenario, isLive }: Props) {
 
           {/* Narrative Feed */}
           <div>
-            <div className="text-[9px] font-mono text-deevo-muted tracking-widest mb-1.5">NARRATIVE FEED</div>
+            <div className="text-[9px] font-mono text-d-muted tracking-widest mb-1.5">NARRATIVE FEED</div>
             <div className="space-y-1">
               {narrativeEvents.slice(-8).reverse().map(evt => {
-                const color = DOMAIN_COLORS[evt.domain] ?? '#06b6d4';
+                const color = DOMAIN_COLORS[evt.domain] ?? '#4DB6D6';
                 return (
-                  <div key={evt.id + evt.timestamp} className="flex items-start gap-1.5 py-1 border-b border-deevo-border/10">
+                  <div key={evt.id + evt.timestamp} className="flex items-start gap-1.5 py-1 border-b border-d-border/10">
                     <div className="w-1.5 h-1.5 rounded-full mt-1 flex-shrink-0" style={{ backgroundColor: color }} />
                     <div className="min-w-0">
-                      <div className="text-[9px] font-mono text-deevo-text/80 leading-tight">{evt.headline}</div>
-                      <div className="text-[7px] font-mono text-deevo-muted/50 mt-0.5">
+                      <div className="text-[9px] font-mono text-d-text/80 leading-tight">{evt.headline}</div>
+                      <div className="text-[7px] font-mono text-d-muted/50 mt-0.5">
                         {evt.region} · sentiment: {evt.sentiment > 0 ? '+' : ''}{evt.sentiment.toFixed(1)}
                       </div>
                     </div>
@@ -372,7 +370,7 @@ export function PreCausalView({ signals, scenario, isLive }: Props) {
                 );
               })}
               {narrativeEvents.length === 0 && (
-                <div className="text-[9px] font-mono text-deevo-muted/30 py-2">Monitoring narrative channels...</div>
+                <div className="text-[9px] font-mono text-d-muted/30 py-2">Monitoring narrative channels...</div>
               )}
             </div>
           </div>
@@ -411,13 +409,13 @@ function renderPressureConnections(fields: PressureField[], phase: number): JSX.
       <g key={i}>
         <line
           x1={pa.x} y1={pa.y} x2={pb.x} y2={pb.y}
-          stroke={active ? '#a78bfa' : '#1e293b'}
+          stroke={active ? '#8B85C2' : '#39414C'}
           strokeWidth={active ? 0.8 + intensity : 0.3}
           opacity={active ? 0.15 + intensity * 0.2 : 0.08}
           strokeDasharray={active ? 'none' : '2 6'}
         />
         {active && intensity > 0.3 && (
-          <circle r="2" fill="#a78bfa" opacity={0.5}>
+          <circle r="2" fill="#8B85C2" opacity={0.5}>
             <animateMotion
               dur={`${4 - intensity * 2}s`}
               repeatCount="indefinite"

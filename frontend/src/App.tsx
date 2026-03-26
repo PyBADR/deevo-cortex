@@ -15,7 +15,7 @@ export default function App() {
   const [locale, setLocale] = useState<Locale>("en");
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>
-      <div dir={locale === "ar" ? "rtl" : "ltr"} className="min-h-screen bg-deevo-bg text-deevo-text font-sans">
+      <div dir={locale === "ar" ? "rtl" : "ltr"} className="min-h-screen bg-d-bg text-d-text font-sans">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/command-center" element={<CommandCenterPage />} />
