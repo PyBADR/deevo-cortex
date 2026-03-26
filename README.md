@@ -2,11 +2,11 @@
 
 # DEEVO Decision Intelligence
 
-### Transform signals → graph → decisions.
+### Insurance Decision Operating System
 
-**AI Decision Intelligence System for GCC.**
+**Real-time decision infrastructure for insurance claims.**
 
-[![Version](https://img.shields.io/badge/v2.0.0-cyan?style=flat-square)](https://github.com/PyBADR/deevo-cortex)
+[![Version](https://img.shields.io/badge/v3.0.0-cyan?style=flat-square)](https://github.com/PyBADR/deevo-cortex)
 [![License](https://img.shields.io/badge/MIT-green?style=flat-square)](LICENSE)
 [![Deploy](https://img.shields.io/badge/Vercel-black?style=flat-square)](https://vercel.com/new/clone?repository-url=https://github.com/PyBADR/deevo-cortex)
 
@@ -18,84 +18,106 @@
 
 ## Live Demo
 
-[**Open DEEVO Monitor**](https://deevo-cortex.vercel.app/monitor) · [**Command Center**](https://deevo-cortex.vercel.app/command-center)
-
-![Command Center](./assets/command-center.png)
+[**Claims Decision Control Room**](https://deevo-cortex.vercel.app/claims) · [**Monitor**](https://deevo-cortex.vercel.app/monitor) · [**Command Center**](https://deevo-cortex.vercel.app/command-center)
 
 ---
 
 ## What This Is
 
-DEEVO is a decision intelligence operating system designed for GCC insurance markets.
+We built a real-time decision system for insurance claims.
 
-It ingests signals, builds causal graphs, simulates competing futures, detects pre-causal risk, and produces actionable decisions — all in real time.
+It doesn't just show data.
 
-**Five intelligence layers:**
+It tells you:
+- **What's happening** — fraud signals, anomaly detection, risk scoring
+- **Why it's happening** — entity network analysis, decision drivers, evidence trail
+- **What to do** — AI-driven recommendations with confidence scores
+- **What the financial impact is** — approval cost, rejection saving, litigation risk
 
-| Layer | Engine | Function |
-|-------|--------|----------|
-| GCC Map | GraphEngine | Interactive country risk map with trade corridors |
-| Wave Sim | WaveEngine | Causal wave propagation with animated particles |
-| Cognitive | CognitiveEngine | Multi-path reasoning — 3-5 competing futures per scenario |
-| Pre-Causal | PreCausalEngine | Pressure fields detecting risk before signals form |
-| Video | VideoRenderer | Auto-generates cinematic scenario videos for distribution |
+All decisions are auditable and explainable.
 
-This is NOT a dashboard. This is NOT a demo. **This is a decision system.**
+This reduces fraud loss, speeds up claims, and improves compliance.
+
+**This is not a dashboard. This is a Decision Operating System for insurance.**
 
 ---
 
-## Example
+## Claims Decision Control Room
 
-Oil hits $110.
+The flagship interface. Route: `/claims`
 
-System output:
+### What it does
+
+- Detects fraud signals in real-time
+- Provides AI-driven claim decisions
+- Shows explainable reasoning
+- Tracks full audit trail
+- Enables human override
+
+### Key Features
+
+| Feature | Description |
+|---------|-------------|
+| Decision Engine | Approve / Reject / Escalate / Request Docs |
+| Risk Scoring | 8-factor weighted assessment with category breakdown |
+| Anomaly Detection | Statistical deviation alerts with severity classification |
+| Entity Relationship Graph | Network visualization — flagged entities, suspicious links |
+| Decision Drivers | Signal-to-decision bridge showing weighted impact factors |
+| Financial Impact | Approval cost, rejection saving, litigation risk, reinsurance recovery |
+| Forensic Audit Timeline | SHA-256 hashed, actor-typed event log (AI / SYSTEM / ANALYST) |
+| Evidence Tracking | Document verification status with completeness scoring |
+
+### Layout
 
 ```
-→ Inflation ↑
-→ Claims ↑
-→ Fraud risk ↑
+TOP:     Claim ID · Claimant · Policy · Amount · Risk Score · Status · SLA
+LEFT:    Entity Graph + Claim Metadata + Evidence
+CENTER:  Risk Summary + Decision Drivers + Time Series + Anomalies
+RIGHT:   AI Recommendation + Confidence + Reasoning + Impact + Actions
+BOTTOM:  Forensic Audit Timeline
 ```
 
-Decision: **ESCALATE**
+---
 
-Confidence: 0.87 | Risk Score: 0.82
+## Signal Intelligence Monitor
 
-The system traces the causal chain, simulates propagation across 6 GCC countries, and outputs a decision with full reasoning — in under 2 seconds.
+The macro intelligence layer. Route: `/monitor`
+
+Five visualization engines for GCC-wide market intelligence:
+
+| Engine | Function |
+|--------|----------|
+| GCC Map | Interactive country risk map with trade corridors |
+| Wave Simulation | Causal wave propagation with animated particles |
+| Cognitive Engine | Multi-path reasoning — competing futures per scenario |
+| Pre-Causal Engine | Pressure fields detecting risk before signals form |
+| Video Renderer | Cinematic scenario video generation |
 
 ---
 
 ## Architecture
 
 ```
-Signals → Graph → Rules → Simulation → Decision → Output
+Signals → Graph → Rules → Simulation → Decision → Action → Audit
 ```
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ 7. API & UI          REST endpoints, Command Center │
+│ 7. Governance        Audit trail, SHA-256, PDPL     │
 ├─────────────────────────────────────────────────────┤
-│ 6. Executive Layer   Briefings, Recommendations     │
+│ 6. UI & Actions      Control Room, Decision Panels  │
 ├─────────────────────────────────────────────────────┤
-│ 5. Decision Logic    Risk rules, Threshold engine   │
+│ 5. API               REST endpoints, WebSocket      │
 ├─────────────────────────────────────────────────────┤
-│ 4. Propagation       Causal effect simulation       │
+│ 4. Agent Layer       AI recommendations, reasoning  │
 ├─────────────────────────────────────────────────────┤
-│ 3. Causal Graph      Signal relationships           │
+│ 3. Decision Logic    Risk rules, anomaly detection   │
 ├─────────────────────────────────────────────────────┤
-│ 2. Signal Processing Normalization, Context         │
+│ 2. Feature Engine    Signals, entity graphs, scoring │
 ├─────────────────────────────────────────────────────┤
-│ 1. Data Ingestion    Real-time GCC market signals   │
+│ 1. Data Ingestion    Claims, policies, fraud feeds   │
 └─────────────────────────────────────────────────────┘
 ```
-
----
-
-## Focus
-
-- **GCC Markets** — Saudi Arabia, UAE, Kuwait, Qatar, Bahrain, Oman
-- **Insurance Intelligence** — Claims, fraud, underwriting, reserves
-- **Risk Modeling** — Causal graphs, propagation chains, scenario simulation
-- **Economic Signals** — Oil, inflation, supply chain, regulatory, geopolitical
 
 ---
 
@@ -103,11 +125,12 @@ Signals → Graph → Rules → Simulation → Decision → Output
 
 | Layer | Technology |
 |-------|-----------|
-| Frontend | React + Vite + TypeScript + Tailwind |
-| Visualization | SVG network graph, Sparkline charts |
+| Frontend | React 18 + Vite + TypeScript + Tailwind CSS |
+| Design System | Graphite-gray 4-layer surface system (d-* tokens) |
+| Visualization | SVG entity graphs, sparkline charts, time series |
 | Backend | FastAPI + PostgreSQL + LangGraph |
-| AI | Ollama (local), GPT-4 (cloud) |
-| Deployment | Vercel (frontend), Docker (backend) |
+| AI | Ollama (local GPU), GPT-4 (cloud) |
+| Deployment | Vercel (frontend), Docker Compose (backend) |
 
 ---
 
@@ -119,7 +142,7 @@ npm install
 npm run dev
 ```
 
-Opens at `http://localhost:5173` in demo mode — no backend required.
+Opens at `http://localhost:5173` — claims demo works without backend.
 
 For full stack:
 
@@ -131,27 +154,11 @@ cd frontend && npm run dev  # Frontend on :5173
 
 ---
 
-## Demo Scenarios
-
-| Scenario | Decision | Market |
-|----------|----------|--------|
-| Oil Price Spike | ESCALATE | GCC-wide |
-| Fraud Surge | ESCALATE | All countries |
-| Supply Chain Break | REVIEW | Trade exposure |
-| Repair Cost Inflation | REVIEW | All countries |
-| Geopolitical Escalation | ESCALATE | GCC-wide |
-
-All scenarios use real engine output — not mock data.
-
----
-
 ## Deploy
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/PyBADR/deevo-cortex)
 
 Set `VITE_API_BASE_URL` to connect a backend. Leave empty for demo mode.
-
-See [SELF_HOSTING.md](SELF_HOSTING.md) for Docker and Mac M4 Max + Ollama setup.
 
 ---
 

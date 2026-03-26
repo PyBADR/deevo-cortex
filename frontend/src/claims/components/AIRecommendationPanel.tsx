@@ -89,15 +89,15 @@ export function AIRecommendationPanel({ recommendation, onAction }: Props) {
         <div className="grid grid-cols-2 gap-1.5">
           <div className="rounded border border-d-border/20 bg-d-bg/50 p-2">
             <div className="text-[8px] font-mono text-d-muted tracking-wider">IF APPROVED</div>
-            <div className="text-sm font-mono font-bold text-d-danger mt-0.5">-SAR {fmt(fi.approvalCost)}</div>
+            <div className="text-sm font-mono font-bold text-d-danger mt-0.5">-$ {fmt(fi.approvalCost)}</div>
           </div>
           <div className="rounded border border-d-border/20 bg-d-bg/50 p-2">
             <div className="text-[8px] font-mono text-d-muted tracking-wider">IF REJECTED</div>
-            <div className="text-sm font-mono font-bold text-d-success mt-0.5">+SAR {fmt(fi.rejectionSaving)}</div>
+            <div className="text-sm font-mono font-bold text-d-success mt-0.5">+$ {fmt(fi.rejectionSaving)}</div>
           </div>
           <div className="rounded border border-d-border/20 bg-d-bg/50 p-2">
             <div className="text-[8px] font-mono text-d-muted tracking-wider">REINSURANCE</div>
-            <div className="text-sm font-mono font-bold text-d-cyan mt-0.5">SAR {fmt(fi.reinsuranceRecovery)}</div>
+            <div className="text-sm font-mono font-bold text-d-cyan mt-0.5">$ {fmt(fi.reinsuranceRecovery)}</div>
           </div>
           <div className="rounded border border-d-border/20 bg-d-bg/50 p-2">
             <div className="text-[8px] font-mono text-d-muted tracking-wider">SIMILAR ({sim.total})</div>

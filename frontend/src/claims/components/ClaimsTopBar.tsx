@@ -7,10 +7,10 @@ interface Props {
   risk: RiskAssessment;
 }
 
-function formatCurrency(amount: number): string {
-  return new Intl.NumberFormat('en-SA', {
+function formatCurrency(amount: number, currency: string = 'USD'): string {
+  return new Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency: 'SAR',
+    currency,
     maximumFractionDigits: 0,
   }).format(amount);
 }
@@ -89,8 +89,8 @@ export function ClaimsTopBar(props: Props) {
         {/* AMOUNT */}
         <div className="rounded border border-d-border/40 bg-d-surface px-3 py-1.5 min-w-fit">
           <div className="text-[8px] font-mono text-d-muted tracking-wider">AMOUNT</div>
-          <div className={`text-sm font-mono font-bold ${claim.claimAmount > 1000000 ? 'text-d-amber' : 'text-d-text'}`}>
-            {formatCurrency(claim.claimAmount)}
+          <div className={`text-sm font-mono font-bold ${claim.claimAmount > 10000 ? 'text-d-amber' : 'text-d-text'}`}>
+            {formatCurrency(claim.claimAmount, claim.currency)}
           </div>
         </div>
 
